@@ -1,0 +1,90 @@
+site_name: GUILDA Documentation
+theme:
+    name: material
+    language: 'en'
+    logo: Figures/modularsmall.png
+    favicon: Figures/modularsmall.png
+    features:
+        - navigation.tabs
+        - content.code.annotate
+    palette:
+        scheme: default
+        primary: light blue
+        accent: light blue
+    font:
+        text: Open Sans
+
+nav:
+    - Top:
+        - Home: index.md
+        - GUILDA Setup: SetEnvironment/0TopPage.md
+        - Power System Model (Simple): aboutPowerSystem/0TopPage.md
+        - Guided Example: SeriesAnalysis/0TopPage.md
+        - Guilda in Detail:
+            - Guilda in Detail: Reference/0TopPage.md
+            - Power System Model (Detailed):
+                - Power System Model (Detailed): Reference/defineNet/0TopPage.md
+                - New Power System Model: Reference/defineNet/NewPowerNetwork.md
+                - New Components: Reference/defineNet/NewComponent.md
+            - Controllers:
+                - Controllers: Reference/addController/0TopPage.md
+                - New Controller: Reference/addController/NewController.md
+            - Numerical Simulations:
+                - Simulating: Reference/Analysis/net_simulate.md
+                - Simulation Examples: Reference/Analysis/SampleCode.md
+                - Derivation of a Linearized Model: Reference/Analysis/net_getsys.md
+        - Source Code Explanation:
+            - Source Code Explanation: SourceCode/0TopPage.md
+            - Power Network Class: SourceCode/power_network.md
+            - Power Network Class - Properties: SourceCode/NetProperties.md
+            - Branch Class: SourceCode/branch.md
+            - Bus Class: SourceCode/bus.md
+            - Component Class: SourceCode/component.md
+            - Controller Class: SourceCode/controller.md
+
+extra:
+    search:
+        language: 'en'
+    font:
+        #text: "Note Sans JP"
+        code: "Consolas"
+extra_css:
+    - "https://fonts.googleapis.com/earlyaccess/notosansjp.css"
+    - "https://fonts.googleapis.com/css?family=Open+Sans:600,800"
+    - "https://unpkg.com/mermaid@8.0.0/dist/mermaid.css"
+markdown_extensions:
+    - pymdownx.superfences:
+        custom_fences:
+            - name: mermaid
+              class: mermaid
+              format: !!python/name:pymdownx.superfences.fence_div_format
+    - pymdownx.arithmatex:
+        generic: true
+    - mdx_math:
+        enable_dollar_delimiter: true
+    - codehilite:
+        linenums: true
+        guess_lang: false
+        use_pygments: false
+        noclasses: true
+    - footnotes:
+    - admonition:
+    - toc:
+        permalink: true
+        separator: '_'
+    - attr_list:
+    - pymdownx.emoji:
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
+    - pymdownx.tilde:
+    - pymdownx.highlight:
+    - pymdownx.inlinehilite
+    - pymdownx.snippets
+extra_javascript:
+    - javascripts/mathjax.js
+    - https://polyfill.io/v3/polyfill.min.js?features=es6
+    - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+    - https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js
+
+copyright: 'Copyright © 2020- Tokyo Tech, Ishizaki Lab.'
