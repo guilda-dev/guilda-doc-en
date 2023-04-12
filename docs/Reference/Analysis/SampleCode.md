@@ -143,6 +143,7 @@ Combining all the previous conditions up to this point (i.e., initial value resp
   - Input: Random inputs are applied to buses 1 and 10.
 
 ```matlab
+{% raw %}
 %Network definition
 net = network_IEEE68bus();
 
@@ -161,6 +162,7 @@ u = [0, 0.05, 0.1, 0.1;...
 
 %Running the simulation
 out = net.simulate(time, u, u_idx, option);
+{% endraw %}
 ```
 
 Alternatively (without stating option as a structure).
@@ -210,6 +212,7 @@ As mentioned before, GUILDA implements a class called `simulationResult`, which 
 To use it, in the `simulate` function, set the option `tools` as `true`. For the case of example 4:
 
 ```matlab
+{% raw %}
 net = network_IEEE68bus();
 x0    = net.x_equilibrium;
 x0(16)= x0(16) + 0.1;
@@ -217,6 +220,7 @@ out = net.simulate([0 20],u,u_idx,...
 			'x0_sys',x0,...
 			'fault',{{[0 0.07], 1}, {[15 15.05], 1}, {[10,10.01],[2,5:7]}},...
 			'tools',true);
+{% endraw %}
 ```
 
 **Plot with User Interface (UI)**
