@@ -46,7 +46,7 @@ extra:
     search:
         language: 'en'
     font:
-        #text: "Note Sans JP"
+        text: "Open Sans"
         code: "Consolas"
 extra_css:
     - "https://fonts.googleapis.com/earlyaccess/notosansjp.css"

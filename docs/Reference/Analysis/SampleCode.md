@@ -14,7 +14,7 @@ This page contains examples of handling the simulating function and examining it
 
 ## <div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">Example 1 - Initial Value Response</span></div>
 
-**Scenario:** 
+**Scenario:**
 
 - IEEE 68-bus model.
 
@@ -73,7 +73,7 @@ option.x0_sys(idx)= option.x0sys(idx) + 0.1;
 
 ## <div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">Example 2 - Disturbance Response</span></div>
 
-**Scenario:** 
+**Scenario:**
 
 - IEEE 68-bus model.
 
@@ -82,7 +82,7 @@ option.x0_sys(idx)= option.x0sys(idx) + 0.1;
 - Simulation conditions: Ground fault on busbar 1 for 0-0.07 seconds and 15-15.05 seconds; on busbar 2, and busbars 5-7 for 10-10.01 seconds.
 
 ```matlab
-% Network definition
+%Network definition
 net = network_IEEE68bus();
 %Define options for simulation
 option = struct();
@@ -99,13 +99,11 @@ out = net.simulate([0 30],...
 			'fault',{{[0 0.07], 1}, {[15 15.05], 1}, {[10,10.01],[2,5:7]}});
 ```
 
-
-
 ---
 
 ## <div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">Example 3 - Input Response</span></div>
 
-**Scenario:** 
+**Scenario:**
 
 - 3-bus model.
 
@@ -116,7 +114,7 @@ out = net.simulate([0 30],...
 This corresponds to the same scenario as the one explained in the [Guided Example](../../SeriesAnalysis/0TopPage.md).
 
 ```matlab
-% Network definition
+%Network definition
 net = network_sample3bus();
 %Condition Setting
 time = [0,10,20,60];
@@ -129,21 +127,20 @@ out = net.simulate(time,u, u_idx);
 
 ---
 
-
 ## <div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">Example 4 - Combination Response</span></div>
 
 Combining all the previous conditions up to this point (i.e., initial value response, disturbance response, input response), the following scenario is presented.
 
-**Scenario:** 
+**Scenario:**
 
 - IEEE 68-bus model.
 
 - Simulation time: 0 - 20 seconds.
 
-- Simulation conditions: 
-	- Initial Value: The initial state of busbar 1 is slightly shifted (0.01) from the equilibrium point.
-	- Disturbance: A ground fault is applied to bus 1 at 0-0.07 seconds and to bus 10 at 10-10.05 seconds.
-	- Input: Random inputs are applied to buses 1 and 10.  
+- Simulation conditions:
+  - Initial Value: The initial state of busbar 1 is slightly shifted (0.01) from the equilibrium point.
+  - Disturbance: A ground fault is applied to bus 1 at 0-0.07 seconds and to bus 10 at 10-10.05 seconds.
+  - Input: Random inputs are applied to buses 1 and 10.
 
 ```matlab
 %Network definition
@@ -206,7 +203,7 @@ However, when there is more than one device with a state, as in this model, it i
 
 ### <div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold">Results Visualization</span></div>
 
-As mentioned before, GUILDA implements a class called `simulationResult`, which is used to visualize the simulation results. 
+As mentioned before, GUILDA implements a class called `simulationResult`, which is used to visualize the simulation results.
 
 **Plot with command**
 
@@ -229,4 +226,5 @@ To plot with the UI use:
 ```matlab
 out.UIplot
 ```
+
 The UI for plotting conditions will be displayed. Check the appropriate check boxes and press the "plot" button to display the plot. At this time, if you check the "command output" box, commands for plotting will be displayed.
