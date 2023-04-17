@@ -11,9 +11,9 @@ Creating a new controller model in GUILDA means creating an "m-file" that define
 - [The Controller Class.](#the_controller_class)
 - [Define a New Controller.](#define_a_new_controller)
 - [Abstract Methods.](#abstract_methods)
-    - [Required Arguments](#required_arguments)
-    - [Required Abstract Methods.](#required_abstract_methods)
-    - [Recommended Abstract Methods.](#recommended_abstract_methods)
+  - [Required Arguments](#required_arguments)
+  - [Required Abstract Methods.](#required_abstract_methods)
+  - [Recommended Abstract Methods.](#recommended_abstract_methods)
 
 ---
 
@@ -21,7 +21,7 @@ Creating a new controller model in GUILDA means creating an "m-file" that define
 
 The controller class defines several functions that should be provided in a controller model for analysis. By inheriting the properties from the already defined controller class in GUILDA, newly created controllers will automatically have these functions.
 
-However, even though several functions are inherited from the controller class, still other functions are required to define the controller's algorithm. Such functions are added to the component class as abstract methods.
+However, even though several functions are inherited from the controller class, still other functions are required to define the controller's algorithm. Such functions should be added to the controller instance as abstract methods.
 
 Fore more information on the source code of the controller class, please refer to [Source Code Explanation](../../SourceCode/0TopPage.md).
 
@@ -31,15 +31,13 @@ Fore more information on the source code of the controller class, please refer t
 
 In this page, a new controller named "myController.m" will be created and used as an example of the process of defining a new controller.
 
-*Note: When creating a new controller, it is recommended that a description and how to execute the newly define component is included as a comment at the beginning.*
+_Note: When creating a new controller, it is recommended that a description and how to execute the newly defined controller is included as a comment at the beginning._
 
 The general process to create a new controller class is
 
 1. Inherit the functions from the already defined controller class. To do this use the code myController < controller.
 
-2. Define the required parameters of the new controller as variables of properties.
-
-*Note: When defining the required parameters of the new component, it is recommended to name it as "parameter".*
+2. Define the required arguments of the new controller as variables of properties (usually, target bus, and observable bus). For more information go to "required arguments".
 
 3. Define the required functions as methods that define the control algorithm of the new controller.
 
@@ -109,7 +107,7 @@ This method is used to obtain the derivative of the controller state $\small (x)
 
 Class Structure: `[dx, u] = get_dx_u(obj, x, X, V, I, U_global)`
 
-*Note: The following notation is different to the ones used in other classes, e.g., Component class.*
+_Note: The following notation is different to the ones used in other classes, e.g., Component class._
 
 Input Arguments
 
@@ -131,11 +129,11 @@ Output Parameters
 
 - `u`：Output signal of the controller (i.e., input signal to the system) $\small (u)$.
 
-*Note:*
+_Note:_
 
-- *The controller class is commonly inherited by the global controller, retrofit controller, and other controllers. Therefore, when creating a distributed controller, it is necessary to explicitly write which signals may be referenced and which signals may not be referenced, in the derived class.*
+- _The controller class is commonly inherited by the global controller, retrofit controller, and other controllers. Therefore, when creating a distributed controller, it is necessary to explicitly write which signals may be referenced and which signals may not be referenced, in the derived class._
 
-- *It is not possible to reference the state of other controllers. If communication between controllers is required, they must be implemented as a single controller.*
+- _It is not possible to reference the state of other controllers. If communication between controllers is required, they must be implemented as a single controller._
 
 **Controller State Order**
 
@@ -145,7 +143,7 @@ Class Structure:`nx = get_nx(obj)`
 
 Input Arguments
 
-- *None*
+- _None_
 
 Output Parameters
 
@@ -159,13 +157,13 @@ The newly defined controller can be implemented without the following methods; h
 
 This method, as the name states, allows to linearize the power system model. It returns the system matrices $\small [A, B, C, D, BV, DV, BI, DI, R, S]$ of the linearized state-space representation as in the following equation.
 
- $$
-    \begin{align*}
-    \dot{x} &= A(x-x^*)+B(u-u^*)+B_V(V-V^*)+B_I(I-I^*)＋Rd\\
-    0 &= C(x-x^*)+D(u-u^*)+D_V(V-V^*)+D_I(I-I^*)\\
-    z &= S(x^*-x)
-    \end{align*}
- $$
+$$
+   \begin{align*}
+   \dot{x} &= A(x-x^*)+B(u-u^*)+B_V(V-V^*)+B_I(I-I^*)＋Rd\\
+   0 &= C(x-x^*)+D(u-u^*)+D_V(V-V^*)+D_I(I-I^*)\\
+   z &= S(x^*-x)
+   \end{align*}
+$$
 
 Class Structure: `[A, B, C, D, BV, DV, BI, DI, R, S] = get_linear_matrix(obj,x_st, Vst)`
 
@@ -173,15 +171,15 @@ Input Arguments
 
 - `x_st`：Equilibrium point of the state variable.
 
-- `Vst`：Equilibrium point of the voltage $-$ *obtained from the power flow calculation.*
+- `Vst`：Equilibrium point of the voltage $-$ _obtained from the power flow calculation._
 
 Output Arguments
 
 - `[A, B, C, D, BV, DV, BI, DI, R, S]`：System matrix of the state-space model shown above.
-    - `R`: Disturbance matrix.
-    - `S`: Output of the evaluation function.
+  - `R`: Disturbance matrix.
+  - `S`: Output of the evaluation function.
 
-*Note: Both `R` and `S` are needed when designing a control system; however, they are different from the properties of the device. Therefore, when simply performing a simulation without controller, it is safe to use `R` and `S` as zero matrices.*
+_Note: Both `R` and `S` are needed when designing a control system; however, they are different from the properties of the device. Therefore, when simply performing a simulation without controller, it is safe to use `R` and `S` as zero matrices._
 
 **Linear Controller State Derivation**
 

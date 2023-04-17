@@ -76,11 +76,11 @@ Remember that the power flow calculation considers four parameters per busbar: A
 
 ## <div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">Obtaining a Power System Model</span></div>
 
-When modeling a power system, two main types of systems are considered: 
+When modeling a power system, two main types of systems are considered:
 
 1. Algebraic Equation Model defined by the transmission lines.
 
-2. Differential Algebraic Equation Model that is formed between each busbar and the equipment.
+2. Differential Algebraic Equation Model that is formed between each busbar and the component.
 
 The entire power system model works as a single system with changing dynamics, since the components connected to each busbar also have dynamic characteristics that affect each other as they are interconnected by the algebraic equations of the network.
 

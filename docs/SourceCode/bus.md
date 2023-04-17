@@ -24,10 +24,10 @@ bus---bus_PQ
 bus---bus_PV
 bus---bus_slack
 ```
+
 </div>
 
 The bus super class is composed of
-
 
 **Variables**
 
@@ -64,7 +64,6 @@ Most of the Buses with Generators are classified as PV buses. However, one of th
 ---
 
 ## <div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">PV Bus</span></div>
-
 
 Generator buses are generally classified as PV buses, since they are defined by the active power $\small (P)$ and the voltage magnitude $\small (\lvert V \rvert)$.
 
