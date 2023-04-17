@@ -1,0 +1,928 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../Figures/modularsmall.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
+    
+    
+      
+        <title>GUILDA Setup - GUILDA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.cb6bc1d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700%7C&display=fallback">
+        <style>body,input{font-family:"Open Sans",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosansjp.css">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:600,800">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="light-blue">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#guilda_setup" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="GUILDA Documentation" class="md-header-nav__button md-logo" aria-label="GUILDA Documentation">
+      
+  <img src="../../Figures/modularsmall.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            GUILDA Documentation
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              GUILDA Setup
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link md-tabs__link--active">
+        Top
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="GUILDA Documentation" class="md-nav__button md-logo" aria-label="GUILDA Documentation">
+      
+  <img src="../../Figures/modularsmall.png" alt="logo">
+
+    </a>
+    GUILDA Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+      
+      <label class="md-nav__link" for="nav-1">
+        Top
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Top" data-md-level="1">
+        <label class="md-nav__title" for="nav-1">
+          <span class="md-nav__icon md-icon"></span>
+          Top
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          GUILDA Setup
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        GUILDA Setup
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#download_guilda_source_code" class="md-nav__link">
+    Download GUILDA Source Code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operation_in_matlab" class="md-nav__link">
+    Operation in MATLAB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    Workflow
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aboutPowerSystem/0TopPage/" class="md-nav__link">
+        Power System Model (Simple)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SeriesAnalysis/0TopPage/" class="md-nav__link">
+        Guided Example
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5" type="checkbox" id="nav-1-5" >
+      
+      <label class="md-nav__link" for="nav-1-5">
+        Guilda in Detail
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Guilda in Detail" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-5">
+          <span class="md-nav__icon md-icon"></span>
+          Guilda in Detail
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/0TopPage/" class="md-nav__link">
+        Guilda in Detail
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5-2" type="checkbox" id="nav-1-5-2" >
+      
+      <label class="md-nav__link" for="nav-1-5-2">
+        Power System Model (Detailed)
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Power System Model (Detailed)" data-md-level="3">
+        <label class="md-nav__title" for="nav-1-5-2">
+          <span class="md-nav__icon md-icon"></span>
+          Power System Model (Detailed)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/defineNet/0TopPage/" class="md-nav__link">
+        Power System Model (Detailed)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/defineNet/NewPowerNetwork/" class="md-nav__link">
+        New Power System Model
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/defineNet/NewComponent/" class="md-nav__link">
+        New Components
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5-3" type="checkbox" id="nav-1-5-3" >
+      
+      <label class="md-nav__link" for="nav-1-5-3">
+        Controllers
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Controllers" data-md-level="3">
+        <label class="md-nav__title" for="nav-1-5-3">
+          <span class="md-nav__icon md-icon"></span>
+          Controllers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/addController/0TopPage/" class="md-nav__link">
+        Controllers
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/addController/NewController/" class="md-nav__link">
+        New Controller
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5-4" type="checkbox" id="nav-1-5-4" >
+      
+      <label class="md-nav__link" for="nav-1-5-4">
+        Numerical Simulations
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Numerical Simulations" data-md-level="3">
+        <label class="md-nav__title" for="nav-1-5-4">
+          <span class="md-nav__icon md-icon"></span>
+          Numerical Simulations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/Analysis/net_simulate/" class="md-nav__link">
+        Simulating
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/Analysis/SampleCode/" class="md-nav__link">
+        Simulation Examples
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/Analysis/net_getsys/" class="md-nav__link">
+        Derivation of a Linearized Model
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-6" type="checkbox" id="nav-1-6" >
+      
+      <label class="md-nav__link" for="nav-1-6">
+        Source Code Explanation
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Source Code Explanation" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-6">
+          <span class="md-nav__icon md-icon"></span>
+          Source Code Explanation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SourceCode/0TopPage/" class="md-nav__link">
+        Source Code Explanation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SourceCode/power_network/" class="md-nav__link">
+        Power Network Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SourceCode/NetProperties/" class="md-nav__link">
+        Power Network Class - Properties
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SourceCode/branch/" class="md-nav__link">
+        Branch Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SourceCode/bus/" class="md-nav__link">
+        Bus Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SourceCode/component/" class="md-nav__link">
+        Component Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SourceCode/controller/" class="md-nav__link">
+        Controller Class
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#download_guilda_source_code" class="md-nav__link">
+    Download GUILDA Source Code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operation_in_matlab" class="md-nav__link">
+    Operation in MATLAB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    Workflow
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <p><img src="../../Figures/set_GUILDA.jpeg" width=100%;></p>
+<h1 id="guilda_setup"><div style="text-align: center;"><span style="font-size: 140%; color: black; font-weight: bold">GUILDA Setup</span></div><a class="headerlink" href="#guilda_setup" title="Permanent link">&para;</a></h1>
+<p>This section explains how to download the public source code and set up the environment.</p>
+<p><strong>Contents:</strong></p>
+<ul>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#download_guilda_source_code">Download</a></li>
+<li><a href="#operation_in_matlab">Operation in MATLAB</a></li>
+<li><a href="#workflow">Workflow</a></li>
+</ul>
+<hr />
+<h2 id="requirements"><div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">Requirements</span></div><a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
+<p>MATLAB Toolboxes necessary to run this simulator:</p>
+<ul>
+<li>Optimizaiton Toolbox.</li>
+<li>Control System Toolbox.</li>
+<li>Robus Control Toolbox.</li>
+</ul>
+<hr />
+<h2 id="download_guilda_source_code"><div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">Download GUILDA Source Code</span></div><a class="headerlink" href="#download_guilda_source_code" title="Permanent link">&para;</a></h2>
+<p>The source code is available to the public on Git. Please use the link from the <a href="https://lim.ishizaki-lab.jp/guilda">GUILDA introduction site</a> on the Ishizaki Laboratory's website. You can clone and manage the download from the Git repository. The following images show the procedure to save the files to your local computer as a zip file.</p>
+<div style="text-align: center;">
+<img src="../../Figures/system_set1.jpeg" width=100%; style="border: 1px black solid;">
+</div>
+
+<div style="text-align: center;">
+<img src="../../Figures/system_set2.jpeg" width=100%; >
+</div>
+
+<hr />
+<h2 id="operation_in_matlab"><div style="text-align: center;"><span style="font-size: 130%; color: black; font-weight: bold">Operation in MATLAB</span></div><a class="headerlink" href="#operation_in_matlab" title="Permanent link">&para;</a></h2>
+<div style="text-align: center;">
+<img src="../../Figures/system_set3.jpeg" width=40%;>
+</div>
+
+<p><br></p>
+<p>To open GUILDA in MATLAB:</p>
+<ol>
+<li>
+<p>Extract the source code zip file you have just downloaded, open MATLAB and navigate to the directory.</p>
+</li>
+<li>
+<p>Make sure that the "current folder" window of MATLAB is showing the correct directory. It can be checked by localizing the first folder <code>@power_network</code>, as shown in the image below.</p>
+</li>
+<li>
+<p>Check if the required toolboxes for GUILDA are installed. To do it write <code>ver</code> in the command window of MATLAB and check if the required toolboxes are installed, these are: Optimization Toolbox, Control System Toolbox, Robust Control Toolbox.</p>
+</li>
+</ol>
+<div style="text-align: center;">
+<img src="../../Figures/system_set4.jpeg" width=100%; style="border: 1px black solid;">
+</div>
+
+<hr />
+<h2 id="workflow"><div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">Workflow</span></div><a class="headerlink" href="#workflow" title="Permanent link">&para;</a></h2>
+<p>In MATLAB it's possible to work one line at the time (via the command window), or several lines at the time (in a script), when performing analysis the latter is recommended.</p>
+<p>Recommended workflow:</p>
+<p><strong>1. Create a working directory:</strong> It is recommended that a separated working directory is created, as it will avoid mixing the new created code with the source code. In this example, a new directory named <code>+user</code> is created. The name of the directory can be anything, but <em>make sure to put <code>+</code> at the beginning</em>. This allows the m-files of the source code to be passed through, while also allowing the m-files in the <code>+user</code> folder to be executed.</p>
+<div class="highlight"><pre><span></span><code><span class="c">%Execution command</span>
+<span class="n">mkdir</span> <span class="o">+</span><span class="n">user</span>
+</code></pre></div>
+<p><strong>2. Create a new script file:</strong> Create a new script file by clicking on "New Script" in the upper left corner of the window, which will launch a new file in the editor.</p>
+<p><strong>3. Write the Analysis' Code:</strong> In the newly created script file, enter the code for the analysis you wish to perform. This documentation and its tutorials mainly focusses on explaining how to write the code in this area. However, for now, just to understand the workflow use the following code as an example; the details are explained in further sections.</p>
+<div class="highlight"><pre><span></span><code><span class="c">%Example code &quot;sample.m&quot;</span>
+<span class="n">net</span> <span class="p">=</span> <span class="n">network_IEEE68bus</span><span class="p">;</span>
+<span class="n">Time</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">];</span>
+<span class="n">out</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">Time</span><span class="p">,</span> <span class="s">&#39;fault&#39;</span><span class="p">,</span> <span class="p">{{[</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.01</span><span class="p">],</span><span class="mi">14</span><span class="p">}});</span>
+<span class="n">figure</span><span class="p">;</span>
+<span class="n">hold</span> <span class="s">on</span><span class="p">;</span>
+<span class="n">arrayfun</span><span class="p">(@(</span><span class="n">idx</span><span class="p">)</span> <span class="n">plot</span><span class="p">(</span><span class="n">out</span><span class="p">.</span><span class="n">t</span><span class="p">,</span> <span class="n">out</span><span class="p">.</span><span class="n">X</span><span class="p">{</span><span class="n">idx</span><span class="p">}(:,</span><span class="mi">2</span><span class="p">)),</span><span class="mi">1</span><span class="p">:</span><span class="mi">16</span><span class="p">);</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Time [s]&#39;</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Frequency deviation [pu]&#39;</span><span class="p">)</span>
+<span class="n">hold</span> <span class="s">off</span>
+</code></pre></div>
+<p><strong>4. Execute:</strong> Save the script file you have created and actually execute it. For this example, we will save the script file as <code>sample.m</code>. Note that the newly created file <code>sample.m</code> can be seen now under the <code>+user</code> folder. To execute the code you can press the "Run" button or via the command window, for the latter use the command <code>user.sample.m</code>. This can be use since the user folder has <code>+</code> at the beginning of the directory name. Thus it can be executed as <code>(directory name).(file name)</code>.</p>
+<div class="highlight"><pre><span></span><code>  <span class="c">%Execution command</span>
+  <span class="n">user</span><span class="p">.</span><span class="n">sample</span>
+</code></pre></div>
+<p><strong>5. Analyze the Results:</strong> The analysis performed used the IEEE 68-bus Model, and the plot shows the frequency deviation response of each generator (connected to 1-16th busbar) at [0-10] seconds when a ground fault occurs on the 14th busbar during the timespan of [1-1.01] seconds.</p>
+<p><br></p>
+<div style="text-align: center;"><span style="font-size: 120%; color: black">Create a working directory</span>
+<img src="../../Figures/system_set5.jpeg" width=100%; style="border: 1px black solid;">
+</div>
+<p><br></p>
+<div style="text-align: center;"><span style="font-size: 120%; color: black">Save the sample file</span>
+<img src="../../Figures/system_set6.jpeg" width=100%; style="border: 1px black solid;">
+</div>
+<p><br></p>
+<div style="text-align: center;"><span style="font-size: 120%; color: black">Run the file (via Editor)</span>
+<img src="../../Figures/system_set7.jpeg" width=100%; style="border: 1px black solid;">
+</div>
+<p><br></p>
+<div style="text-align: center;"><span style="font-size: 120%; color: black">Run the file (via Command Window)</span>
+<img src="../../Figures/system_set8.jpeg" width=100%; style="border: 1px black solid;">
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../.." class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Home
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../../aboutPowerSystem/0TopPage/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Power System Model (Simple)
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2020- Tokyo Tech, Ishizaki Lab.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ['navigation.tabs', 'content.code.annotate'],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.9c0e82ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

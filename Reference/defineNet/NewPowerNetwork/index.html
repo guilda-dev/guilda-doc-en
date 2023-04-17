@@ -1,0 +1,1372 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../../Figures/modularsmall.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
+    
+    
+      
+        <title>New Power System Model - GUILDA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.cb6bc1d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700%7C&display=fallback">
+        <style>body,input{font-family:"Open Sans",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosansjp.css">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:600,800">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="light-blue">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#new_power_system_model" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../.." title="GUILDA Documentation" class="md-header-nav__button md-logo" aria-label="GUILDA Documentation">
+      
+  <img src="../../../Figures/modularsmall.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            GUILDA Documentation
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              New Power System Model
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link md-tabs__link--active">
+        Top
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="GUILDA Documentation" class="md-nav__button md-logo" aria-label="GUILDA Documentation">
+      
+  <img src="../../../Figures/modularsmall.png" alt="logo">
+
+    </a>
+    GUILDA Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+      
+      <label class="md-nav__link" for="nav-1">
+        Top
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Top" data-md-level="1">
+        <label class="md-nav__title" for="nav-1">
+          <span class="md-nav__icon md-icon"></span>
+          Top
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SetEnvironment/0TopPage/" class="md-nav__link">
+        GUILDA Setup
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aboutPowerSystem/0TopPage/" class="md-nav__link">
+        Power System Model (Simple)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SeriesAnalysis/0TopPage/" class="md-nav__link">
+        Guided Example
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5" type="checkbox" id="nav-1-5" checked>
+      
+      <label class="md-nav__link" for="nav-1-5">
+        Guilda in Detail
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Guilda in Detail" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-5">
+          <span class="md-nav__icon md-icon"></span>
+          Guilda in Detail
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0TopPage/" class="md-nav__link">
+        Guilda in Detail
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5-2" type="checkbox" id="nav-1-5-2" checked>
+      
+      <label class="md-nav__link" for="nav-1-5-2">
+        Power System Model (Detailed)
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Power System Model (Detailed)" data-md-level="3">
+        <label class="md-nav__title" for="nav-1-5-2">
+          <span class="md-nav__icon md-icon"></span>
+          Power System Model (Detailed)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0TopPage/" class="md-nav__link">
+        Power System Model (Detailed)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          New Power System Model
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        New Power System Model
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#power_system_model_definition" class="md-nav__link">
+    Power System Model Definition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#branch_definition" class="md-nav__link">
+    Branch Definition
+  </a>
+  
+    <nav class="md-nav" aria-label="Branch Definition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample_code_for_defining_a_branch" class="md-nav__link">
+    Sample code for defining a branch
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network_parameters" class="md-nav__link">
+    Network Parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#busbar_definition" class="md-nav__link">
+    Busbar Definition
+  </a>
+  
+    <nav class="md-nav" aria-label="Busbar Definition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slack_bus" class="md-nav__link">
+    Slack Bus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pv_bus" class="md-nav__link">
+    PV Bus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pq_bus" class="md-nav__link">
+    PQ Bus
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#component_definition" class="md-nav__link">
+    Component Definition
+  </a>
+  
+    <nav class="md-nav" aria-label="Component Definition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generator_definition" class="md-nav__link">
+    Generator Definition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load_definition" class="md-nav__link">
+    Load Definition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add_components_to_a_busbar" class="md-nav__link">
+    Add Components to a Busbar
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete_code" class="md-nav__link">
+    Complete Code
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NewComponent/" class="md-nav__link">
+        New Components
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5-3" type="checkbox" id="nav-1-5-3" >
+      
+      <label class="md-nav__link" for="nav-1-5-3">
+        Controllers
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Controllers" data-md-level="3">
+        <label class="md-nav__title" for="nav-1-5-3">
+          <span class="md-nav__icon md-icon"></span>
+          Controllers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../addController/0TopPage/" class="md-nav__link">
+        Controllers
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../addController/NewController/" class="md-nav__link">
+        New Controller
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5-4" type="checkbox" id="nav-1-5-4" >
+      
+      <label class="md-nav__link" for="nav-1-5-4">
+        Numerical Simulations
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Numerical Simulations" data-md-level="3">
+        <label class="md-nav__title" for="nav-1-5-4">
+          <span class="md-nav__icon md-icon"></span>
+          Numerical Simulations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Analysis/net_simulate/" class="md-nav__link">
+        Simulating
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Analysis/SampleCode/" class="md-nav__link">
+        Simulation Examples
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Analysis/net_getsys/" class="md-nav__link">
+        Derivation of a Linearized Model
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-6" type="checkbox" id="nav-1-6" >
+      
+      <label class="md-nav__link" for="nav-1-6">
+        Source Code Explanation
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Source Code Explanation" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-6">
+          <span class="md-nav__icon md-icon"></span>
+          Source Code Explanation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/0TopPage/" class="md-nav__link">
+        Source Code Explanation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/power_network/" class="md-nav__link">
+        Power Network Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/NetProperties/" class="md-nav__link">
+        Power Network Class - Properties
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/branch/" class="md-nav__link">
+        Branch Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/bus/" class="md-nav__link">
+        Bus Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/component/" class="md-nav__link">
+        Component Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/controller/" class="md-nav__link">
+        Controller Class
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#power_system_model_definition" class="md-nav__link">
+    Power System Model Definition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#branch_definition" class="md-nav__link">
+    Branch Definition
+  </a>
+  
+    <nav class="md-nav" aria-label="Branch Definition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample_code_for_defining_a_branch" class="md-nav__link">
+    Sample code for defining a branch
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network_parameters" class="md-nav__link">
+    Network Parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#busbar_definition" class="md-nav__link">
+    Busbar Definition
+  </a>
+  
+    <nav class="md-nav" aria-label="Busbar Definition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slack_bus" class="md-nav__link">
+    Slack Bus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pv_bus" class="md-nav__link">
+    PV Bus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pq_bus" class="md-nav__link">
+    PQ Bus
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#component_definition" class="md-nav__link">
+    Component Definition
+  </a>
+  
+    <nav class="md-nav" aria-label="Component Definition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generator_definition" class="md-nav__link">
+    Generator Definition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load_definition" class="md-nav__link">
+    Load Definition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add_components_to_a_busbar" class="md-nav__link">
+    Add Components to a Busbar
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete_code" class="md-nav__link">
+    Complete Code
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <p><img src="../../../Figures/make_power_net.jpg" width=100%;></p>
+<h1 id="new_power_system_model"><div style="text-align: center;"><span style="font-size: 140%; color: Black; font-weight: bold">New Power System Model</span></div><a class="headerlink" href="#new_power_system_model" title="Permanent link">&para;</a></h1>
+<p>This page provides a detailed explanation on how to define a power system model. For a simpler explanation please refer to <a href="../../../SeriesAnalysis/0TopPage/">Power System Models</a>.</p>
+<p>In this section it is explained how to create a new 3-bus power system model and define it as the <code>power_network</code> class. This explanation uses the already defined components for Generators (<code>generator_1axis</code>) and for Loads (<code>load_impedance</code>).</p>
+<p><strong>Contents:</strong></p>
+<ul>
+<li><a href="#network_definition">Network Definition.</a></li>
+<li><a href="#branch_definition">Branch Definition.</a></li>
+<li><a href="#network_parameters">Network Parameters.</a></li>
+<li><a href="#busbar_definition">Busbar Definition.</a><ul>
+<li><a href="#slack_bus">Slack Bus.</a></li>
+<li><a href="#pv_bus">PV Bus.</a></li>
+<li><a href="#pq-bus">PQ Bus.</a></li>
+</ul>
+</li>
+<li><a href="#component_definition">Component Definition.</a><ul>
+<li><a href="#generator_definition">Generator.</a></li>
+<li><a href="#load_definition">Load.</a></li>
+</ul>
+</li>
+<li><a href="#complete_code">Complete Code.</a></li>
+</ul>
+<hr />
+<h2 id="power_system_model_definition"><div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">Power System Model Definition</span></div><a class="headerlink" href="#power_system_model_definition" title="Permanent link">&para;</a></h2>
+<p>To define a network, the <code>power_network</code> class must be assigned to a variable. For this example a variable named <code>net</code> is used. The class is assigned to the variable in the following manner</p>
+<div class="highlight"><pre><span></span><code><span class="n">net</span> <span class="p">=</span> <span class="n">power_network</span><span class="p">();</span> <span class="c">%Class assigned to the variable; however, no network is yet defined.</span>
+</code></pre></div>
+<p>The <code>power_network</code> class has now been assigned to the variable <code>net</code> and is ready to be used. Note that at this point no component has been assigned, thus the network is still empty.</p>
+<p>In the following sections various elements will be added to the power network (<code>net</code>). Such elements are branches, busbars, and components (generators and loads).</p>
+<hr />
+<h2 id="branch_definition"><div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">Branch Definition</span></div><a class="headerlink" href="#branch_definition" title="Permanent link">&para;</a></h2>
+<p>Branches in GUILDA represent power transmission lines between busbars. The information of these transmission lines is stored as a <code>table</code>. The parameters of interest are</p>
+<ul>
+<li><code>bus_from</code>, <code>bus_to</code>: Busbar number that the transmission line connects from and to, respectively.</li>
+<li><code>x_real</code>, <code>x_imag</code>:   Real and imaginary part of the transmission line's impedance <span class="arithmatex">\(\small (Z)\)</span>, respectively. The reciprocal of this value is the admittance <span class="arithmatex">\(\small (Y)\)</span>.</li>
+<li><code>y</code>: Ground capacitance.</li>
+<li><code>tap</code>, <code>phase</code>: Phase Adjustment Transformer Parameters.</li>
+</ul>
+<p>For example, in the 3-bus model, there are two transmission lines: one connecting "busbar 1 and busbar 2" and the other connecting "busbar 2 and busbar 3"; its table is the following</p>
+<div class="highlight"><pre><span></span><code>  <span class="mi">9</span>×<span class="mi">7</span> <span class="n">table</span>
+
+    <span class="n">bus_from</span>    <span class="s">bus_to</span>    <span class="s">x_real</span>    <span class="s">x_imag</span>      <span class="s">y</span>       <span class="s">tap</span>    <span class="s">phase</span>
+    <span class="n">________</span>    <span class="s">______</span>    <span class="s">______</span>    <span class="s">______</span>    <span class="s">______</span>    <span class="s">___</span>    <span class="s">_____</span>
+
+       <span class="n">1</span>          <span class="s">2</span>            <span class="s">0</span>    <span class="s">0.0576</span>         <span class="s">0</span>     <span class="s">1</span>       <span class="s">0</span>
+       <span class="n">3</span>          <span class="s">2</span>            <span class="s">0</span>    <span class="s">0.0625</span>         <span class="s">0</span>     <span class="s">1</span>       <span class="s">0</span>
+</code></pre></div>
+<h3 id="sample_code_for_defining_a_branch"><strong>Sample code for defining a branch</strong><a class="headerlink" href="#sample_code_for_defining_a_branch" title="Permanent link">&para;</a></h3>
+<p>In the following section, values are obtained for each row from the table type data defining the branch information, and stored in a class variable named a_branch in the power_network class defined earlier.</p>
+<div class="highlight"><pre><span></span><code><span class="c">%Inser the branch table information in the following array.</span>
+<span class="n">branch_array</span> <span class="p">=</span> <span class="p">[</span><span class="n">Inser</span> <span class="n">the</span> <span class="n">table</span> <span class="n">information</span> <span class="n">here</span><span class="p">];</span>
+
+<span class="c">%Add variable names to convert the `branch_array` to a `table` type variable.</span>
+<span class="n">branch</span> <span class="p">=</span> <span class="n">array2table</span><span class="p">(</span><span class="n">branch_array</span><span class="p">,</span> <span class="s">&#39;VariableNames&#39;</span><span class="p">,</span> <span class="k">...</span>
+    <span class="p">{</span><span class="s">&#39;bus_from&#39;</span><span class="p">,</span> <span class="s">&#39;bus_to&#39;</span><span class="p">,</span> <span class="s">&#39;x_real&#39;</span><span class="p">,</span> <span class="s">&#39;x_imag&#39;</span><span class="p">,</span> <span class="s">&#39;y&#39;</span><span class="p">,</span> <span class="s">&#39;tap&#39;</span><span class="p">,</span> <span class="s">&#39;phase&#39;</span><span class="p">}</span><span class="k">...</span>
+    <span class="p">);</span>
+
+<span class="c">%Define Branches.</span>
+<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">size</span><span class="p">(</span><span class="n">branch</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="c">%Define PI Branches</span>
+    <span class="n">if</span> <span class="s">branch{i,</span> <span class="s">&#39;tap&#39;}</span> <span class="p">==</span> <span class="mi">0</span>
+        <span class="n">br</span> <span class="p">=</span> <span class="n">branch_pi</span><span class="p">(</span><span class="n">branch</span><span class="p">{</span><span class="nb">i</span><span class="p">,</span> <span class="s">&#39;bus_from&#39;</span><span class="p">},</span> <span class="n">branch</span><span class="p">{</span><span class="nb">i</span><span class="p">,</span> <span class="s">&#39;bus_to&#39;</span><span class="p">},</span><span class="k">...</span>
+            <span class="n">branch</span><span class="p">{</span><span class="nb">i</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;x_real&#39;</span><span class="p">,</span> <span class="s">&#39;x_imag&#39;</span><span class="p">}},</span> <span class="n">branch</span><span class="p">{</span><span class="nb">i</span><span class="p">,</span> <span class="s">&#39;y&#39;</span><span class="p">});</span>
+    <span class="c">%Define PI-Transformer Branches</span>
+    <span class="n">else</span>
+        <span class="s">br</span> <span class="p">=</span> <span class="n">branch_pi_transformer</span><span class="p">(</span><span class="n">branch</span><span class="p">{</span><span class="nb">i</span><span class="p">,</span> <span class="s">&#39;bus_from&#39;</span><span class="p">},</span> <span class="n">branch</span><span class="p">{</span><span class="nb">i</span><span class="p">,</span> <span class="s">&#39;bus_to&#39;</span><span class="p">},</span><span class="k">...</span>
+            <span class="n">branch</span><span class="p">{</span><span class="nb">i</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;x_real&#39;</span><span class="p">,</span> <span class="s">&#39;x_imag&#39;</span><span class="p">}},</span> <span class="n">branch</span><span class="p">{</span><span class="nb">i</span><span class="p">,</span> <span class="s">&#39;y&#39;</span><span class="p">},</span><span class="k">...</span>
+            <span class="n">branch</span><span class="p">{</span><span class="nb">i</span><span class="p">,</span> <span class="s">&#39;tap&#39;</span><span class="p">},</span> <span class="n">branch</span><span class="p">{</span><span class="nb">i</span><span class="p">,</span> <span class="s">&#39;phase&#39;</span><span class="p">});</span>
+    <span class="n">end</span>
+    <span class="s">%Add</span> <span class="s">the</span> <span class="s">defined</span> <span class="s">Branches</span> <span class="s">to</span> <span class="s">the</span> <span class="s">Network.</span>
+    <span class="n">net</span><span class="p">.</span><span class="n">add_branch</span><span class="p">(</span><span class="n">br</span><span class="p">);</span><span class="c">%This line assumes the network&#39;s variable name &quot;net&quot;.</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Note that the code above is for the case where the <code>power_network</code> class is assigned to a variable named <code>net</code>. Thus, in case another variable name is used (for example, <code>netbus3</code>), change the second line from the end to</p>
+<div class="highlight"><pre><span></span><code><span class="n">net3bus</span><span class="p">.</span><span class="n">ad_branch</span><span class="p">(</span><span class="n">br</span><span class="p">)</span> <span class="c">%This line assumes the network&#39;s variable name &quot;netbus3&quot;.</span>
+</code></pre></div>
+<hr />
+<h2 id="network_parameters"><div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">Network Parameters</span></div><a class="headerlink" href="#network_parameters" title="Permanent link">&para;</a></h2>
+<p>In GUILDA, the busbars have six possible parameters.</p>
+<ul>
+<li>Active Power <span class="arithmatex">\((P)\)</span>.</li>
+<li>Reactive Power <span class="arithmatex">\((Q)\)</span>.</li>
+<li>Voltage Magnitude <span class="arithmatex">\((\lvert V \rvert)\)</span>.</li>
+<li>Voltage Phase Angle <span class="arithmatex">\((\angle V)\)</span>.</li>
+<li>Shunt Resistor Admittance [Shunt Resistor Conductance, Shunt Resistor Susceptance] <span class="arithmatex">\((Y_{\mathrm{shunt}} = [G_{\mathrm{shunt}}, B_{\mathrm{shunt}}])\)</span>.</li>
+</ul>
+<p>For more information on it, please refer to <a href="../../../aboutPowerSystem/0TopPage/">Power System Models</a>.</p>
+<p>The busbars, depending on its type, always specify the shunt resistor admittance <span class="arithmatex">\((Y_{\mathrm{shunt}})\)</span>, and two of the rest of parameters <span class="arithmatex">\((\)</span>i.e., <span class="arithmatex">\(P, Q, \lvert V \rvert, \angle V)\)</span>.</p>
+<hr />
+<h2 id="busbar_definition"><div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">Busbar Definition</span></div><a class="headerlink" href="#busbar_definition" title="Permanent link">&para;</a></h2>
+<p>In GUILDA, the busbars are classified in three groups: PV busbar, PQ busbar, and Slack busbar. For each busbar type a class is defined (<code>bus_slack</code>, <code>bus_PV</code>, <code>bus_PQ</code>). Thus, to use it, it is necessary to define an instance of the corresponding class and store it as a cell array (<code>a_bus</code>) in the created power network (<code>net</code>).</p>
+<div class="highlight"><pre><span></span><code><span class="c">%Slack bus</span>
+<span class="n">b</span> <span class="p">=</span> <span class="n">bus_slack</span><span class="p">(</span><span class="k">...</span><span class="c">)；</span>
+
+<span class="c">%PV bus</span>
+<span class="n">b</span> <span class="p">=</span> <span class="n">bus_PV</span><span class="p">(</span><span class="k">...</span><span class="c">);</span>
+
+<span class="c">%PQ bus</span>
+<span class="n">b</span> <span class="p">=</span> <span class="n">bus_PQ</span><span class="p">(</span><span class="k">...</span><span class="c">);</span>
+</code></pre></div>
+<p>In the previous code block the buses' arguments have been omitted (written as <code>...</code>). To properly run the code those must be included. The explanation of each argument can be found in the following sections.</p>
+<h3 id="slack_bus"><strong>Slack Bus</strong><a class="headerlink" href="#slack_bus" title="Permanent link">&para;</a></h3>
+<p>All Generator Buses in a power network are basically classified as PV buses, but there is one special bus that specifies the voltage phase angle <span class="arithmatex">\(\small (\angle V)\)</span> and serves as a reference. This is the Slack Bus.</p>
+<p>Thus, the Slack Bus is specified by voltage magnitude <span class="arithmatex">\(\small (\lvert V \rvert)\)</span> and voltage phase angle <span class="arithmatex">\(\small (\angle V)\)</span>. Therefore, the slack bus takes those parameters, as well as the shunt admittance, as arguments (<code>V_abs</code>, <code>V_angle</code>, <code>[G_shunt, B_shunt]</code>) in the following manner.</p>
+<p><div class="highlight"><pre><span></span><code><span class="c">%Define a Slack Bus named &quot;b&quot;</span>
+<span class="n">b</span> <span class="p">=</span> <span class="n">bus_slack</span><span class="p">(</span><span class="n">V_abs</span><span class="p">,</span> <span class="n">V_angle</span><span class="p">,</span> <span class="p">[</span><span class="n">G_shunt</span><span class="p">,</span> <span class="n">B_shunt</span><span class="p">]);</span>
+</code></pre></div>
+Input Arguments:</p>
+<ul>
+<li><code>V_abs</code>: Voltage Magnitude <span class="arithmatex">\(\small (\lvert V \rvert)\)</span>.</li>
+<li><code>V_angle</code>: Voltage Phase Angle <span class="arithmatex">\(\small (\angle V)\)</span> <span class="arithmatex">\(-\)</span> <em>Normally 0.</em></li>
+<li><code>[G_shunt, B_shunt]</code>: Real and imaginary part of the impedance of a shunt resistor connected to the ground <span class="arithmatex">\(\small ([G_{\mathrm{shunt}}, B_{\mathrm{shunt}}])\)</span>.</li>
+</ul>
+<h3 id="pv_bus"><strong>PV Bus</strong><a class="headerlink" href="#pv_bus" title="Permanent link">&para;</a></h3>
+<p>As mentioned before, all Generator Buses are classified as PV buses, except for the Slack Bus.</p>
+<p>As the name implies, this bus type is specified by the active power <span class="arithmatex">\(\small (P)\)</span> and the voltage magnitude <span class="arithmatex">\(\small (\lvert V \rvert)\)</span>, as well as the shunt admittance, and taking them as arguments (<code>P_gen</code>, <code>V_abs</code>, <code>[G_shunt, B_shunt]</code>) in the following manner.</p>
+<div class="highlight"><pre><span></span><code><span class="c">%Define a PV Bus named &quot;b&quot;</span>
+<span class="n">b</span> <span class="p">=</span> <span class="n">bus_PV</span><span class="p">(</span><span class="n">P_gen</span><span class="p">,</span> <span class="n">V_abs</span><span class="p">,</span> <span class="p">[</span><span class="n">G_shunt</span><span class="p">,</span> <span class="n">B_shunt</span><span class="p">]);</span>
+</code></pre></div>
+<p>Input Arguments:</p>
+<ul>
+<li><code>P_gen</code>: Active Power <span class="arithmatex">\(\small (P)\)</span>.</li>
+<li><code>V_abs</code>: Voltage Magnitude <span class="arithmatex">\(\small (\lvert V \rvert)\)</span></li>
+<li><code>[G_shunt, B_shunt]</code>: Real and imaginary part of the impedance of a shunt resistor connected to the ground <span class="arithmatex">\(\small ([G_{\mathrm{shunt}}, B_{\mathrm{shunt}}])\)</span>.</li>
+</ul>
+<h3 id="pq_bus"><strong>PQ Bus</strong><a class="headerlink" href="#pq_bus" title="Permanent link">&para;</a></h3>
+<p>The PQ bus type is selected when loads are connected to the busbar or when nothing is connected to it (i.e., non-unit busbar). This bus type is specified by the active power <span class="arithmatex">\(\small (P)\)</span>, reactive power <span class="arithmatex">\(\small (Q)\)</span>, as well as the shunt admittance, and taking them as arguments (<code>-Pload</code>, <code>-Qload</code>, <code>[G_shunt, B_shunt]</code>).</p>
+<div class="highlight"><pre><span></span><code><span class="c">%Define a PQ Bus named &quot;b&quot;</span>
+<span class="n">b</span> <span class="p">=</span> <span class="n">bus_PQ</span><span class="p">(</span><span class="o">-</span><span class="n">Pload</span><span class="p">,</span> <span class="o">-</span><span class="n">Qload</span><span class="p">,</span> <span class="p">[</span><span class="n">G_shunt</span><span class="p">,</span> <span class="n">B_shunt</span><span class="p">]);</span>
+</code></pre></div>
+<p>Input Arguments:</p>
+<ul>
+<li><code>-Pload</code>: Negative of Active Power <span class="arithmatex">\(\small (P)\)</span>.</li>
+<li><code>-Qload</code>: Negative of Reactive Power <span class="arithmatex">\(\small (Q)\)</span>.</li>
+<li><code>[G_shunt, B_shunt]</code>: Real and imaginary part of the impedance of a shunt resistor connected to the ground <span class="arithmatex">\(\small ([G_{\mathrm{shunt}}, B_{\mathrm{shunt}}])\)</span>.</li>
+</ul>
+<p>This completes the process up to creating instances of the busbar class. </p>
+<p>Note: Before storing the defined busbars (<code>b</code>), in the defined power network (<code>net</code>); first, define the components (i.e., generators and loads) that are connected to each busbar. For it please refer to the following section.</p>
+<hr />
+<h2 id="component_definition"><div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">Component Definition</span></div><a class="headerlink" href="#component_definition" title="Permanent link">&para;</a></h2>
+<p>The process to define a component is</p>
+<ol>
+<li>Create a variable (e.g., <code>component</code>) and make it an instance of one of the component classes (i.e., <code>generator_1axis</code>, <code>load_impedance</code>).</li>
+<li>Assign the newly created component variable (<code>component</code>) to the bus to which it is connected (e.g., <code>b</code>), by ussing the function <code>set_component</code>.</li>
+</ol>
+<h3 id="generator_definition"><strong>Generator Definition</strong><a class="headerlink" href="#generator_definition" title="Permanent link">&para;</a></h3>
+<p>To define a synchronous generator (1-axis model), the function <code>generator_1axis</code> is used.</p>
+<p>To define a new variable with the <code>generator_1axis</code> class, please use the following code</p>
+<div class="highlight"><pre><span></span><code><span class="n">component</span> <span class="p">=</span> <span class="n">generator_1axis</span><span class="p">(</span><span class="n">omega0</span><span class="p">,</span> <span class="n">mac</span><span class="p">);</span>
+</code></pre></div>
+<p>Input Arguments:</p>
+<ul>
+<li><code>omega0</code>: Grid's frequency <span class="arithmatex">\(\small (\omega_0)\)</span>.</li>
+<li><code>mac</code>: Parameters of the Generator (Table with 8 fields)<ul>
+<li><code>No_machine</code>: Generator number.</li>
+<li><code>No_bus</code>: Busbar to which the the generator is connected.</li>
+<li><code>Xd</code>: Synchronous Reactance around the d-axis <span class="arithmatex">\(\small (X_d)\)</span>.</li>
+<li><code>Xd_prime</code>: Transient Synchronous Reactance around the d-axis <span class="arithmatex">\(\small (X'_d)\)</span>.</li>
+<li><code>Xq</code>: Synchronous Reactance around the q-axis <span class="arithmatex">\(\small (X_q)\)</span>.</li>
+<li><code>T</code>: Time constant of the field current aroudn the d-axis <span class="arithmatex">\(\small (\tau_d)\)</span>.</li>
+<li><code>M</code>: Inertia Coefficient <span class="arithmatex">\(\small (M)\)</span>.</li>
+<li><code>D</code>: Damping Factor <span class="arithmatex">\(\small (D)\)</span>.</li>
+</ul>
+</li>
+</ul>
+<p>For example, defining the table (<code>mac</code>) for a synchronous generator with arbitrary parameters is like the following</p>
+<div class="highlight"><pre><span></span><code><span class="n">mac</span> <span class="p">=</span>
+<span class="mi">1</span>×<span class="mi">8</span> <span class="n">table</span>
+
+  <span class="n">No_machine</span>     <span class="s">No_bus</span>       <span class="s">Xd</span>      <span class="s">Xd_prime</span>      <span class="s">Xq</span>      <span class="s">T</span>      <span class="s">M</span>     <span class="s">D</span>
+ <span class="n">____________</span>  <span class="s">_________</span>  <span class="s">_________</span>  <span class="s">__________</span>  <span class="s">_______</span>  <span class="s">______</span>  <span class="s">___</span>   <span class="s">___</span>
+
+      <span class="n">1</span>            <span class="s">3</span>        <span class="s">1.569</span>      <span class="s">0.324</span>      <span class="s">1.548</span>    <span class="s">5.14</span>   <span class="s">100</span>    <span class="s">2</span>
+</code></pre></div>
+<p>This is an example of a 1-axis synchronous generator with arbitrary parameters. However, it is common for real generators to have controllers, like Automatic Voltage Regulator (AVR) or Power System Stabilizer (PSS), to make their response favorable. Thus, it is possible to add AVR and PSS information to the created generator instance as follows</p>
+<div class="highlight"><pre><span></span><code><span class="n">component</span><span class="p">.</span><span class="n">set_avr</span><span class="p">(</span><span class="n">avr_sadamoto2019</span><span class="p">(</span><span class="n">exc</span><span class="p">));</span> <span class="c">%Adds AVR to the created generator instance named &quot;component&quot;.</span>
+<span class="n">component</span><span class="p">.</span><span class="n">set_pss</span><span class="p">(</span><span class="n">pss</span><span class="p">(</span><span class="n">p</span><span class="p">))</span> <span class="c">%Adds PSS to the created generator instance named &quot;component&quot;.</span>
+</code></pre></div>
+<ul>
+<li>
+<p>Automatic Voltage Regulator (AVR): In GUILDA, the AVR model is under the class <code>avr_sadamoto2019(exc)</code>.</p>
+<ul>
+<li>Argument <code>exc</code>: Table that includes the required AVR parameters.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">exc</span>  <span class="p">=</span>
+<span class="mi">1</span>×<span class="mi">3</span> <span class="n">table</span>
+
+ <span class="n">No_bus</span>     <span class="s">Ka</span>      <span class="s">Te</span>
+<span class="n">________</span>  <span class="s">_____</span>   <span class="s">______</span>
+
+    <span class="n">1</span>        <span class="s">2</span>      <span class="s">0.05</span>
+</code></pre></div>
+<ul>
+<li>
+<p>Power System Stabilizer (PSS): In GUILDA, the PSS model is under the class <code>pss(p)</code>.</p>
+<ul>
+<li>Argument <code>p</code>: Table that includes the required PSS parameters.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">p</span> <span class="p">=</span>
+<span class="mi">1</span>×<span class="mi">6</span> <span class="n">table</span>
+
+ <span class="n">No_bus</span>    <span class="s">Kpss</span>   <span class="s">Tpss</span>   <span class="s">TL1p</span>    <span class="s">TL1</span>    <span class="s">TL2p</span>   <span class="s">TL2</span>
+<span class="n">_________</span>  <span class="s">____</span>   <span class="s">____</span>   <span class="s">____</span>   <span class="s">_____</span>   <span class="s">____</span>   <span class="s">___</span>
+
+    <span class="n">1</span>        <span class="s">0</span>     <span class="s">10</span>    <span class="s">0.05</span>   <span class="s">0.015</span>   <span class="s">0.08</span>   <span class="s">0.01</span>
+</code></pre></div>
+<h3 id="load_definition"><strong>Load Definition</strong><a class="headerlink" href="#load_definition" title="Permanent link">&para;</a></h3>
+<p>To define a load, the function <code>load_impedance</code> is used.</p>
+<p>To define a new variable with the <code>load_impedance</code> class, please use the following code.</p>
+<div class="highlight"><pre><span></span><code><span class="n">component</span> <span class="p">=</span> <span class="n">load_impedance</span><span class="p">();</span>
+</code></pre></div>
+<p>As you can see from the code, when connecting loads, the bus parameters that have already been defined are used, so there are no new parameters that need to be defined.</p>
+<h3 id="add_components_to_a_busbar"><strong>Add Components to a Busbar</strong><a class="headerlink" href="#add_components_to_a_busbar" title="Permanent link">&para;</a></h3>
+<p>To add a created component (e.g., <code>component</code>) to an already defined busbar (e.g., <code>b</code>), use the method <code>set_component</code>. Finally, add the busbar with the assigned component to the power network (e.g., <code>net</code>) with the method <code>add_bus</code>. The following is an example using the variable names of this paragraph.</p>
+<div class="highlight"><pre><span></span><code><span class="c">%Adds the generator or load named &quot;component&quot; to the busbar named &quot;b&quot;</span>
+<span class="n">b</span><span class="p">.</span><span class="n">set_component</span><span class="p">(</span><span class="n">component</span><span class="p">);</span>
+<span class="c">%Adds the busbar named &quot;b&quot; to the power network named &quot;net&quot;</span>
+<span class="n">net</span><span class="p">.</span><span class="n">add_bus</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+</code></pre></div>
+<p><em>Add a component to a bus that already is in the power network</em>: As mentioned before, it is recommended to add the busbars to the power network along with its components. However, in case a component is to be added to a busbar that is already assigned to the power network use the following code.</p>
+<p><div class="highlight"><pre><span></span><code><span class="c">%Add the busbar named &quot;b&quot; to the power network named &quot;net&quot;.</span>
+<span class="n">net</span><span class="p">.</span><span class="n">add_bus</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+<span class="c">%Add the component named &quot;component&quot; to the &quot;i-th&quot; busbar added to the power network named &quot;net&quot;.</span>
+<span class="n">net</span><span class="p">.</span><span class="n">a_bus</span><span class="p">{</span><span class="nb">i</span><span class="p">}.</span><span class="n">set_component</span><span class="p">(</span><span class="n">component</span><span class="p">);</span>
+</code></pre></div>
+The method <code>add_bus</code> (used when adding a busbar to the power network) stores the specified busbar in the variable <code>a_bus</code>. The key point to note is that the busbars are defined in the order in which they are assigned to the field <code>a_bus</code>. In other words, the first busbar class that is <code>net.add_bus(b)</code> is treated as "bus 1".</p>
+<p>Therefore, in the code line</p>
+<p><div class="highlight"><pre><span></span><code><span class="n">net</span><span class="p">.</span><span class="n">a_bus</span><span class="p">{</span><span class="nb">i</span><span class="p">}.</span><span class="n">set_component</span><span class="p">(</span><span class="n">component</span><span class="p">);</span>
+</code></pre></div>
+the <code>i</code> corresponds to the <code>i-th</code> busbar that was added to the power network by using the method <code>add_bus</code>. Therefore, if this procedure is to be used, it is important to keep a record of the assignment order of the busbars to the power network. This method is useful for situtation like modifying the equipment model (i.e., component) of an existing busbar.</p>
+<hr />
+<h2 id="complete_code"><div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">Complete Code</span></div><a class="headerlink" href="#complete_code" title="Permanent link">&para;</a></h2>
+<p>This completes the definition of the power system.
+The code up to this point is summarized at the end of this section.</p>
+<p>In this case, a 3 busbar power network  is implemented as an example. However, any network geometry can be implemented.</p>
+<div class="highlight"><pre><span></span><code><span class="c">%Function: define a 3-bus network</span>
+<span class="k">function</span><span class="w"> </span>net<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">network_3bus_1axis</span><span class="p">()</span><span class="w"></span>
+
+<span class="c">%Definition of gird frequency</span>
+<span class="n">omega0</span> <span class="p">=</span> <span class="mi">60</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="p">;</span>
+
+<span class="c">%Define an empty network named &quot;net&quot;.</span>
+<span class="n">net</span> <span class="p">=</span> <span class="n">power_network</span><span class="p">();</span>
+
+<span class="c">%Define the parameters of the 3 buses to add.</span>
+<span class="n">bus_array</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mf">1.00</span> <span class="mi">0</span> <span class="mf">0.60</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">2</span><span class="p">;</span>
+             <span class="n">2</span> <span class="s">1.00</span> <span class="s">0</span> <span class="s">5.45</span> <span class="s">0</span> <span class="s">1.0</span> <span class="s">1.0</span> <span class="s">0</span> <span class="s">0</span> <span class="s">3</span><span class="p">;</span>
+             <span class="n">3</span> <span class="s">1.00</span> <span class="s">0</span> <span class="s">1.00</span> <span class="s">2</span> <span class="s">0</span> <span class="s">0</span> <span class="s">0</span> <span class="s">0</span> <span class="s">1]</span><span class="p">;</span>
+
+<span class="c">%Add variable names to the buses&#39; parameters.</span>
+<span class="n">bus</span> <span class="p">=</span> <span class="n">array2table</span><span class="p">(</span><span class="n">bus_array</span><span class="p">,</span> <span class="s">&#39;VariableNames&#39;</span><span class="p">,</span> <span class="k">...</span>
+    <span class="p">{</span><span class="s">&#39;No&#39;</span><span class="p">,</span> <span class="s">&#39;V_abs&#39;</span><span class="p">,</span> <span class="s">&#39;V_angle&#39;</span><span class="p">,</span> <span class="s">&#39;P_gen&#39;</span><span class="p">,</span> <span class="s">&#39;Q_gen&#39;</span><span class="p">,</span> <span class="s">&#39;P_load&#39;</span><span class="p">,</span> <span class="s">&#39;Q_load&#39;</span><span class="p">,</span> <span class="s">&#39;G_shunt&#39;</span><span class="p">,</span> <span class="s">&#39;B_shunt&#39;</span><span class="p">,</span> <span class="s">&#39;type&#39;</span><span class="p">}</span> <span class="k">...</span>
+    <span class="p">);</span>
+
+<span class="c">%Define the parameters of the 2 branches to add.</span>
+<span class="n">branch_array</span> <span class="p">=</span> <span class="p">[</span><span class="k">...</span>
+            <span class="n">1</span> <span class="s">2</span> <span class="s">0</span>   <span class="s">1/12.56041</span>  <span class="s">0</span>   <span class="s">1</span>   <span class="s">0</span><span class="p">;</span><span class="k">...</span>
+            <span class="n">3</span> <span class="s">2</span> <span class="s">0</span>   <span class="s">1/13.65107</span>  <span class="s">0</span>   <span class="s">1</span>   <span class="s">0</span><span class="p">;];</span>
+
+<span class="c">%Add variable names to the branches&#39; parameters.      </span>
+<span class="n">branch</span> <span class="p">=</span> <span class="n">array2table</span><span class="p">(</span><span class="n">branch_array</span><span class="p">,</span> <span class="s">&#39;VariableNames&#39;</span><span class="p">,</span> <span class="k">...</span>
+                <span class="p">{</span><span class="s">&#39;bus_from&#39;</span><span class="p">,</span> <span class="s">&#39;bus_to&#39;</span><span class="p">,</span> <span class="s">&#39;x_real&#39;</span><span class="p">,</span> <span class="s">&#39;x_imag&#39;</span><span class="p">,</span> <span class="s">&#39;y&#39;</span><span class="p">,</span> <span class="s">&#39;tap&#39;</span><span class="p">,</span> <span class="s">&#39;phase&#39;</span><span class="p">}</span><span class="k">...</span>
+                <span class="p">);</span>
+
+<span class="c">%Define the parameters of the 2 generators to add.</span>
+<span class="n">mac_array</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span>    <span class="mf">0.031</span><span class="p">,</span>  <span class="mf">0.069</span><span class="p">,</span> <span class="mf">10.2</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span>   <span class="mi">4</span><span class="p">;</span>
+                   <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.295</span><span class="p">,</span>  <span class="mf">0.0697</span><span class="p">,</span> <span class="mf">0.282</span><span class="p">,</span> <span class="mf">6.56</span><span class="p">,</span> <span class="mf">60.4</span><span class="p">,</span> <span class="mf">9.75</span><span class="p">];</span>
+
+<span class="c">%Add variable names to the generators&#39; parameters.</span>
+<span class="n">mac_data</span> <span class="p">=</span> <span class="n">array2table</span><span class="p">(</span><span class="n">mac_array</span><span class="p">,</span> <span class="s">&#39;VariableNames&#39;</span><span class="p">,</span> <span class="k">...</span>
+            <span class="p">{</span><span class="s">&#39;No_machine&#39;</span><span class="p">,</span> <span class="s">&#39;No_bus&#39;</span><span class="p">,</span> <span class="s">&#39;Xd&#39;</span><span class="p">,</span> <span class="s">&#39;Xd_prime&#39;</span><span class="p">,</span> <span class="s">&#39;Xq&#39;</span><span class="p">,</span> <span class="s">&#39;T&#39;</span><span class="p">,</span> <span class="s">&#39;M&#39;</span><span class="p">,</span> <span class="s">&#39;D&#39;</span><span class="p">}</span> <span class="k">...</span>
+            <span class="p">);</span>
+
+<span class="c">%Define Automatic Voltage Regulator (AVR Controller) parameters.</span>
+<span class="n">exc_array</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">0</span> <span class="mf">0.05</span><span class="p">;</span>
+                    <span class="n">3</span> <span class="s">0</span> <span class="s">0.05]</span><span class="p">;</span>
+
+<span class="c">%Add variable names to the AVR Controller&#39;s parameters.   </span>
+<span class="n">exc_data</span> <span class="p">=</span> <span class="n">array2table</span><span class="p">(</span><span class="n">exc_array</span><span class="p">,</span> <span class="s">&#39;VariableNames&#39;</span><span class="p">,</span> <span class="k">...</span>
+            <span class="p">{</span><span class="s">&#39;No_bus&#39;</span><span class="p">,</span> <span class="s">&#39;Ka&#39;</span><span class="p">,</span> <span class="s">&#39;Te&#39;</span><span class="p">}</span> <span class="k">...</span>
+            <span class="p">);</span>
+
+<span class="c">%Define Power System Stabilizer (PSS Controller) parameters.</span>
+<span class="n">pss_array</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">0</span> <span class="mi">10</span> <span class="mf">0.05</span> <span class="mf">0.015</span> <span class="mf">0.08</span> <span class="mf">0.01</span><span class="p">;</span>
+             <span class="n">3</span> <span class="s">0</span> <span class="s">10</span> <span class="s">0.05</span> <span class="s">0.015</span> <span class="s">0.08</span> <span class="s">0.01]</span><span class="p">;</span>
+
+<span class="c">%Add variable names to the PSS Controller&#39;s parameters.</span>
+<span class="n">pss_data</span> <span class="p">=</span> <span class="n">array2table</span><span class="p">(</span><span class="n">pss_array</span><span class="p">,</span> <span class="s">&#39;VariableNames&#39;</span><span class="p">,</span> <span class="k">...</span>
+            <span class="p">{</span><span class="s">&#39;No_bus&#39;</span><span class="p">,</span> <span class="s">&#39;Kpss&#39;</span><span class="p">,</span> <span class="s">&#39;Tpss&#39;</span><span class="p">,</span> <span class="s">&#39;TL1p&#39;</span><span class="p">,</span> <span class="s">&#39;TL1&#39;</span><span class="p">,</span> <span class="s">&#39;TL2p&#39;</span><span class="p">,</span> <span class="s">&#39;TL2&#39;</span><span class="p">}</span> <span class="k">...</span>
+            <span class="p">);</span>
+
+<span class="c">%Define Buses.</span>
+<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">size</span><span class="p">(</span><span class="n">bus</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">shunt</span> <span class="p">=</span> <span class="n">bus</span><span class="p">{</span><span class="nb">i</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;G_shunt&#39;</span><span class="p">,</span> <span class="s">&#39;B_shunt&#39;</span><span class="p">}};</span>
+    <span class="n">switch</span> <span class="s">bus{i,</span> <span class="s">&#39;type&#39;}</span>
+        <span class="c">%Define Slack Bus.</span>
+        <span class="n">case</span> <span class="s">1</span>
+            <span class="n">V_abs</span> <span class="p">=</span> <span class="n">bus</span><span class="p">{</span><span class="nb">i</span><span class="p">,</span> <span class="s">&#39;V_abs&#39;</span><span class="p">};</span>
+            <span class="n">V_angle</span> <span class="p">=</span> <span class="n">bus</span><span class="p">{</span><span class="nb">i</span><span class="p">,</span> <span class="s">&#39;V_angle&#39;</span><span class="p">};</span>
+            <span class="n">b</span> <span class="p">=</span> <span class="n">bus_slack</span><span class="p">(</span><span class="n">V_abs</span><span class="p">,</span> <span class="n">V_angle</span><span class="p">,</span> <span class="n">shunt</span><span class="p">);</span>
+            <span class="n">b</span><span class="p">.</span><span class="n">set_component</span><span class="p">(</span><span class="n">get_generator</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span> <span class="n">machinery</span><span class="p">,</span> <span class="n">excitation</span><span class="p">,</span> <span class="n">pss_data</span><span class="p">,</span> <span class="n">omega0</span><span class="p">));</span>
+
+        <span class="c">%Define PV Bus.</span>
+        <span class="n">case</span> <span class="s">2</span>
+            <span class="n">V_abs</span> <span class="p">=</span> <span class="n">bus</span><span class="p">{</span><span class="nb">i</span><span class="p">,</span> <span class="s">&#39;V_abs&#39;</span><span class="p">};</span>
+            <span class="n">P</span> <span class="p">=</span> <span class="n">bus</span><span class="p">{</span><span class="nb">i</span><span class="p">,</span> <span class="s">&#39;P_gen&#39;</span><span class="p">};</span>
+            <span class="n">b</span> <span class="p">=</span> <span class="n">bus_PV</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">V_abs</span><span class="p">,</span> <span class="n">shunt</span><span class="p">);</span>
+            <span class="n">b</span><span class="p">.</span><span class="n">set_component</span><span class="p">(</span><span class="n">get_generator</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span> <span class="n">machinery</span><span class="p">,</span> <span class="n">excitation</span><span class="p">,</span> <span class="n">pss_data</span><span class="p">,</span> <span class="n">omega0</span><span class="p">));</span>
+
+        <span class="c">%Define PQ Bus.</span>
+        <span class="n">case</span> <span class="s">3</span>
+            <span class="n">P</span> <span class="p">=</span> <span class="n">bus</span><span class="p">{</span><span class="nb">i</span><span class="p">,</span> <span class="s">&#39;P_load&#39;</span><span class="p">};</span>
+            <span class="n">Q</span> <span class="p">=</span> <span class="n">bus</span><span class="p">{</span><span class="nb">i</span><span class="p">,</span> <span class="s">&#39;Q_load&#39;</span><span class="p">};</span>
+            <span class="n">b</span> <span class="p">=</span> <span class="n">bus_PQ</span><span class="p">(</span><span class="o">-</span><span class="n">P</span><span class="p">,</span> <span class="o">-</span><span class="n">Q</span><span class="p">,</span> <span class="n">shunt</span><span class="p">);</span>
+            <span class="n">if</span> <span class="s">P~=0</span> <span class="o">||</span> <span class="n">Q</span><span class="o">~=</span><span class="mi">0</span>
+                <span class="n">load</span> <span class="p">=</span> <span class="n">load_impedance</span><span class="p">();</span>
+                <span class="n">b</span><span class="p">.</span><span class="n">set_component</span><span class="p">(</span><span class="n">load</span><span class="p">);</span>
+            <span class="n">end</span>
+
+    <span class="s">end</span>
+    <span class="c">%Add buses to the power network.</span>
+    <span class="n">net</span><span class="p">.</span><span class="n">add_bus</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+<span class="n">end</span>
+
+<span class="s">%Define</span> <span class="s">Branches.</span>
+<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">size</span><span class="p">(</span><span class="n">branch</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="c">%Define PI Branches.</span>
+    <span class="n">if</span> <span class="s">branch{i,</span> <span class="s">&#39;tap&#39;}</span> <span class="p">==</span> <span class="mi">0</span>
+        <span class="n">br</span> <span class="p">=</span> <span class="n">branch_pi</span><span class="p">(</span><span class="n">branch</span><span class="p">{</span><span class="nb">i</span><span class="p">,</span> <span class="s">&#39;bus_from&#39;</span><span class="p">},</span> <span class="n">branch</span><span class="p">{</span><span class="nb">i</span><span class="p">,</span> <span class="s">&#39;bus_to&#39;</span><span class="p">},</span><span class="k">...</span>
+            <span class="n">branch</span><span class="p">{</span><span class="nb">i</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;x_real&#39;</span><span class="p">,</span> <span class="s">&#39;x_imag&#39;</span><span class="p">}},</span> <span class="n">branch</span><span class="p">{</span><span class="nb">i</span><span class="p">,</span> <span class="s">&#39;y&#39;</span><span class="p">});</span>
+    <span class="c">%Define PI-Transformer Branches.</span>
+    <span class="n">else</span>
+        <span class="s">br</span> <span class="p">=</span> <span class="n">branch_pi_transformer</span><span class="p">(</span><span class="n">branch</span><span class="p">{</span><span class="nb">i</span><span class="p">,</span> <span class="s">&#39;bus_from&#39;</span><span class="p">},</span> <span class="n">branch</span><span class="p">{</span><span class="nb">i</span><span class="p">,</span> <span class="s">&#39;bus_to&#39;</span><span class="p">},</span><span class="k">...</span>
+            <span class="n">branch</span><span class="p">{</span><span class="nb">i</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;x_real&#39;</span><span class="p">,</span> <span class="s">&#39;x_imag&#39;</span><span class="p">}},</span> <span class="n">branch</span><span class="p">{</span><span class="nb">i</span><span class="p">,</span> <span class="s">&#39;y&#39;</span><span class="p">},</span><span class="k">...</span>
+            <span class="n">branch</span><span class="p">{</span><span class="nb">i</span><span class="p">,</span> <span class="s">&#39;tap&#39;</span><span class="p">},</span> <span class="n">branch</span><span class="p">{</span><span class="nb">i</span><span class="p">,</span> <span class="s">&#39;phase&#39;</span><span class="p">});</span>
+    <span class="n">end</span>
+    <span class="s">%Add</span> <span class="s">branches</span> <span class="s">to</span> <span class="s">the</span> <span class="s">power</span> <span class="s">network.</span>
+    <span class="n">net</span><span class="p">.</span><span class="n">add_branch</span><span class="p">(</span><span class="n">br</span><span class="p">);</span>
+<span class="n">end</span>
+<span class="s">%Finilize:</span> <span class="s">Calculate</span> <span class="s">the</span> <span class="s">power</span> <span class="s">flow,</span> <span class="s">the</span> <span class="s">equilibrium</span> <span class="s">point</span> <span class="s">of</span> <span class="s">the</span> <span class="s">entire</span> <span class="s">system,</span> <span class="s">and</span> <span class="s">store</span> <span class="s">each</span> <span class="s">value.</span>
+<span class="n">net</span><span class="p">.</span><span class="n">initialize</span><span class="p">();</span>
+<span class="n">end</span>
+
+<span class="s">%Function</span> <span class="s">to</span> <span class="s">obtain</span> <span class="s">the</span> <span class="s">generator</span> <span class="s">information</span> <span class="s">and</span> <span class="s">define</span> <span class="s">it.</span>
+<span class="k">function</span><span class="w"> </span>g<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">get_generator</span><span class="p">(</span>i, mac_data, exc_data, pss_data, omega0<span class="p">)</span><span class="w"></span>
+<span class="n">idx</span> <span class="p">=</span> <span class="n">mac_data</span><span class="p">{:,</span> <span class="s">&#39;No_bus&#39;</span><span class="p">}</span> <span class="o">==</span> <span class="nb">i</span><span class="p">;</span>
+<span class="n">if</span> <span class="s">sum(idx)</span> <span class="o">~=</span> <span class="mi">0</span>
+    <span class="n">g</span> <span class="p">=</span> <span class="n">generator_1axis</span><span class="p">(</span><span class="n">omega0</span><span class="p">,</span> <span class="n">mac_data</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="p">:));</span>
+    <span class="n">exc</span> <span class="p">=</span> <span class="n">exc_data</span><span class="p">(</span><span class="n">exc_data</span><span class="p">{:,</span> <span class="s">&#39;No_bus&#39;</span><span class="p">}</span><span class="o">==</span><span class="nb">i</span><span class="p">,</span> <span class="p">:);</span>
+    <span class="n">g</span><span class="p">.</span><span class="n">set_avr</span><span class="p">(</span><span class="n">avr_sadamoto2019</span><span class="p">(</span><span class="n">exc</span><span class="p">));</span>
+    <span class="n">p</span> <span class="p">=</span> <span class="n">pss_data</span><span class="p">(</span><span class="n">pss_data</span><span class="p">{:,</span> <span class="s">&#39;No_bus&#39;</span><span class="p">}</span><span class="o">==</span><span class="nb">i</span><span class="p">,</span> <span class="p">:);</span>
+    <span class="n">g</span><span class="p">.</span><span class="n">set_pss</span><span class="p">(</span><span class="n">pss</span><span class="p">(</span><span class="n">p</span><span class="p">));</span>
+<span class="n">end</span>
+<span class="s">end</span>
+</code></pre></div>
+<p>This completes the definition of the power network.</p>
+<p>To learn more about</p>
+<ul>
+<li>
+<p>Calculation of the equations of state, please refer to <a href="../../Analysis/net_getsys/">Derivation of a Linearized Model</a>.</p>
+</li>
+<li>
+<p>More details on the process of simulation, please refer to <a href="../../Analysis/net_simulate/">Simulating</a>.</p>
+</li>
+<li>
+<p>Controller design, please refer to <a href="../../addController/0TopPage/">Adding a Controller</a>.</p>
+</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../0TopPage/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Power System Model (Detailed)
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../NewComponent/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                New Components
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2020- Tokyo Tech, Ishizaki Lab.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: ['navigation.tabs', 'content.code.annotate'],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.9c0e82ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1320 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../../Figures/modularsmall.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
+    
+    
+      
+        <title>Derivation of a Linearized Model - GUILDA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.cb6bc1d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700%7C&display=fallback">
+        <style>body,input{font-family:"Open Sans",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosansjp.css">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:600,800">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="light-blue">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#derivation_of_a_linearized_model" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../.." title="GUILDA Documentation" class="md-header-nav__button md-logo" aria-label="GUILDA Documentation">
+      
+  <img src="../../../Figures/modularsmall.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            GUILDA Documentation
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              Derivation of a Linearized Model
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link md-tabs__link--active">
+        Top
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="GUILDA Documentation" class="md-nav__button md-logo" aria-label="GUILDA Documentation">
+      
+  <img src="../../../Figures/modularsmall.png" alt="logo">
+
+    </a>
+    GUILDA Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+      
+      <label class="md-nav__link" for="nav-1">
+        Top
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Top" data-md-level="1">
+        <label class="md-nav__title" for="nav-1">
+          <span class="md-nav__icon md-icon"></span>
+          Top
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SetEnvironment/0TopPage/" class="md-nav__link">
+        GUILDA Setup
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aboutPowerSystem/0TopPage/" class="md-nav__link">
+        Power System Model (Simple)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SeriesAnalysis/0TopPage/" class="md-nav__link">
+        Guided Example
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5" type="checkbox" id="nav-1-5" checked>
+      
+      <label class="md-nav__link" for="nav-1-5">
+        Guilda in Detail
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Guilda in Detail" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-5">
+          <span class="md-nav__icon md-icon"></span>
+          Guilda in Detail
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0TopPage/" class="md-nav__link">
+        Guilda in Detail
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5-2" type="checkbox" id="nav-1-5-2" >
+      
+      <label class="md-nav__link" for="nav-1-5-2">
+        Power System Model (Detailed)
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Power System Model (Detailed)" data-md-level="3">
+        <label class="md-nav__title" for="nav-1-5-2">
+          <span class="md-nav__icon md-icon"></span>
+          Power System Model (Detailed)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../defineNet/0TopPage/" class="md-nav__link">
+        Power System Model (Detailed)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../defineNet/NewPowerNetwork/" class="md-nav__link">
+        New Power System Model
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../defineNet/NewComponent/" class="md-nav__link">
+        New Components
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5-3" type="checkbox" id="nav-1-5-3" >
+      
+      <label class="md-nav__link" for="nav-1-5-3">
+        Controllers
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Controllers" data-md-level="3">
+        <label class="md-nav__title" for="nav-1-5-3">
+          <span class="md-nav__icon md-icon"></span>
+          Controllers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../addController/0TopPage/" class="md-nav__link">
+        Controllers
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../addController/NewController/" class="md-nav__link">
+        New Controller
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5-4" type="checkbox" id="nav-1-5-4" checked>
+      
+      <label class="md-nav__link" for="nav-1-5-4">
+        Numerical Simulations
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Numerical Simulations" data-md-level="3">
+        <label class="md-nav__title" for="nav-1-5-4">
+          <span class="md-nav__icon md-icon"></span>
+          Numerical Simulations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_simulate/" class="md-nav__link">
+        Simulating
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SampleCode/" class="md-nav__link">
+        Simulation Examples
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Derivation of a Linearized Model
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Derivation of a Linearized Model
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a_linearized_model" class="md-nav__link">
+    A Linearized Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obtaining_a_linearized_model" class="md-nav__link">
+    Obtaining a Linearized Model
+  </a>
+  
+    <nav class="md-nav" aria-label="Obtaining a Linearized Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linearized_model_method_get_sys" class="md-nav__link">
+    Linearized Model Method (get_sys)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linearized_model_method_in_the_1-axis_synchronous_generator_model" class="md-nav__link">
+    Linearized Model Method in the 1-Axis Synchronous Generator Model
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1_-_add_a_controller" class="md-nav__link">
+    Example 1 - Add a Controller
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_2_-_view_the_system_from_a_specific_input_to_output" class="md-nav__link">
+    Example 2 - View the System from a Specific Input to Output.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_3_-_linear_simulation_results" class="md-nav__link">
+    Example 3 - Linear Simulation Results.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_4_-_linear_and_nonlinear_simulation_results" class="md-nav__link">
+    Example 4 - Linear and Nonlinear Simulation Results.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-6" type="checkbox" id="nav-1-6" >
+      
+      <label class="md-nav__link" for="nav-1-6">
+        Source Code Explanation
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Source Code Explanation" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-6">
+          <span class="md-nav__icon md-icon"></span>
+          Source Code Explanation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/0TopPage/" class="md-nav__link">
+        Source Code Explanation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/power_network/" class="md-nav__link">
+        Power Network Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/NetProperties/" class="md-nav__link">
+        Power Network Class - Properties
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/branch/" class="md-nav__link">
+        Branch Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/bus/" class="md-nav__link">
+        Bus Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/component/" class="md-nav__link">
+        Component Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/controller/" class="md-nav__link">
+        Controller Class
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a_linearized_model" class="md-nav__link">
+    A Linearized Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obtaining_a_linearized_model" class="md-nav__link">
+    Obtaining a Linearized Model
+  </a>
+  
+    <nav class="md-nav" aria-label="Obtaining a Linearized Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linearized_model_method_get_sys" class="md-nav__link">
+    Linearized Model Method (get_sys)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linearized_model_method_in_the_1-axis_synchronous_generator_model" class="md-nav__link">
+    Linearized Model Method in the 1-Axis Synchronous Generator Model
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1_-_add_a_controller" class="md-nav__link">
+    Example 1 - Add a Controller
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_2_-_view_the_system_from_a_specific_input_to_output" class="md-nav__link">
+    Example 2 - View the System from a Specific Input to Output.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_3_-_linear_simulation_results" class="md-nav__link">
+    Example 3 - Linear Simulation Results.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_4_-_linear_and_nonlinear_simulation_results" class="md-nav__link">
+    Example 4 - Linear and Nonlinear Simulation Results.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <p><img src="../../../Figures/analysis_net_linear.jpg" width=100%;></p>
+<h1 id="derivation_of_a_linearized_model"><div style="text-align: center;"><span style="font-size: 140%; color: black; font-weight: bold">Derivation of a Linearized Model</span></div><a class="headerlink" href="#derivation_of_a_linearized_model" title="Permanent link">&para;</a></h1>
+<p>This section describes the derivation of the approximate linearized model of the created power system model.</p>
+<p><strong>Contents:</strong></p>
+<ul>
+<li><a href="#a_linearized_model">A Linearized Model.</a></li>
+<li><a href="#obtaining_a_linearized_model">Obtaining a Linearized Model.</a></li>
+<li><a href="#examples">Examples.</a><ul>
+<li><a href="#example_1_-_add_a_controller">Example 1 - Add a Controller.</a></li>
+<li><a href="#example_2_-_view_the_system_from_a_specific_input_to_output">Example 2 - View the System from a Specific Input to Output.</a></li>
+<li><a href="#example_3_-_linear_simulation_results">Example 3 - Linear Simulation Results.</a></li>
+<li><a href="#example_4_-_linear_and_nonlinear_simulation_results">Example 4 - Linear and Nonlinear Simulation Results.</a></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="a_linearized_model"><div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">A Linearized Model</span></div><a class="headerlink" href="#a_linearized_model" title="Permanent link">&para;</a></h2>
+<p>This is a description of what a linearized model is. To provide an example the IEEE 68-bus power system model is linearized. For it, it is necessary to define the power system model, and then linearize it. Note that the linearization takes part when simulating the system.</p>
+<div class="highlight"><pre><span></span><code><span class="c">%Define the power network as the IEEE 68-bus model.</span>
+<span class="n">net</span> <span class="p">=</span> <span class="n">network_IEEE68bus</span><span class="p">();</span>
+</code></pre></div>
+<p>Remember that the variable <code>net</code> includes all the information of the <a href="../../../SourceCode/power_network/">power_network</a>, which includes buses, branches, generators, controllers, etc.</p>
+<p>The linearized system is simulated as follows</p>
+<div class="highlight"><pre><span></span><code><span class="c">%The system is linearized when it is simulated.</span>
+<span class="n">out</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">simulate</span><span class="p">([</span><span class="mi">0</span> <span class="mi">20</span><span class="p">],</span> <span class="s">&#39;linear&#39;</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+</code></pre></div>
+<p>If the option <code>linear</code> is immediately followed by <code>true</code>, the system is linearized and simulated. if <code>false</code>, the system is not linearized and simulated.</p>
+<p>For more information on the <code>option</code> arguments and the <code>simulate</code> method, please refer to <a href="../net_simulate/">Simulating</a> under the "Simulation Execution Method" section.</p>
+<hr />
+<h2 id="obtaining_a_linearized_model"><div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">Obtaining a Linearized Model</span></div><a class="headerlink" href="#obtaining_a_linearized_model" title="Permanent link">&para;</a></h2>
+<h3 id="linearized_model_method_get_sys"><div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold">Linearized Model Method (<code>get_sys</code>)</span></div><a class="headerlink" href="#linearized_model_method_get_sys" title="Permanent link">&para;</a></h3>
+<p>To obtain the linearized version of the power system model, the method <code>get_sys</code> is used. It allows to transform the power system model into a state-space representation of the following form</p>
+<p>
+<script type="math/tex; mode=display">
+    \begin{matrix}
+    \dot{x}=A(x-x^*)+B(u-u^*)\\
+    y=C(x-x^*)+D(u-u*)\\
+    \end{matrix}
+ </script>
+</p>
+<p>Method Structure: <code>sys =  net.get_sys(with_controller);</code></p>
+<p><em>Note: The system obtained from <code>get_sys</code> takes as its state the deviation from the equilibrium point.</em></p>
+<p>Input Arguments</p>
+<ul>
+<li><code>with_controller</code>: Determines if a controller is added to the system (i.e., <code>true</code>) or not (i.e., <code>false</code>, default value). If a controller is added, it must be configured as well.</li>
+</ul>
+<p>Output Parameters </p>
+<ul>
+<li><code>sys</code>: The following variables are stored in this output.</li>
+</ul>
+<div style="text-align: center;">
+   <img src="../../../Figures/tutorial2-getsys-1.jpg" width=45%;> </div>
+
+<p>Some of these variables are automatically generated by the function <a href="https://jp.mathworks.com/help/control/ref/ss.html">ss(A,B,C,D)</a> used in the <code>get_sys</code> script. Of these, only the six variables listed below have substantial information.</p>
+<ul>
+<li>
+<p><code>A,B,C,D</code>: Coefficient matrices of the state-space representation. They contain information on each element of the State Matrix <code>A</code>, the Input Matrix <code>B</code>, the Output Matrix <code>C</code>, and the Directivity Matrix <code>D</code> of the linearized system.</p>
+</li>
+<li>
+<p><code>InputGroup</code>: It stores the name of each channel in the input vector <span class="arithmatex">\((u)\)</span>, and how many channels there are in the state-space representation.</p>
+</li>
+<li>
+<p><code>OutputGroup</code>: It stores the name of each channel in the output vector <span class="arithmatex">\((y)\)</span>, and how many channels there are in the state-space representation.</p>
+</li>
+</ul>
+<p><em>Note: The return value of <code>get_sys</code> is assumed to be <code>sys</code>, which is the case in the examples of this page, but of course a different name can be assigned.</em></p>
+<h3 id="linearized_model_method_in_the_1-axis_synchronous_generator_model"><div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold">Linearized Model Method in the 1-Axis Synchronous Generator Model</span></div><a class="headerlink" href="#linearized_model_method_in_the_1-axis_synchronous_generator_model" title="Permanent link">&para;</a></h3>
+<p>This state-space representation can be applied to several components of the power system model. In this page the state-space representation is applied to a 1-Axis Synchronous Generator model as an example. Note that, of course, the meaning of the variables will change as the component analyzed changes.</p>
+<p>Now, the variables of the state-space representation of a 1-Axis Synchronous Generator Model are explained.</p>
+<p><strong>State <span class="arithmatex">\((x)\)</span></strong></p>
+<p>It is a vector that contains the information on the state of the generator. </p>
+<p>There are 7 entries in the state of the generator. </p>
+<p>Let <span class="arithmatex">\(x_i\)</span> be the state of the i-th generator, then the vector entries are</p>
+<p>
+<script type="math/tex; mode=display">
+    x_i =\left(
+      %\begin{align}
+      \begin{array}{ccccccc}
+      \delta_i %&= Rotor angle
+      \\
+      \Delta\omega_i %&= Frequency deviation
+      \\
+      E_i %&= Internal voltage
+      \\
+      V_{\mathrm{fd}i} %&= AGC state variables
+      \\
+      \xi_{1i} %&= PSS state variable 1
+      \\
+      \xi_{2i} %&= PSS state variable 2
+      \\
+      \xi_{3i} %&= PSS state variable 3
+      \\
+      \end{array}
+      %\end{align}
+      \right)
+  </script>
+</p>
+<p>From top to bottom, these correspond to</p>
+<ul>
+<li><span class="arithmatex">\(\delta_i\)</span>: Rotor declination.</li>
+<li><span class="arithmatex">\(\Delta\omega_i\)</span>: Frequency deviation.</li>
+<li><span class="arithmatex">\(E_i\)</span>: Internal voltage of the generator.</li>
+<li><span class="arithmatex">\(V_{\mathrm{fd}}\)</span>: Controller (AGC) state variable.</li>
+<li><span class="arithmatex">\(\xi_{1i}\)</span>: Controller (PSS) state variable 1.</li>
+<li><span class="arithmatex">\(\xi_{2i}\)</span>: Controller (PSS) state variable 2.</li>
+<li><span class="arithmatex">\(\xi_{3i}\)</span>: Controller (PSS) state variable 3.</li>
+</ul>
+<p>Since, in most power system models, there are several generators, then to generalize the state of all the generators we denote</p>
+<ul>
+<li><span class="arithmatex">\(I_{G}\)</span>: Total number of generators.</li>
+<li><span class="arithmatex">\(x_{i}\)</span>: The <span class="arithmatex">\(\small i-th\)</span> generator.</li>
+<li><span class="arithmatex">\(x\)</span>: The entire set of generators.</li>
+</ul>
+<p>Then, <span class="arithmatex">\(x\)</span> is defined as:</p>
+<p>
+<script type="math/tex; mode=display">
+  x = \left(
+      \begin{array}{}
+      x_1\\
+      \vdots\\
+      x_{I_G}\\
+      \end{array}
+  \right)
+  </script>
+</p>
+<p><strong>Input Signal <span class="arithmatex">\((u)\)</span></strong></p>
+<p>It corresponds to the input signal that the component (i.e., generator or load) receives. Since the input signal depends on the target component, its details are explained for each component.</p>
+<p>To define this variable we denote</p>
+<ul>
+<li><span class="arithmatex">\(I_{G}\)</span>: Total number of generators.</li>
+<li><span class="arithmatex">\(I_{L}\)</span>: Total number of loads.</li>
+<li><span class="arithmatex">\(I_{GL}\)</span>: Total number of components (generators and loads).</li>
+<li><span class="arithmatex">\(u_i\)</span>: Input signal of the <span class="arithmatex">\(\small i-th\)</span> component.</li>
+<li><span class="arithmatex">\(d_i\)</span>: Disturbance of the <span class="arithmatex">\(\small i-th\)</span> component.</li>
+</ul>
+<p><em>Note: <span class="arithmatex">\(u_i\)</span> and <span class="arithmatex">\(d_i\)</span> depend on the component type (i.e., generator or load).</em></p>
+<p>Then, the input <span class="arithmatex">\(u\)</span> is defined as:</p>
+<p>
+<script type="math/tex; mode=display">
+  u=\left(
+      \begin{array}{}
+      u_1\\
+      \vdots\\
+      u_{I_{GL}}\\
+      \\d_1\\
+      \vdots\\
+      d_{I_G}\\
+      \end{array}
+  \right)
+  </script>
+</p>
+<p><em>Input <span class="arithmatex">\(\small (u)\)</span> - Generator:</em> There are 2 types of inputs, the Automatic Voltage Regulator (AVR) Input, and the Governor Input.</p>
+<p>
+<script type="math/tex; mode=display">
+    u_i=\left(
+    \begin{array}{}
+    u^{(i)}_{\mathrm{avr}}\\
+    u^{(i)}_{\mathrm{governor}}\\
+    \end{array}
+    \right)
+ </script>
+</p>
+<ul>
+<li><span class="arithmatex">\(u_{\mathrm{avr}}\)</span>: AVR Input (０ for generators with no AVR).</li>
+<li><span class="arithmatex">\(u_{\mathrm{governor}}\)</span>: Governor Input.</li>
+</ul>
+<p><em>Input <span class="arithmatex">\(\small (u)\)</span> - Load:</em> There are 2 types of inputs, the porcentual increase of the real part of the admittance, and the porcentual increase of the imaginary part of the admittance.</p>
+<p>
+<script type="math/tex; mode=display">
+    u_i=\left(
+    \begin{array}{}
+    u^{(i)}_1\\
+    u^{(i)}_2\\
+    \end{array}
+    \right)
+ </script>
+</p>
+<ul>
+<li><span class="arithmatex">\(u_1\)</span>: Porcentual Increase of the Real Part of the Admittance (i.e., Conductance <span class="arithmatex">\(\small (G)\)</span>).</li>
+<li><span class="arithmatex">\(u_2\)</span>: Porcentual Increase of the Imaginary Part of the Admittance (i.e., Susceptance <span class="arithmatex">\(\small (B)\)</span>).</li>
+</ul>
+<p>The way in which the inputs <span class="arithmatex">\((u_1, u_2)\)</span> modify the original admittance <span class="arithmatex">\(\small (Y_{o})\)</span> is described in the following expression. </p>
+<p>
+<script type="math/tex; mode=display">
+    Y = \mathrm{Re}[Y_{\mathrm{o}}](1+u_1) + j \text{ } \mathrm{Im}[Y_{\mathrm{o}}] (1+u_2)
+ </script>
+</p>
+<p><em>Disturbance <span class="arithmatex">\(\small (d)\)</span> - Generator:</em> Note that disturbances are treated as external inputs, as it is evidenced by the fact that they are elements of the input vector <span class="arithmatex">\(u\)</span>. Also, consider that each generator <span class="arithmatex">\((i)\)</span> can have multiple disturbances <span class="arithmatex">\((n)\)</span>, then the set of disturbances of the <span class="arithmatex">\(\small i-th\)</span> generator is given by</p>
+<p>
+<script type="math/tex; mode=display">
+    d_i=\left(
+        \begin{array}{}
+        d^{(i)}_{1}\\
+        \vdots\\
+        d^{(i)}_{n}\\
+        \end{array}
+        \right)
+  </script>
+</p>
+<p><em>Disturbance <span class="arithmatex">\(\small (d)\)</span> - Load:</em> In GUILDA, the disturbances in loads are ignored, since they are considered too small compared to those of the generators.</p>
+<p>It is possible to add disturbances to the loads as well. However, since this changes the vector size, then it becomes necessary to redefine the processes that deal with this vector <span class="arithmatex">\((u)\)</span>.</p>
+<p><strong>Output Signal <span class="arithmatex">\((y)\)</span></strong></p>
+<p>The output signal is composed from the following</p>
+<ul>
+<li>State of each generator <span class="arithmatex">\((x)\)</span>.</li>
+<li>Evaluation function of each generator <span class="arithmatex">\((z)\)</span> (i.e., evaluation criterion when designing the control system).</li>
+<li>Voltage of each bus <span class="arithmatex">\((V)\)</span>.</li>
+<li>Current of each bus <span class="arithmatex">\((I)\)</span>.</li>
+</ul>
+<p>
+<script type="math/tex; mode=display">
+  y=\left(
+      \begin{array}{}
+      x_1\\
+      \vdots\\
+      x_{I_G}\\
+      \\z_1\\
+      \vdots\\
+      z_{I_G}\\
+      \\V_1\\
+      \vdots\\
+      V_{I_{all}}\\
+      \\I_1\\
+      \vdots\\
+      I_{I_{all}}\\
+      \end{array}
+  \right)
+  </script>
+</p>
+<p>Note that each <span class="arithmatex">\(V_i\)</span> and <span class="arithmatex">\(I_i\)</span> are composed by a real part and imaginary part</p>
+<p>
+<script type="math/tex; mode=display">
+    V_i=\left(
+        \begin{array}{}
+        V_{\mathrm{real}}\\
+        V_{\mathrm{image}}\\
+        \end{array}
+        \right)
+        \quad,\quad
+        I_i=\left(
+            \begin{array}{}
+            I_{\mathrm{real}}\\
+            I_{\mathrm{image}}\\
+            \end{array}
+            \right)
+  </script>
+</p>
+<hr />
+<h2 id="examples"><div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">Examples</span></div><a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
+<h3 id="example_1_-_add_a_controller"><div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold">Example 1 - Add a Controller</span></div><a class="headerlink" href="#example_1_-_add_a_controller" title="Permanent link">&para;</a></h3>
+<p><strong>Objective:</strong> Derive the state-space representation of the linearized model of a power network with controllers.</p>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li>
+<p>The Power Network (i.e., <code>net</code>) must already be defined.</p>
+</li>
+<li>
+<p>The Controllers (e.g., <code>AGC</code>) must already be defined.</p>
+</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><span class="c">%Derive the state-space representation of the linearized </span>
+<span class="c">%model of a power network with controllers.</span>
+<span class="n">sys</span> <span class="p">=</span>  <span class="n">net</span><span class="p">.</span><span class="n">get_sys</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</code></pre></div>
+Note that <code>get_sys(false)</code> means to derive the state-space representation of the system excluding the controller.</p>
+<h3 id="example_2_-_view_the_system_from_a_specific_input_to_output"><div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold">Example 2 - View the System from a Specific Input to Output.</span></div><a class="headerlink" href="#example_2_-_view_the_system_from_a_specific_input_to_output" title="Permanent link">&para;</a></h3>
+<p>The system matrices (<code>A, B, C, D</code>) stored in the returned <code>sys</code> vary in size depending on the number of buses. In cases where the state-space representation contains matrices with a great ammount of elements, this function is useful, as it allows to extract only a portion of the system, viewed from a specific input to a specific output.</p>
+<p><strong>Objective:</strong> Extract a portion of the system, as it is viewed from the disturbance input <span class="arithmatex">\((d_1)\)</span> to the evaluation output <span class="arithmatex">\((z_1)\)</span>.</p>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li>The Linearized System (<code>sys</code>) must already be defined.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">sys</span><span class="p">(</span><span class="s">&#39;z1&#39;</span><span class="p">,</span><span class="s">&#39;d1&#39;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="example_3_-_linear_simulation_results"><div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold">Example 3 - Linear Simulation Results.</span></div><a class="headerlink" href="#example_3_-_linear_simulation_results" title="Permanent link">&para;</a></h3>
+<p><strong>Objective:</strong> Compare the results of two methods in the following scenario: Simulate the time response of the synchronous generators to a ground fault in busbar 1 during time 0 - 0.01 s.</p>
+<ul>
+<li>
+<p>Method 1: Using the MATLAB Solver ODE15S with approximate linearization (i.e., the method <code>simulate</code> and <code>option.linear = true</code>).</p>
+</li>
+<li>
+<p>Method 2: Using the linear state-space representation of the system (i.e., the method <code>get_sys</code>). The time response is obtained as a response to initial value conditions by the MATLAB function <code>initial()</code>.</p>
+</li>
+</ul>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li>The code shown below.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c">%Define the Power Network</span>
+<span class="n">net</span><span class="p">=</span> <span class="n">network_IEEE68bus</span><span class="p">();</span>
+
+<span class="c">%Define the settings of the linear simulation during </span>
+<span class="c">%the ground fault segment t = [0, 0.01].</span>
+<span class="c">%This will be used as the initial conditions of the</span>
+<span class="c">%Linearized State-Space Representation.</span>
+<span class="n">option_fault</span> <span class="p">=</span> <span class="n">struct</span><span class="p">();</span>
+<span class="n">option_fault</span><span class="p">.</span><span class="n">fault</span> <span class="p">=</span> <span class="p">{{[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">],</span> <span class="mi">1</span><span class="p">}};</span>
+<span class="n">option_fault</span><span class="p">.</span><span class="n">linear</span> <span class="p">=</span> <span class="nb">true</span><span class="p">;</span>
+<span class="n">out_fault</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">simulate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">],</span> <span class="n">option_fault</span><span class="p">);</span>
+
+<span class="c">%ODE15S Solver</span>
+
+<span class="c">%Define the linear ODE15S solver and simulate.</span>
+<span class="n">option</span> <span class="p">=</span> <span class="n">struct</span><span class="p">();</span>
+<span class="n">option</span><span class="p">.</span><span class="n">x0_sys</span> <span class="p">=</span> <span class="n">horzcat</span><span class="p">(</span><span class="n">out_fault</span><span class="p">.</span><span class="n">X</span><span class="p">{:});</span>
+<span class="n">option</span><span class="p">.</span><span class="n">x0_sys</span> <span class="p">=</span> <span class="n">option</span><span class="p">.</span><span class="n">x0_sys</span><span class="p">(</span><span class="k">end</span><span class="p">,:)</span><span class="o">&#39;</span><span class="p">;</span>
+<span class="n">option</span><span class="p">.</span><span class="n">linear</span> <span class="p">=</span><span class="nb">true</span><span class="p">;</span>
+<span class="n">tmax</span> <span class="p">=</span> <span class="mi">30</span><span class="p">;</span>
+<span class="n">out_linear</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">simulate</span><span class="p">([</span><span class="mi">0</span> <span class="n">tmax</span><span class="p">],</span> <span class="n">option</span><span class="p">);</span>
+
+<span class="c">%Linearized State-Space Representation</span>
+
+<span class="c">%Obtain the linear state-space representation and simulate.</span>
+<span class="n">sys</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">get_sys</span><span class="p">();</span>
+<span class="n">x0</span> <span class="p">=</span> <span class="n">horzcat</span><span class="p">(</span><span class="n">out_fault</span><span class="p">.</span><span class="n">X</span><span class="p">{:});</span>
+<span class="n">x0</span> <span class="p">=</span> <span class="n">x0</span><span class="p">(</span><span class="k">end</span><span class="p">,</span> <span class="p">:)</span><span class="o">&#39;</span> <span class="o">-</span> <span class="n">net</span><span class="p">.</span><span class="n">x_equilibrium</span><span class="p">;</span>
+<span class="p">[</span><span class="n">z</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">]</span> <span class="p">=</span> <span class="n">initial</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span> <span class="n">x0</span><span class="p">);</span>
+
+<span class="c">%Plot the results.</span>
+<span class="n">numele</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="nb">find</span><span class="p">(</span><span class="n">t</span><span class="o">&lt;</span><span class="n">tmax</span><span class="p">),</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">z</span> <span class="p">=</span> <span class="n">z</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">numele</span><span class="p">,</span> <span class="p">:);</span>
+<span class="n">t</span> <span class="p">=</span> <span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">numele</span><span class="p">,</span> <span class="p">:);</span>
+<span class="n">x</span> <span class="p">=</span> <span class="n">x</span><span class="o">+</span><span class="n">net</span><span class="p">.</span><span class="n">x_equilibrium</span><span class="o">&#39;</span><span class="p">;</span>
+<span class="n">x</span> <span class="p">=</span> <span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">numele</span><span class="p">,</span> <span class="p">:);</span>
+<span class="n">for</span> <span class="s">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">16</span>
+    <span class="n">figure</span>
+    <span class="s">p</span> <span class="p">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">out_linear</span><span class="p">.</span><span class="n">t</span><span class="p">,</span> <span class="n">out_linear</span><span class="p">.</span><span class="n">X</span><span class="p">{</span><span class="nb">i</span><span class="p">}(:,</span> <span class="mi">2</span><span class="p">),</span> <span class="s">&#39;-&#39;</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">(:,</span> <span class="mi">7</span><span class="o">*</span><span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="mi">2</span><span class="p">),</span> <span class="s">&#39;--&#39;</span><span class="p">);</span>
+    <span class="n">p</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">LineWidth</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="n">p</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="n">LineWidth</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span> 
+    <span class="n">title</span><span class="p">(</span><span class="s">&#39;\Delta\omega&#39;</span><span class="p">,</span> <span class="s">&#39;Interpreter&#39;</span><span class="p">,</span> <span class="s">&#39;tex&#39;</span><span class="p">);</span>
+    <span class="n">legend</span><span class="p">(</span><span class="s">&#39;ODE Solver&#39;</span><span class="p">,</span><span class="s">&#39;Initial function (linearized state-space)&#39;</span><span class="p">)</span>
+    <span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Time [s]&#39;</span><span class="p">)</span>
+    <span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Frequency Deviation&#39;</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Two examples of the result of this code are the following.</p>
+<ul>
+<li>
+<p>The time response of the generator in busbar 7 (left).</p>
+</li>
+<li>
+<p>The time response of the generator in busbar 14 (right).</p>
+</li>
+</ul>
+<p>Note that the blue solid line represents the time response of the frequency deviation obtained by the ODE15S solver, while the orange dashed line corresponds to the one obtained by the initial value conditions applied to the linearized state-space representation. It is noteworthy that both responses are well aligned. Lastly, the buses 7 and 14 were chosen randomly and not for any reason in particular.</p>
+<p><img src="../../../Figures/step2_initial_bus7_en.png" width=49.5%;>
+<img src="../../../Figures/step2_initial_bus14_en.png" width=49.5%;></p>
+<h3 id="example_4_-_linear_and_nonlinear_simulation_results"><div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold">Example 4 - Linear and Nonlinear Simulation Results.</span></div><a class="headerlink" href="#example_4_-_linear_and_nonlinear_simulation_results" title="Permanent link">&para;</a></h3>
+<p><strong>Objective:</strong> Simulate the time response of the synchronous generators to a ground fault in busbar 1 during time 0 - 0.01 s, by using the MATLAB Solver ODE15S (i.e., <code>simulate</code>) with approximate linearization (i.e.,<code>option.linear = true</code>) and without approximate linearization (i.e., <code>option.linear = false</code>).</p>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li>The code shown below.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c">%Define the Power Network</span>
+<span class="n">net</span> <span class="p">=</span> <span class="n">network_IEEE68bus</span><span class="p">();</span>
+
+<span class="c">%Define the settings for the nonlinear simulation.</span>
+<span class="n">option</span> <span class="p">=</span> <span class="n">struct</span><span class="p">();</span>
+<span class="n">option</span><span class="p">.</span><span class="n">fault</span> <span class="p">=</span> <span class="p">{{[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.01</span><span class="p">],</span> <span class="mi">1</span><span class="p">}};</span>
+<span class="n">option</span><span class="p">.</span><span class="n">linear</span> <span class="p">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="n">out_nonlinear</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">simulate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="n">option</span><span class="p">);</span>
+
+<span class="c">%Define the settings for the linear simulation.</span>
+<span class="n">option</span><span class="p">.</span><span class="n">linear</span> <span class="p">=</span> <span class="nb">true</span><span class="p">;</span>
+<span class="n">out_linear</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">simulate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="n">option</span><span class="p">);</span>
+
+<span class="c">%Plot the results.</span>
+<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">16</span>
+    <span class="n">figure</span>
+    <span class="s">p</span> <span class="p">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">out_linear</span><span class="p">.</span><span class="n">t</span><span class="p">,</span> <span class="n">out_linear</span><span class="p">.</span><span class="n">X</span><span class="p">{</span><span class="nb">i</span><span class="p">}(:,</span> <span class="mi">2</span><span class="p">),</span> <span class="s">&#39;-&#39;</span><span class="p">,</span><span class="n">out_nonlinear</span><span class="p">.</span><span class="n">t</span><span class="p">,</span> <span class="n">out_nonlinear</span><span class="p">.</span><span class="n">X</span><span class="p">{</span><span class="nb">i</span><span class="p">}(:,</span> <span class="mi">2</span><span class="p">),</span> <span class="s">&#39;--&#39;</span><span class="p">);</span>
+    <span class="n">p</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">LineWidth</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="n">p</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="n">LineWidth</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="n">title</span><span class="p">(</span><span class="s">&#39;\Delta\omega&#39;</span><span class="p">,</span> <span class="s">&#39;Interpreter&#39;</span><span class="p">,</span> <span class="s">&#39;tex&#39;</span><span class="p">);</span>
+    <span class="n">legend</span><span class="p">(</span><span class="s">&#39;Linear&#39;</span><span class="p">,</span><span class="s">&#39;Nonlinear&#39;</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Two examples of the result of this code are the following.</p>
+<ul>
+<li>
+<p>The time response of the generator in busbar 7 (left).</p>
+</li>
+<li>
+<p>The time response of the generator in busbar 14 (right).</p>
+</li>
+</ul>
+<p>Note that the blue solid line represents the time response of the frequency deviation obtained by the ODE15S solver of the linear system, while the orange dashed line corresponds to the one obtained for the nonlinear system.</p>
+<p><img src="../../../Figures/step2_linear_bus7_en.png" width=49.5%;>
+<img src="../../../Figures/step2_linear_bus14_en.png" width=49.5%;></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../SampleCode/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Simulation Examples
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../../../SourceCode/0TopPage/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Source Code Explanation
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2020- Tokyo Tech, Ishizaki Lab.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: ['navigation.tabs', 'content.code.annotate'],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.9c0e82ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

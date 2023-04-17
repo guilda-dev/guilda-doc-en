@@ -1,0 +1,1051 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../Figures/modularsmall.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
+    
+    
+      
+        <title>Power Network Class - GUILDA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.cb6bc1d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700%7C&display=fallback">
+        <style>body,input{font-family:"Open Sans",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosansjp.css">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:600,800">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="light-blue">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#power_network_class" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="GUILDA Documentation" class="md-header-nav__button md-logo" aria-label="GUILDA Documentation">
+      
+  <img src="../../Figures/modularsmall.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            GUILDA Documentation
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              Power Network Class
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link md-tabs__link--active">
+        Top
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="GUILDA Documentation" class="md-nav__button md-logo" aria-label="GUILDA Documentation">
+      
+  <img src="../../Figures/modularsmall.png" alt="logo">
+
+    </a>
+    GUILDA Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+      
+      <label class="md-nav__link" for="nav-1">
+        Top
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Top" data-md-level="1">
+        <label class="md-nav__title" for="nav-1">
+          <span class="md-nav__icon md-icon"></span>
+          Top
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SetEnvironment/0TopPage/" class="md-nav__link">
+        GUILDA Setup
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aboutPowerSystem/0TopPage/" class="md-nav__link">
+        Power System Model (Simple)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SeriesAnalysis/0TopPage/" class="md-nav__link">
+        Guided Example
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5" type="checkbox" id="nav-1-5" >
+      
+      <label class="md-nav__link" for="nav-1-5">
+        Guilda in Detail
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Guilda in Detail" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-5">
+          <span class="md-nav__icon md-icon"></span>
+          Guilda in Detail
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/0TopPage/" class="md-nav__link">
+        Guilda in Detail
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5-2" type="checkbox" id="nav-1-5-2" >
+      
+      <label class="md-nav__link" for="nav-1-5-2">
+        Power System Model (Detailed)
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Power System Model (Detailed)" data-md-level="3">
+        <label class="md-nav__title" for="nav-1-5-2">
+          <span class="md-nav__icon md-icon"></span>
+          Power System Model (Detailed)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/defineNet/0TopPage/" class="md-nav__link">
+        Power System Model (Detailed)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/defineNet/NewPowerNetwork/" class="md-nav__link">
+        New Power System Model
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/defineNet/NewComponent/" class="md-nav__link">
+        New Components
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5-3" type="checkbox" id="nav-1-5-3" >
+      
+      <label class="md-nav__link" for="nav-1-5-3">
+        Controllers
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Controllers" data-md-level="3">
+        <label class="md-nav__title" for="nav-1-5-3">
+          <span class="md-nav__icon md-icon"></span>
+          Controllers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/addController/0TopPage/" class="md-nav__link">
+        Controllers
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/addController/NewController/" class="md-nav__link">
+        New Controller
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5-4" type="checkbox" id="nav-1-5-4" >
+      
+      <label class="md-nav__link" for="nav-1-5-4">
+        Numerical Simulations
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Numerical Simulations" data-md-level="3">
+        <label class="md-nav__title" for="nav-1-5-4">
+          <span class="md-nav__icon md-icon"></span>
+          Numerical Simulations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/Analysis/net_simulate/" class="md-nav__link">
+        Simulating
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/Analysis/SampleCode/" class="md-nav__link">
+        Simulation Examples
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reference/Analysis/net_getsys/" class="md-nav__link">
+        Derivation of a Linearized Model
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-6" type="checkbox" id="nav-1-6" checked>
+      
+      <label class="md-nav__link" for="nav-1-6">
+        Source Code Explanation
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Source Code Explanation" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-6">
+          <span class="md-nav__icon md-icon"></span>
+          Source Code Explanation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0TopPage/" class="md-nav__link">
+        Source Code Explanation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Power Network Class
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Power Network Class
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#power_network_class_1" class="md-nav__link">
+    Power Network Class
+  </a>
+  
+    <nav class="md-nav" aria-label="Power Network Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-bus_sample_model" class="md-nav__link">
+    3-Bus Sample Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ieee_68-bus_model" class="md-nav__link">
+    IEEE 68-Bus Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#power_network_class_-_properties" class="md-nav__link">
+    Power Network Class - Properties
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NetProperties/" class="md-nav__link">
+        Power Network Class - Properties
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../branch/" class="md-nav__link">
+        Branch Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bus/" class="md-nav__link">
+        Bus Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../component/" class="md-nav__link">
+        Component Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../controller/" class="md-nav__link">
+        Controller Class
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#power_network_class_1" class="md-nav__link">
+    Power Network Class
+  </a>
+  
+    <nav class="md-nav" aria-label="Power Network Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-bus_sample_model" class="md-nav__link">
+    3-Bus Sample Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ieee_68-bus_model" class="md-nav__link">
+    IEEE 68-Bus Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#power_network_class_-_properties" class="md-nav__link">
+    Power Network Class - Properties
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="power_network_class"><div style="text-align: center;"><span style="font-size: 140%; color: black; font-weight: bold">Power Network Class</span></div><a class="headerlink" href="#power_network_class" title="Permanent link">&para;</a></h1>
+<p>This page explains the variables and functions used in the power network class (<code>power_network</code>), as well as one detailed example to better understand those variables and functions in an actual power system model.</p>
+<p><strong>Contents:</strong></p>
+<ul>
+<li><a href="#power_network_class">Power Network Class.</a><ul>
+<li><a href="#variables">Variables.</a></li>
+<li><a href="#functions">Functions.</a></li>
+</ul>
+</li>
+<li><a href="#3_bus_sample_model">3-Bus Sample Model.</a></li>
+<li><a href="#ieee_68_bus_model">IEEE 68-Bus Model.</a></li>
+<li><a href="#power_network_class_-_properties">Power Network Class - Properties.</a></li>
+</ul>
+<hr />
+<h2 id="power_network_class_1"><div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">Power Network Class</span></div><a class="headerlink" href="#power_network_class_1" title="Permanent link">&para;</a></h2>
+<p>This is one of the five main classes in GUILDA. From this class (<code>power_network</code>), all the power system models are derived.</p>
+<h3 id="variables"><div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold">Variables</span></div><a class="headerlink" href="#variables" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><code>x_equilibrium</code>：Array containing the internal state of a generator. The internal state of each generator is composed of seven variables: 1. Rotor Declination Angle <span class="arithmatex">\(\small (\delta)\)</span>, 2. Angular Frequency Deviation <span class="arithmatex">\(\small (\Delta \omega)\)</span>, 3. Internal Voltage <span class="arithmatex">\(\small (E)\)</span>, 4. Automatic Voltage Regulator (AVR) Variable, and 5-7. Power System Stabilizer (PSS) Variables.</p>
+</li>
+<li>
+<p><code>V_equilibrium</code>：Array containing the Equilibrium Voltage <span class="arithmatex">\(\small (V)\)</span> ([real part; imaginary part]) for each busbar.</p>
+</li>
+<li>
+<p><code>I_equilibrium</code>：Array containing the Equilibrium Current <span class="arithmatex">\(\small (I)\)</span> ([real part; imaginary part]) for each busbar.</p>
+</li>
+<li>
+<p><code>a_bus</code>：Array containing all the busbar information. The information on the i-th busbar is stored in the i-th element and can be obtained in the form of a structure like <code>power_network.a_bus{5}.V_equilibrium</code> to get the equilibrium point of the voltage on the 5-th bus bar.</p>
+</li>
+<li>
+<p><code>a_controller_global</code>：Array containing the Global Controller information.</p>
+</li>
+<li>
+<p><code>a_controller_local</code>：Array containing the Local Controller information.</p>
+</li>
+<li>
+<p><code>a_branch</code>：Array containing the branches infromation.</p>
+</li>
+</ul>
+<h3 id="functions"><div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold">Functions</span></div><a class="headerlink" href="#functions" title="Permanent link">&para;</a></h3>
+<p><strong>Simulate</strong> (<code>simulate</code>)</p>
+<p>Function to simulate the system and output the results.</p>
+<p>Class Structure: <code>out = simulate(obj, t, varargin)</code></p>
+<p>Input Arguments</p>
+<ul>
+<li><code>t = [start, end]</code>: Time <span class="arithmatex">\(\small (t)\)</span>.</li>
+<li><code>u</code>: Input signal to the bus <span class="arithmatex">\(\small (u)\)</span>. <span class="arithmatex">\(\star\)</span></li>
+<li><code>idx_u</code>: Target bus for the input signal. <span class="arithmatex">\(\star\)</span></li>
+<li>
+<p><code>options</code>: Struture-type variable that contains the information of the simulation conditions, such as</p>
+<ul>
+<li>
+<p><code>linear</code>：Sets if the simulation is linear (i.e., <code>true</code>) or nonlinear (i.e., <code>false</code>).</p>
+</li>
+<li>
+<p><code>fault</code>：Sets the ground fault conditions in the form of <code>{[start time, end time], target busbar}</code>.</p>
+</li>
+<li>
+<p><code>x0_sys</code>：Sets the initial value conditions of the state as a cell array per bus or as a vector with all buses stacked.</p>
+</li>
+<li>
+<p><code>V0</code>：Sets the initial busbar voltage as a cell array per bus or as a vector with all buses stacked.</p>
+</li>
+<li>
+<p><code>I0</code>：Sets the initial busbar current as a cell array per bus or as a vector with all buses stacked.</p>
+</li>
+<li>
+<p><code>X0_con_local</code>：Sets the initial busbar local controller value as a cell array per bus or as a vector with all buses stacked.</p>
+</li>
+<li>
+<p><code>x0_con_global</code>：Sets the initial busbar global controller value as a cell array per bus or as a vector with all buses stacked.</p>
+</li>
+<li>
+<p><code>rest_time</code>：Forced termination time for the ODE15S Solver.</p>
+</li>
+<li>
+<p><code>do_retry</code>： Sets if, once the forced termination time is reached, retry (i.e., <code>true</code>) or not (i.e., <code>false</code>) the numerical integration.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><em><span class="arithmatex">\(\star\)</span> The input signal (<code>u</code>) and it's target bus (<code>idx_u</code>) are optional arguments. When used, they must be entered immediately after the time (<code>t</code>) argument.</em></p>
+<p>Output Parameters (<code>out</code>)</p>
+<p>Structure containing time response data of the system, composed of the following parameters</p>
+<ul>
+<li>
+<p><code>t</code>：Time <span class="arithmatex">\(\small (t)\)</span> as an array containing the "number of samplings".</p>
+</li>
+<li>
+<p><code>X</code>：Response data of the state of the generators connected to each busbar as an array with "number of samplings" ✕ "number of device states".</p>
+</li>
+<li>
+<p><code>V</code>：Busbar voltage as an array with "number of samplings" ✕ 2 (Real Part, Imaginary Part).</p>
+</li>
+<li>
+<p><code>I</code>：Busbar current as an array with "number of samplings" ✕ 2 (Real Part, Imaginary Part).</p>
+</li>
+<li>
+<p><code>fault_bus</code>：For each segment of the analysis, this field stores the cell array classification of the index of the busbar where the ground fault occurs. <span class="arithmatex">\(\star \star\)</span></p>
+</li>
+<li>
+<p><code>U_global</code>：Contains the response of the input value from the global controller as an array "Input Ports of the Generator" ✕ "Number of Generators".</p>
+</li>
+<li>
+<p><code>U</code>：Contains the response of the input value from the local controller as an array "Input Ports of the Generator" ✕ "Number of Generators".</p>
+</li>
+<li>
+<p><code>sols</code>：For each segment of the analysis: This field stores in an array the solvers running in each segment. <span class="arithmatex">\(\star \star\)</span></p>
+</li>
+</ul>
+<p><span class="arithmatex">\(\star \star\)</span> <em>For more information on what "for each segment of the analysis" means, as well as more information on the <code>simulate</code> class, plese refer to the dedicated section <a href="/Reference/Analysis/net_simulate/">Simulating</a>.</em></p>
+<p><strong>Add Local Controller</strong> (<code>add_controller_local</code>)</p>
+<p>Function to add a local controller to the system.</p>
+<p>Class Structure: <code>add_controller_local(obj, controller)</code></p>
+<p>Input Arguments</p>
+<ul>
+<li><code>controller</code>: An already defined controller (i.e., instance of the controller class). Note that, if a controller has already been added to the specified busbar, delete the previous one before adding.</li>
+</ul>
+<p>Output Parameters</p>
+<ul>
+<li><em>None</em></li>
+</ul>
+<p><strong>Add Global Controller</strong> (<code>add_controller_global</code>)</p>
+<p>Function to add a global controller to the system.</p>
+<p>Class Structure: <code>add_controller_global(obj, controller)</code></p>
+<p>Input Arguments</p>
+<ul>
+<li><code>controller</code>: An already defined controller (i.e., instance of the controller class). Note that, if a controller has already been added to the specified busbar, delete the previous one before adding.</li>
+</ul>
+<p>Output Parameters</p>
+<ul>
+<li><em>None</em></li>
+</ul>
+<p><strong>Remove Local Controller</strong> (<code>remove_controller_local</code>)</p>
+<p>Function to delete a local controller from the system.</p>
+<p>Class Structure: <code>remove_controller_local(obj, idx)</code></p>
+<p>Input Arguments</p>
+<ul>
+<li><code>idx</code>: Busbar with the controller to be removed.</li>
+</ul>
+<p>Output Parameters</p>
+<ul>
+<li><em>None</em></li>
+</ul>
+<p><strong>Remove Global Controller</strong> (<code>remove_controller_global</code>)</p>
+<p>Function to delete a global controller from the system.</p>
+<p>Class Structure: <code>remove_controller_global(obj, idx)</code></p>
+<p>Input Arguments</p>
+<ul>
+<li><code>idx</code>: Busbar with the controller to be removed.</li>
+</ul>
+<p>Output Parameters</p>
+<ul>
+<li><em>None</em></li>
+</ul>
+<p><em>Note: For more information on the <code>controller</code> class related functions, please refer to the dedicated section <a href="/Reference/addController/0TopPage/">Controllers</a>.</em></p>
+<h2 id="3-bus_sample_model"><div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">3-Bus Sample Model</span></div><a class="headerlink" href="#3-bus_sample_model" title="Permanent link">&para;</a></h2>
+<p>The 3-bus system model is the one used in the <a href="../../SeriesAnalysis/0TopPage/">Guided Example</a>, which is also covered in the <a href="https://www.coronasha.co.jp/np/isbn/9784339033847/">reference text</a>. For a detailed explanation, please refer to the mentioned materials.</p>
+<p>The model is composed of</p>
+<ul>
+<li>3 busbars.</li>
+<li>2 generators (busbar 1 and busbar 2).</li>
+<li>1 load (busbar 3).</li>
+</ul>
+<p><img alt="" src="../../Figures/write_3bus.png" /> </p>
+<h2 id="ieee_68-bus_model"><div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">IEEE 68-Bus Model</span></div><a class="headerlink" href="#ieee_68-bus_model" title="Permanent link">&para;</a></h2>
+<p>The IEEE 68-Bus 16-Machine System Model is already implemented in GUILDA derived from the <code>power_network</code> class. For more information on it refer to the book <a href="https://www.springer.com/gp/book/9780387259499">Robust Control in Power Systems</a>.</p>
+<p>In this model, the Synchronous Generator is modelled by the 1-Axis model (i.e., <a href="../component/#generator_1axis">generator_1axis</a> class) and the Loads are modelled by Constant Impedance Model (i.e., <a href="../component/#load_impedance">load_impedance</a> class).</p>
+<div align="center"><img src="../../Figures/IEEE68bus.png" width=75%;></div>
+
+<hr />
+<h2 id="power_network_class_-_properties"><div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">Power Network Class - Properties</span></div><a class="headerlink" href="#power_network_class_-_properties" title="Permanent link">&para;</a></h2>
+<p>In GUILDA, the power system model is defined as a variable of the class <code>power_network</code>. The purpose of this section is to provide an imagine of what kind of power system model is implemented by looking at the values of the properties of this <code>power_network</code> class (Click on the Illustration ↓).
+<a href="../NetProperties/"><div align="center"><img src="../../Figures/net_workspace.jpg" width=80%; style="border: 7px pink solid;"></div></a></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../0TopPage/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Source Code Explanation
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../NetProperties/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Power Network Class - Properties
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2020- Tokyo Tech, Ishizaki Lab.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ['navigation.tabs', 'content.code.annotate'],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.9c0e82ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

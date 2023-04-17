@@ -1,0 +1,1473 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../../Figures/modularsmall.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
+    
+    
+      
+        <title>Simulating - GUILDA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.cb6bc1d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700%7C&display=fallback">
+        <style>body,input{font-family:"Open Sans",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosansjp.css">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:600,800">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="light-blue">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#simulating" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../.." title="GUILDA Documentation" class="md-header-nav__button md-logo" aria-label="GUILDA Documentation">
+      
+  <img src="../../../Figures/modularsmall.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            GUILDA Documentation
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              Simulating
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link md-tabs__link--active">
+        Top
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="GUILDA Documentation" class="md-nav__button md-logo" aria-label="GUILDA Documentation">
+      
+  <img src="../../../Figures/modularsmall.png" alt="logo">
+
+    </a>
+    GUILDA Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+      
+      <label class="md-nav__link" for="nav-1">
+        Top
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Top" data-md-level="1">
+        <label class="md-nav__title" for="nav-1">
+          <span class="md-nav__icon md-icon"></span>
+          Top
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SetEnvironment/0TopPage/" class="md-nav__link">
+        GUILDA Setup
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aboutPowerSystem/0TopPage/" class="md-nav__link">
+        Power System Model (Simple)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SeriesAnalysis/0TopPage/" class="md-nav__link">
+        Guided Example
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5" type="checkbox" id="nav-1-5" checked>
+      
+      <label class="md-nav__link" for="nav-1-5">
+        Guilda in Detail
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Guilda in Detail" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-5">
+          <span class="md-nav__icon md-icon"></span>
+          Guilda in Detail
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0TopPage/" class="md-nav__link">
+        Guilda in Detail
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5-2" type="checkbox" id="nav-1-5-2" >
+      
+      <label class="md-nav__link" for="nav-1-5-2">
+        Power System Model (Detailed)
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Power System Model (Detailed)" data-md-level="3">
+        <label class="md-nav__title" for="nav-1-5-2">
+          <span class="md-nav__icon md-icon"></span>
+          Power System Model (Detailed)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../defineNet/0TopPage/" class="md-nav__link">
+        Power System Model (Detailed)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../defineNet/NewPowerNetwork/" class="md-nav__link">
+        New Power System Model
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../defineNet/NewComponent/" class="md-nav__link">
+        New Components
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5-3" type="checkbox" id="nav-1-5-3" >
+      
+      <label class="md-nav__link" for="nav-1-5-3">
+        Controllers
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Controllers" data-md-level="3">
+        <label class="md-nav__title" for="nav-1-5-3">
+          <span class="md-nav__icon md-icon"></span>
+          Controllers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../addController/0TopPage/" class="md-nav__link">
+        Controllers
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../addController/NewController/" class="md-nav__link">
+        New Controller
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5-4" type="checkbox" id="nav-1-5-4" checked>
+      
+      <label class="md-nav__link" for="nav-1-5-4">
+        Numerical Simulations
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Numerical Simulations" data-md-level="3">
+        <label class="md-nav__title" for="nav-1-5-4">
+          <span class="md-nav__icon md-icon"></span>
+          Numerical Simulations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Simulating
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Simulating
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#simulation_execution_method" class="md-nav__link">
+    Simulation Execution Method
+  </a>
+  
+    <nav class="md-nav" aria-label="Simulation Execution Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#time_argument" class="md-nav__link">
+    Time Argument
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input_argument" class="md-nav__link">
+    Input Argument
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-input_relationship" class="md-nav__link">
+    Time-Input Relationship
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option_argument" class="md-nav__link">
+    Option Argument
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    Results
+  </a>
+  
+    <nav class="md-nav" aria-label="Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#time_field_t" class="md-nav__link">
+    Time Field (t)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state_field_x" class="md-nav__link">
+    State Field (X)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voltage_and_current_fields_v_i" class="md-nav__link">
+    Voltage and Current Fields (V, I)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#global_controller_state_response_field_xk_global" class="md-nav__link">
+    Global Controller State Response Field (Xk_global)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#global_controller_input_field_u_global" class="md-nav__link">
+    Global Controller Input Field (U_global)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linear_controller_state_response_field_u" class="md-nav__link">
+    Linear Controller State Response Field (U)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linear_controller_input_field_linear" class="md-nav__link">
+    Linear Controller Input Field (linear)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal_processes_to_consinder" class="md-nav__link">
+    Internal Processes to Consinder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#busbar_field" class="md-nav__link">
+    Busbar Field
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fault_busbar_field" class="md-nav__link">
+    Fault Busbar Field
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#admittance_matrix_variable" class="md-nav__link">
+    Admittance Matrix Variable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solver_field" class="md-nav__link">
+    Solver Field
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auxiliary_tools_for_results_tools" class="md-nav__link">
+    Auxiliary Tools for Results (tools)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SampleCode/" class="md-nav__link">
+        Simulation Examples
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_getsys/" class="md-nav__link">
+        Derivation of a Linearized Model
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-6" type="checkbox" id="nav-1-6" >
+      
+      <label class="md-nav__link" for="nav-1-6">
+        Source Code Explanation
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Source Code Explanation" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-6">
+          <span class="md-nav__icon md-icon"></span>
+          Source Code Explanation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/0TopPage/" class="md-nav__link">
+        Source Code Explanation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/power_network/" class="md-nav__link">
+        Power Network Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/NetProperties/" class="md-nav__link">
+        Power Network Class - Properties
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/branch/" class="md-nav__link">
+        Branch Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/bus/" class="md-nav__link">
+        Bus Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/component/" class="md-nav__link">
+        Component Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/controller/" class="md-nav__link">
+        Controller Class
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#simulation_execution_method" class="md-nav__link">
+    Simulation Execution Method
+  </a>
+  
+    <nav class="md-nav" aria-label="Simulation Execution Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#time_argument" class="md-nav__link">
+    Time Argument
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input_argument" class="md-nav__link">
+    Input Argument
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-input_relationship" class="md-nav__link">
+    Time-Input Relationship
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option_argument" class="md-nav__link">
+    Option Argument
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    Results
+  </a>
+  
+    <nav class="md-nav" aria-label="Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#time_field_t" class="md-nav__link">
+    Time Field (t)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state_field_x" class="md-nav__link">
+    State Field (X)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voltage_and_current_fields_v_i" class="md-nav__link">
+    Voltage and Current Fields (V, I)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#global_controller_state_response_field_xk_global" class="md-nav__link">
+    Global Controller State Response Field (Xk_global)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#global_controller_input_field_u_global" class="md-nav__link">
+    Global Controller Input Field (U_global)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linear_controller_state_response_field_u" class="md-nav__link">
+    Linear Controller State Response Field (U)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linear_controller_input_field_linear" class="md-nav__link">
+    Linear Controller Input Field (linear)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal_processes_to_consinder" class="md-nav__link">
+    Internal Processes to Consinder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#busbar_field" class="md-nav__link">
+    Busbar Field
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fault_busbar_field" class="md-nav__link">
+    Fault Busbar Field
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#admittance_matrix_variable" class="md-nav__link">
+    Admittance Matrix Variable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solver_field" class="md-nav__link">
+    Solver Field
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auxiliary_tools_for_results_tools" class="md-nav__link">
+    Auxiliary Tools for Results (tools)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <p><img src="../../../Figures/index-2.jpg" width=100%;></p>
+<h1 id="simulating"><div style="text-align: center;"><span style="font-size: 140%; color: black; font-weight: bold">Simulating</span></div><a class="headerlink" href="#simulating" title="Permanent link">&para;</a></h1>
+<p>This section explains how to perform the simulations. It explains how to set the simulation conditions and how to read the results.</p>
+<p><strong>Contents:</strong></p>
+<ul>
+<li><a href="#simulation_execution_method">Simulation Execution Method.</a><ul>
+<li><a href="#time_argument">Time Argument.</a></li>
+<li><a href="#input_argument">Input Argument.</a></li>
+<li><a href="#time_input_relationship">Time-Input Relationship.</a></li>
+<li><a href="#option_argument">Option Argument.</a></li>
+</ul>
+</li>
+<li><a href="#results">Results.</a><ul>
+<li><a href="#time_variable">Time Variable.</a></li>
+<li><a href="#state_variable">State Variable.</a></li>
+<li><a href="#voltage_and_current_variable">Voltage and Current Variable.</a></li>
+<li><a href="#global_controller_state_response_variable">Global Controller State Response Variable.</a></li>
+<li><a href="#global_controller_input_variable">Global Controller Input Variable.</a></li>
+<li><a href="#linear_controller_state_response_variable">Linear Controller State Response Variable.</a></li>
+<li><a href="#linear_controller_input_variable">Linear Controller Input Variable.</a></li>
+<li><a href="#busbar_variable">Busbar Variable.</a></li>
+<li><a href="#fault_busbar_variable">Fault Busbar Variable.</a></li>
+<li><a href="#admittance_matrix_variable">Admittance Matrix Variable.</a></li>
+<li><a href="#solver_variable">Solver Variable.</a></li>
+</ul>
+</li>
+<li><a href="#auxiliary_tools_for_results">Auxiliary Tools for Results.</a></li>
+<li><a href="#simulation_-_examples">Simulation Examples</a></li>
+</ul>
+<hr />
+<h2 id="simulation_execution_method"><div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold"><strong>Simulation Execution Method</strong></span></div><a class="headerlink" href="#simulation_execution_method" title="Permanent link">&para;</a></h2>
+<p>This section explains the function that simulates the power system model, which is defined as a method of the <code>power_network</code> class under the name <code>simulate</code>. The execution method is as follows</p>
+<div class="highlight"><pre><span></span><code><span class="c">%To set the options setting.</span>
+<span class="n">out</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">option</span><span class="p">);</span>
+
+<span class="c">%To set the inputs to the system.</span>
+<span class="n">out</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">u_idx</span><span class="p">);</span>
+
+<span class="c">%To set both the option setting, and the inputs to the system.</span>
+<span class="n">out</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">u_idx</span><span class="p">,</span><span class="n">option</span><span class="p">);</span>
+</code></pre></div>
+<p><em>Note: For the data structure of the output result <code>out</code>, please refer to the section <a href="#results">Results</a> in the latter half of this page.</em></p>
+<p>From this point on, the arguments of the function <code>simulate</code> are explained.</p>
+<h3 id="time_argument"><div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold"><strong>Time Argument</strong></span></div><a class="headerlink" href="#time_argument" title="Permanent link">&para;</a></h3>
+<p><code>time = [start, end]</code></p>
+<p>It specifies the time to run the simulation. </p>
+<p>For example, if you want to simulate 0-60 seconds, you can specify <code>time=[0,60]</code>.</p>
+<h3 id="input_argument"><div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold"><strong>Input Argument</strong></span></div><a class="headerlink" href="#input_argument" title="Permanent link">&para;</a></h3>
+<p>The Input Argument is composed by the arguments <code>u</code> and <code>u_idx</code>, where <code>u</code> is the input to the system, and <code>u_idx</code> is the device number to which the input is applied. By specifying the value of these arguments, a simulation can be performed with inputs to the system. Now <code>u_idx</code> is explained, while <code>u</code> is explained afterwards.</p>
+<p><code>u_idx = [device number]</code></p>
+<p>It specifies the device number to which the input is applied. The device number is the number of the busbar connected to the device. As an example here, we consider applying inputs to the devices numbered "1,16,20".</p>
+<div class="highlight"><pre><span></span><code><span class="n">u_idx</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">20</span><span class="p">];</span>
+</code></pre></div>
+<p>To set the input values, it is necessary to know the number of ports of the target device and the port number to which the input is given. As for the number of ports, it is obligatory to define a function <code>get_nu</code> in the component class to get the number of input ports, which can be found as follows.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;</span> <span class="k">for</span> <span class="n">idx</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">20</span><span class="p">]</span>
+      <span class="n">nu</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">a_bus</span><span class="p">{</span><span class="n">idx</span><span class="p">}.</span><span class="n">component</span><span class="p">.</span><span class="n">get_nu</span><span class="p">;</span>
+      <span class="nb">disp</span><span class="p">([</span><span class="s">&#39;bus&#39;</span><span class="p">,</span><span class="n">num2str</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span><span class="s">&#39;%.2d&#39;</span><span class="p">),</span><span class="s">&#39;:nu=&#39;</span><span class="p">,</span><span class="n">num2str</span><span class="p">(</span><span class="n">nu</span><span class="p">),</span><span class="s">&#39;port&#39;</span><span class="p">])</span>
+   <span class="n">end</span>
+</code></pre></div>
+<p>The port number to which the input is applied must be determined by understanding the respective device model and considering the port number corresponding to the parameter to which you wish to add the input.</p>
+<p>For example, in the IEEE 68-bus model, the component 1 and 16 are assigned the <code>generator_1axis</code> class, so the first input port is set to be an input to the field voltage command value and the second input port to the machine torque command value. On the other hand, the component 20 is of the <code>load_impedance</code> class, so the first input port is set to the command value of the multiplier of the real part of the impedance, and the second to the command value of the multiplier of the imaginary part.</p>
+<h3 id="time-input_relationship"><div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold"><strong>Time-Input Relationship</strong></span></div><a class="headerlink" href="#time-input_relationship" title="Permanent link">&para;</a></h3>
+<p>Now, the input to the system (<code>u</code>) is defined. The dimension of <code>u</code> is "the sum of the number of ports of the device to which the input is added "✕" (times) the number of time indices".</p>
+<p>In the previous section  the argument <code>time</code> was defined as 1✕2 array of the simulation start and end times, but if an input signal is specified, then the argument <code>time</code> becomes the index of the time of the input signal. </p>
+<p>In the following image the time-input relationship is depicted by using a zero-order hold. </p>
+<div class="highlight"><pre><span></span><code><span class="c">%Define the arguments time, u, and u_idx as shown above and assign them to the simulate function.</span>
+<span class="n">out</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">u_idx</span><span class="p">);</span>
+</code></pre></div>
+<p><img src="../../../Figures/analysis_u_zoh.jpg" width=100%;></p>
+<h3 id="option_argument"><div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold"><strong>Option Argument</strong></span></div><a class="headerlink" href="#option_argument" title="Permanent link">&para;</a></h3>
+<p>In this section, the possible values of the option argument are explained. </p>
+<p><strong>Input Waveform (zero-order hold or first-order hold)</strong> (<code>method</code>).</p>
+<ul>
+<li>Zero-Order Hold Input Signal:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">option</span><span class="p">.</span><span class="n">method</span> <span class="p">=</span> <span class="s">&#39;zoh&#39;</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li>First-Order Hold Input Signal:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">option</span><span class="p">.</span><span class="n">method</span> <span class="p">=</span> <span class="s">&#39;foh&#39;</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li>Code Example</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c">%Define time, u, and u_idx as shown above and assign them to the simulate function.</span>
+<span class="c">%Define the options as &#39;method&#39; and &#39;zoh&#39; (zero order hold).</span>
+<span class="n">out</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">u_idx</span><span class="p">,</span><span class="s">&#39;method&#39;</span><span class="p">,</span><span class="s">&#39;zoh&#39;</span><span class="p">);</span>
+<span class="c">%Define the options as &#39;method&#39; and &#39;foh&#39; (first order hold).</span>
+<span class="n">out</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">u_idx</span><span class="p">,</span><span class="s">&#39;method&#39;</span><span class="p">,</span><span class="s">&#39;foh&#39;</span><span class="p">);</span>
+</code></pre></div>
+<p>The image below shows an example of a first order hold.</p>
+<p><img src="../../../Figures/analysis_u_foh.jpg" width=100%;></p>
+<p><strong>Simulation Linearity</strong> (<code>linear</code>).</p>
+<ul>
+<li>Nonlinear Model.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">option</span><span class="p">.</span><span class="n">linear</span> <span class="p">=</span> <span class="nb">false</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li>Approximate Linearized Model.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">option</span><span class="p">.</span><span class="n">linear</span> <span class="p">=</span> <span class="nb">true</span><span class="p">;</span>
+</code></pre></div>
+<p><strong>Ground Fault</strong> (<code>fault</code>).</p>
+<ul>
+<li>No Ground Fault.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">option</span><span class="p">.</span><span class="n">fault</span> <span class="p">=</span> <span class="p">{};</span>
+</code></pre></div>
+<ul>
+<li>Ground Fault - Example 1.</li>
+</ul>
+<p>A ground fault occurs on busbar 1 within 1-1.01 sec.</p>
+<div class="highlight"><pre><span></span><code><span class="n">option</span><span class="p">.</span><span class="n">fault</span> <span class="p">=</span> <span class="p">{{[</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.01</span><span class="p">],</span><span class="mi">1</span><span class="p">}};</span>
+</code></pre></div>
+<ul>
+<li>Ground Fault - Example 2.</li>
+</ul>
+<p>In addition to the ground fault in Example 1, another ground fault occurs between 5-5.01 seconds on busbars 2 and 3.</p>
+<div class="highlight"><pre><span></span><code><span class="n">option</span><span class="p">.</span><span class="n">fault</span> <span class="p">=</span> <span class="p">{{[</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.01</span><span class="p">],</span><span class="mi">1</span><span class="p">},{[</span><span class="mi">5</span><span class="p">,</span><span class="mf">5.01</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]}};</span>
+</code></pre></div>
+<ul>
+<li>Ground Fault - Example 3.</li>
+</ul>
+<p>In addition to the Example 2, a ground fault occurs between 10-10.01 seconds on busbars 4-10.</p>
+<div class="highlight"><pre><span></span><code><span class="n">option</span><span class="p">.</span><span class="n">fault</span> <span class="p">=</span> <span class="p">{{[</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.01</span><span class="p">],</span><span class="mi">1</span><span class="p">},{[</span><span class="mi">5</span><span class="p">,</span><span class="mf">5.01</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]},{[</span><span class="mi">10</span><span class="p">,</span><span class="mf">10.01</span><span class="p">],</span><span class="mi">4</span><span class="p">:</span><span class="mi">10</span><span class="p">}};</span>
+</code></pre></div>
+<p><strong>Initial System State Condition</strong> (<code>x0_sys</code>).</p>
+<p>Initial value of the system state for the equilibrium point.</p>
+<div class="highlight"><pre><span></span><code><span class="n">option</span><span class="p">.</span><span class="n">x0_sys</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">x_equilibrium</span><span class="p">;</span>
+</code></pre></div>
+<p><strong>Initial Busbar Voltage</strong> (<code>V0</code>).</p>
+<p>Initial value of each busbar voltage for power flow calculation.</p>
+<div class="highlight"><pre><span></span><code><span class="n">option</span><span class="p">.</span><span class="n">V0</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">V_equilibrium</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li>Example: Only the voltage magnitude of busbar 1 is set to be zero <span class="arithmatex">\(\small (\lvert V \rvert = 0)\)</span>.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">option</span><span class="p">.</span><span class="n">V0</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">V_equilibrium</span><span class="p">;</span>
+<span class="n">option</span><span class="p">.</span><span class="n">V0</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+</code></pre></div>
+<p><strong>Initial Busbar Current</strong> (<code>I0</code>).</p>
+<p>Initial value of each busbar current for power flow calculation.</p>
+<div class="highlight"><pre><span></span><code><span class="n">option</span><span class="p">.</span><span class="n">I0</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">I_equilibrium</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li>Example: The current phase of busbar 16 is shifted by <span class="arithmatex">\(\small \pi/30\)</span>.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">option</span><span class="p">.</span><span class="n">I0</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">I_equilibrium</span><span class="p">;</span>
+<span class="n">option</span><span class="p">.</span><span class="n">I0</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="p">=</span> <span class="n">option</span><span class="p">.</span><span class="n">I0</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="nb">cos</span><span class="p">(</span><span class="nb">pi</span><span class="o">/</span><span class="mi">30</span><span class="p">)</span><span class="o">+</span>1<span class="nb">j</span><span class="o">*</span><span class="nb">sin</span><span class="p">(</span><span class="nb">pi</span><span class="o">/</span><span class="mi">30</span><span class="p">));</span>
+</code></pre></div>
+<p><strong>Initial Local Controller State</strong> (<code>x0_con_local</code>).</p>
+<p>The initial value of the state of each local controller remains at the equilibrium point.</p>
+<div class="highlight"><pre><span></span><code><span class="n">option</span><span class="p">.</span><span class="n">x0_con_local</span> <span class="p">=</span> <span class="n">tools</span><span class="p">.</span><span class="n">vcellfun</span><span class="p">(@(</span><span class="n">c</span><span class="p">)</span> <span class="n">c</span><span class="p">.</span><span class="n">get_x0</span><span class="p">(),</span> <span class="n">obj</span><span class="p">.</span><span class="n">a_controller_local</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Initial Global Controller State</strong> (<code>x0_con_global</code>).</p>
+<p>The initial value of the state of each global controller remains at the equilibrium point.</p>
+<div class="highlight"><pre><span></span><code><span class="n">option</span><span class="p">.</span><span class="n">x0_con_global</span> <span class="p">=</span> <span class="n">tools</span><span class="p">.</span><span class="n">vcellfun</span><span class="p">(@(</span><span class="n">c</span><span class="p">)</span> <span class="n">c</span><span class="p">.</span><span class="n">get_x0</span><span class="p">(),</span> <span class="n">obj</span><span class="p">.</span><span class="n">a_controller_local</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Error thresholds for Numerical Integration</strong> (<code>AbsTol</code>, <code>RelTol</code>).</p>
+<p>Minimal required value: <span class="arithmatex">\(10^{-8}\)</span></p>
+<div class="highlight"><pre><span></span><code><span class="n">option</span><span class="p">.</span><span class="n">AbsTol</span> <span class="p">=</span> <span class="mf">1e-8</span><span class="p">;</span>
+<span class="n">option</span><span class="p">.</span><span class="n">RelTol</span> <span class="p">=</span> <span class="mf">1e-8</span><span class="p">;</span>
+</code></pre></div>
+<p><em>Note: Since GUILDA uses the Solver "ode15s" for numerical integration, please refer to the <a href="https://jp.mathworks.com/help/matlab/math/summary-of-ode-options.html">ODE15S - official documentation</a> for tolerance adjustment.</em></p>
+<p><strong>Simulation Report Output Settings</strong> (<code>do_report</code>).</p>
+<ul>
+<li>Generate Simulation Report.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">option</span><span class="p">.</span><span class="n">do_report</span> <span class="p">=</span> <span class="nb">true</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li>Don't Generate Simulation Report.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">option</span><span class="p">.</span><span class="n">do_report</span> <span class="p">=</span> <span class="nb">false</span><span class="p">;</span>
+</code></pre></div>
+<p><strong>Forced Termination Time</strong> (<code>reset_time</code>).</p>
+<ul>
+<li>No Forced Termination Time (default value).</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">option</span><span class="p">.</span><span class="n">reset_time</span> <span class="p">=</span> <span class="nb">inf</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li>Forced Termination Time - Example: If numerical analysis is not completed within 60 seconds, the analysis is terminated at that point.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">option</span><span class="p">.</span><span class="n">reset_time</span> <span class="p">=</span> <span class="mi">60</span><span class="p">;</span>
+<span class="n">option</span><span class="p">.</span><span class="n">do_retry</span> <span class="p">=</span> <span class="nb">false</span><span class="p">;</span>
+</code></pre></div>
+<p><strong>Retry Numerical Integration</strong> (<code>do_retry</code>).</p>
+<p>Once the forced termination time is reached, retry or not the numerical integration.</p>
+<ul>
+<li>Retry (default value).</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">option</span><span class="p">.</span><span class="n">do_retry</span> <span class="p">=</span> <span class="nb">true</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li>Don't Retry - Example: Please refer to the <code>reset_time</code> condition setting example.</li>
+</ul>
+<p><strong>Analysis Results Format</strong> (<code>tools</code>).</p>
+<ul>
+<li>Output the Results with Format (default value).</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">option</span><span class="p">.</span><span class="n">tools</span> <span class="p">=</span> <span class="nb">false</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li>Output the Results without Format.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">option</span><span class="p">.</span><span class="n">tools</span> <span class="p">=</span> <span class="nb">true</span><span class="p">;</span>
+</code></pre></div>
+<p>The default is to output the analysis results with format. If this option is set to <code>true</code>, the result will be outputted without format, and just as an instance of the class <code>simulationResult</code>.</p>
+<p><em>Note: If the simulation is planned to be executed several times, it is recommended to use the default value and output the results with format.</em></p>
+<p><strong>Define the Option Argument as a Structure</strong></p>
+<p>The function <code>simulate</code> allows you to set detailed simulation conditions by assigning various parameters to the argument <code>option</code> in the form of a structure. The procedure for setting simulation conditions and its example code are as follows.</p>
+<ol>
+<li>Define the variable <code>option</code> as a structure for setting conditions.</li>
+<li>Select one of the arguments of <code>option</code> corresponding to the condition you want to set and assign a value to it.</li>
+<li>Assign the defined <code>option</code>variable to the function <code>simulate</code>.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c">%1. Define the variable option as a structure for setting conditions.</span>
+<span class="n">option</span> <span class="p">=</span> <span class="n">struct</span><span class="p">();</span>
+
+<span class="c">%2. Set initial values for system status.</span>
+<span class="n">option</span><span class="p">.</span><span class="n">x0_sys</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">x_equilibrium</span><span class="p">;</span>
+<span class="c">%If the frequency deviation (Δω) of the generator in busbar 1 is off by 0.01.</span>
+<span class="n">option</span><span class="p">.</span><span class="n">x0_sys</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">=</span> <span class="n">option</span><span class="p">.</span><span class="n">x0_sys</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mf">0.01</span><span class="p">;</span>
+
+<span class="c">%3.Simulation Execution.</span>
+<span class="n">time</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">60</span><span class="p">];</span>
+<span class="n">out</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">option</span><span class="p">);</span>
+</code></pre></div>
+<p><em>Note: Refer to <a href="../../../SourceCode/NetProperties/">Network Parameters</a> to see why <code>x0_sys(2)</code> corresponds to the frequency deviation of busbar 1.</em></p>
+<p>While the above explains how to define the variable <code>option</code> as a structure, the function <code>simulate</code> also allows to specify individual conditions directly as arguments. For example, suppose you write the following code</p>
+<ul>
+<li>Define the <code>option</code> Argument as a Structure.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">option</span> <span class="p">=</span> <span class="n">struct</span><span class="p">();</span>
+
+<span class="c">%Initial value of frequency deviation (Δω) of the generator of busbar 1 is deviated </span>
+<span class="c">%from the equilibrium point by 0.01.</span>
+<span class="n">option</span><span class="p">.</span><span class="n">x0_sys</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">x_equilibrium</span><span class="p">;</span>
+<span class="n">option</span><span class="p">.</span><span class="n">x0_sys</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">=</span> <span class="n">option</span><span class="p">.</span><span class="n">x0_sys</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mf">0.01</span><span class="p">;</span>
+
+<span class="c">%Ground fault occurs on busbar 5 at 5-5.01s.</span>
+<span class="n">option</span><span class="p">.</span><span class="n">fault</span> <span class="p">=</span> <span class="p">{{[</span><span class="mi">5</span><span class="p">,</span><span class="mf">5.01</span><span class="p">],</span><span class="mi">5</span><span class="p">}};</span> 
+
+<span class="c">%Simulation time of 0-10 s.</span>
+<span class="n">out</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">simulate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span><span class="n">option</span><span class="p">);</span>
+</code></pre></div>
+<ul>
+<li>Define the <code>option</code> Argument directly in the <code>simulate</code> Function.</li>
+</ul>
+<p>Alternatively, the above simulation conditions can also be written as follows</p>
+<p><div class="highlight"><pre><span></span><code><span class="n">option</span> <span class="p">=</span> <span class="n">struct</span><span class="p">();</span>
+
+<span class="c">%Initial value of frequency deviation (Δω) of the generator of busbar 1 is deviated </span>
+<span class="c">%from the equilibrium point by 0.01.</span>
+<span class="n">x0</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">x_equilibrium</span><span class="p">;</span>
+<span class="n">x0</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">=</span> <span class="n">x0</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mf">0.01</span><span class="p">;</span>
+
+<span class="c">%Simulation time of 0-10 s with a ground fault that occurs on busbar 5 at 5-5.01s.</span>
+<span class="n">out</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">simulate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span><span class="s">&#39;x0_sys&#39;</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="s">&#39;fault&#39;</span><span class="p">,{{[</span><span class="mi">5</span><span class="p">,</span><span class="mf">5.01</span><span class="p">],</span><span class="mi">5</span><span class="p">}});</span>
+</code></pre></div>
+<em>Note: When assigning the <code>option</code> argument directly in the <code>simulate</code> function, the arguments are included in the order <code>net.simulate(...'option', 'value',...)</code>.</em></p>
+<hr />
+<h2 id="results"><div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold"><strong>Results</strong></span></div><a class="headerlink" href="#results" title="Permanent link">&para;</a></h2>
+<p>This section explains how to read the data in the output result (<code>out</code>).</p>
+<p>In the following image an example is presented with the intention to explain its results (<code>out</code>).</p>
+<p><strong>Simulation Example</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c">%The IEEE 68-bus model is defined as the power network.</span>
+<span class="n">net</span> <span class="p">=</span> <span class="n">network_IEEE68bus</span><span class="p">;</span>
+<span class="c">%The time-input relationship is stablished</span>
+<span class="n">time</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">20</span><span class="p">];</span>
+<span class="n">u_idx</span> <span class="p">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">];</span>
+<span class="n">u</span> <span class="p">=</span> <span class="nb">ones</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">]</span>
+<span class="c">%The fault on busbar 10 at 10-10.01 is set.</span>
+<span class="n">fault</span> <span class="p">=</span> <span class="p">{{[</span><span class="mi">10</span><span class="p">,</span><span class="mf">10.01</span><span class="p">],</span><span class="mi">10</span><span class="p">}};</span>
+<span class="c">%An AGC global controller is added to all busbars.</span>
+<span class="n">con</span> <span class="p">=</span> <span class="n">controller_broadcast_PI_AGC</span><span class="p">(</span><span class="n">net</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">500</span><span class="p">);</span>
+<span class="n">net</span><span class="p">.</span><span class="n">add_controller_global</span><span class="p">(</span><span class="n">con</span><span class="p">);</span>
+<span class="c">%The simulation run is stablished.</span>
+<span class="n">out</span><span class="p">=</span><span class="n">net</span><span class="p">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">u_idx</span><span class="p">,</span><span class="s">&#39;fault&#39;</span><span class="p">,</span><span class="n">fault</span><span class="p">)</span>
+</code></pre></div>
+<p><img src="../../../Figures/simulation_out_sample.png" width=90%></p>
+<h3 id="time_field_t"><div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold"><strong>Time Field (<code>t</code>)</strong></span></div><a class="headerlink" href="#time_field_t" title="Permanent link">&para;</a></h3>
+<p>This field represents the sampling time of the simulation. </p>
+<p>It contains an array of "number of samplings", which is used in all the other fields (<code>X,V,I,Xk_global,U_global,U</code>).</p>
+<p><em>Current Example: There are 1455 samplings</em></p>
+<h3 id="state_field_x"><div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold"><strong>State Field (<code>X</code>)</strong></span></div><a class="headerlink" href="#state_field_x" title="Permanent link">&para;</a></h3>
+<p>This field contains the response data of the status of the devices connected to each bus bar.</p>
+<p><code>out.X</code> is a cell array in which each cell corresponds to one device at a time. </p>
+<p>The dimension of the numeric array is "number of samplings" ✕ "number of device states".</p>
+<p><em>Current Example: Since the IEEE 68-bus model is used, the busbars 1-16 have a synchronous generator (<code>generator_1axis</code>) with 7 states. Thus, the dimension of the numeric array is 1455 ✕ 7. From the busbar 17th only loads are attachd (<code>load_impedance</code>), which don't have states.</em></p>
+<div align="center"><img src="../../../Figures/simulation_out_workspace_X.png" width=30%; style="border: 1px black solid;"></div>
+
+<p>It is possible to call the data of an specific state of a device, for example, the second state of the device connected to busbar 4.</p>
+<div class="highlight"><pre><span></span><code><span class="n">plot</span><span class="p">(</span><span class="n">out</span><span class="p">.</span><span class="n">t</span><span class="p">,</span><span class="n">out</span><span class="p">.</span><span class="n">X</span><span class="p">{</span><span class="mi">4</span><span class="p">}(:,</span><span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
+<h3 id="voltage_and_current_fields_v_i"><div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold"><strong>Voltage and Current Fields (<code>V, I</code>)</strong></span></div><a class="headerlink" href="#voltage_and_current_fields_v_i" title="Permanent link">&para;</a></h3>
+<p>These fields contain the responses of the voltage and current of the busbars, respectively.</p>
+<p>Just like the state field (<code>out.X</code>), the voltage and current fields also are a cell array of the same size as the number of busbars in the system model. </p>
+<p>Each cell contains a numeric array with "number of samplings" ✕ 2 (Real Part, Imaginary Part).</p>
+<p><em>Current Example: Each field (i.e., Voltage and Current), have 68 cells (busbars), and each cell has the time response (1455 samplings) of the real part and imaginary part.</em></p>
+<div align="center"><img src="../../../Figures/simulation_out_workspace_VI.png" width=60%; style="border: 1px black solid;"></div>
+
+<p>It is possible to call the data of an busbar, for example, to plot the magnitude of the voltage and current on busbar 10 during time 10-10.1s (a fault occurs during this time in this bus, thus the expected behaviour is <span class="arithmatex">\(\small \lvert V \rvert \to 0; \lvert I \rvert \to \infty\)</span>).</p>
+<div class="highlight"><pre><span></span><code><span class="c">%Read the voltage of busbar 10.</span>
+<span class="n">V10</span> <span class="p">=</span> <span class="n">out</span><span class="p">.</span><span class="n">V</span><span class="p">{</span><span class="mi">10</span><span class="p">}(:,</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> 1<span class="nb">j</span><span class="o">*</span> <span class="n">out</span><span class="p">.</span><span class="n">V</span><span class="p">{</span><span class="mi">10</span><span class="p">}(:,</span><span class="mi">2</span><span class="p">);</span>
+<span class="c">%Read the current of busbar 10.</span>
+<span class="n">I10</span> <span class="p">=</span> <span class="n">out</span><span class="p">.</span><span class="n">I</span><span class="p">{</span><span class="mi">10</span><span class="p">}(:,</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> 1<span class="nb">j</span><span class="o">*</span> <span class="n">out</span><span class="p">.</span><span class="n">I</span><span class="p">{</span><span class="mi">10</span><span class="p">}(:,</span><span class="mi">2</span><span class="p">);</span>
+<span class="c">%Plot the absolute value of the voltage and current of busbar 10.</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">out</span><span class="p">.</span><span class="n">t</span><span class="p">,</span><span class="nb">abs</span><span class="p">(</span><span class="n">V10</span><span class="p">),</span><span class="n">out</span><span class="p">.</span><span class="n">t</span><span class="p">,</span><span class="nb">abs</span><span class="p">(</span><span class="n">I10</span><span class="p">),</span><span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">legend</span><span class="p">({</span><span class="s">&#39;$|V|$&#39;</span><span class="p">,</span><span class="s">&#39;$|I|$&#39;</span><span class="p">},</span><span class="s">&#39;Interpreter&#39;</span><span class="p">,</span><span class="s">&#39;latex&#39;</span><span class="p">)</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Time [s]&#39;</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Magnitude [p.u.]&#39;</span><span class="p">)</span>
+</code></pre></div>
+<div align="center"><img src="../../../Figures/simulation_out_workspace_VIplot_en.png" width=100%;></div>
+
+<h3 id="global_controller_state_response_field_xk_global"><div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold"><strong>Global Controller State Response Field (<code>Xk_global</code>)</strong></span></div><a class="headerlink" href="#global_controller_state_response_field_xk_global" title="Permanent link">&para;</a></h3>
+<p>This field contains the global controller state response. </p>
+<p><em>Current Example: In this case, the power system with one global controller added was used in the analysis. Thus <code>Xk_global</code> is a 1✕1 array of cells. The controller class <code>controller_broadcast_PI_AGC</code> has only one state, so the data stored in <code>out.Xk_global{1}</code> is a numeric array with "number of samples".</em></p>
+<h3 id="global_controller_input_field_u_global"><div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold"><strong>Global Controller Input Field (<code>U_global</code>)</strong></span></div><a class="headerlink" href="#global_controller_input_field_u_global" title="Permanent link">&para;</a></h3>
+<p>This field contains the response of the input value from the global controller. Like <code>out.Xk_global</code>, this field is also a cell array with the same dimension as the number of controllers attached to the power system under analysis.</p>
+<p><em>Current Example: The controller added in this example is an AGC controller (reads the frequency deviation of the devices in busbars 1 through 16 and gives a command value to the Mechanical Power (<code>Pmech</code>) port of component (added to busbars 1 through 16) to balance the supply and demand of the entire system). In this case, the controller adds inputs to 16 Generators (<code>generator_1axis</code>) with 2 input ports each; thus, it has 2*16 = 32 outputs. Therefore, the data in <code>out.U_gloobal{1}</code> shows "1455 ✕ 32 double".</em></p>
+<p>The correspondence between the input ports and the response data for each device is shown in the figure below, since the devices are specified in ascending order, <code>1:16</code>, as shown in the code below.</p>
+<p><div class="highlight"><pre><span></span><code><span class="n">con</span> <span class="p">=</span> <span class="n">controller_broadcast_PI_AGC</span><span class="p">(</span><span class="n">net</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">500</span><span class="p">);</span>
+</code></pre></div>
+Each cell is a 2-dimensional array of numbers. The row direction is the chronological order (samples). The column direction follows the input port order. </p>
+<p><em>Current Example: Although the image is small, the first column is all 0 for each cell (i.e., each busbar with a generator). This is because the first input port of the Generators (<code>generator_1axis</code>) is the Field Voltage (<code>Vfield</code>) and the second port is the Mechanical Power (<code>Pmech</code>). The AGC controlle only gives command values to the Mechanical Power (<code>Pmech</code>).</em></p>
+<div align="center"><img src="../../../Figures/simulation_out_workspace_Uglobal.png" width=100%;></div>
+
+<h3 id="linear_controller_state_response_field_u"><div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold"><strong>Linear Controller State Response Field (<code>U</code>)</strong></span></div><a class="headerlink" href="#linear_controller_state_response_field_u" title="Permanent link">&para;</a></h3>
+<p>This field contains the local controller state response.</p>
+<p>The data is read in the same way as in the global controller state response field (<code>U_global</code>).</p>
+<p><em>Current Example: No local controller is added, so the cell array is empty.</em></p>
+<h3 id="linear_controller_input_field_linear"><div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold"><strong>Linear Controller Input Field (<code>linear</code>)</strong></span></div><a class="headerlink" href="#linear_controller_input_field_linear" title="Permanent link">&para;</a></h3>
+<p>This field is an index indicating whether the simulation was nonlinear or with an approximate linearization.</p>
+<ul>
+<li>
+<p>Nonlinear: <code>out.linear = 0</code>.</p>
+</li>
+<li>
+<p>Approximate Linearization: <code>out.linear = 1</code></p>
+</li>
+</ul>
+<hr />
+<h3 id="internal_processes_to_consinder"><div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold"><strong>Internal Processes to Consinder</strong></span></div><a class="headerlink" href="#internal_processes_to_consinder" title="Permanent link">&para;</a></h3>
+<p>Before describing the data the four remaining fields, a brief description of the processing taking place inside the function <code>simulate</code> is pertinent. </p>
+<p>During the numerical analysis, there is usually a point where it becomes discontinuous. For example, when a discontinuous input is given, or when the conditions are discontinuous (e.g., ground fault: the voltage suddenly drops to zero). </p>
+<p>In these cases, the solver separates the analysis in two segments, divided by the discontinous point. This means that one solver is dedicated to the first segment of the problem (before the discontuinity), and a new solver is dedicated for the second segment (after the discontinuity). The solver for the second segment starts with the value to which the discontinuity element is applied.</p>
+<p><em>Current Example: The input signal of the current example is shown in the following figure. Furthermore, an ground fault occurs between 10 and 10.01 seconds. Thus, in total there are three discontinuous parts: 1. "The 5-second mark where the input value changes,". 2. "The 10-second mark where the ground fault occurs". 3."The 10.01-second mark where the ground fault ends". Therefore, the numerical analysis is divided into <strong>four segments</strong>: [0s to 5s], [5s to 10s], [10s to 10.01s], [10.01s to 20s].</em></p>
+<div align="center"><img src="../../../Figures/simulation_out_u_plot.png" width=100%;></div>
+
+<p>With this in mind, the explanation of the remaining fields can be retaken.</p>
+<hr />
+<h3 id="busbar_field"><div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold"><strong>Busbar Field</strong></span></div><a class="headerlink" href="#busbar_field" title="Permanent link">&para;</a></h3>
+<p>For each segment of the analysis: This field stores the index of the components being analyzed.</p>
+<p><em>Note: The busbars with <code>component_empty</code> connected are effectively treated as busbars to which no devices are connected (i.e., non-unit busbars).</em></p>
+<h3 id="fault_busbar_field"><div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold"><strong>Fault Busbar Field</strong></span></div><a class="headerlink" href="#fault_busbar_field" title="Permanent link">&para;</a></h3>
+<p>For each segment of the analysis: This field stores the cell array classification of the index of the busbar where the ground fault occurs.</p>
+<h3 id="admittance_matrix_variable"><div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold"><strong>Admittance Matrix Variable</strong></span></div><a class="headerlink" href="#admittance_matrix_variable" title="Permanent link">&para;</a></h3>
+<p>For each segment of the analysis: This field stores in a cell array the generated Admittance Matrix for each segment.</p>
+<h3 id="solver_field"><div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold"><strong>Solver Field</strong></span></div><a class="headerlink" href="#solver_field" title="Permanent link">&para;</a></h3>
+<p>For each segment of the analysis: This field stores in a cell array the solvers running in each segment.</p>
+<hr />
+<h2 id="auxiliary_tools_for_results_tools"><div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold"><strong>Auxiliary Tools for Results (<code>tools</code>)</strong></span></div><a class="headerlink" href="#auxiliary_tools_for_results_tools" title="Permanent link">&para;</a></h2>
+<p>Finally, this section corresponds to the case when <code>option.tools = true;</code> is used to set simulation conditions. </p>
+<p>In addition to the fields described above, the following fields will be newly generated.</p>
+<ul>
+<li><code>Vabs</code>: Voltage Magnitude <span class="arithmatex">\(\small (\lvert V \rvert)\)</span>.</li>
+<li><code>Vangle</code>: Voltage Phase Angle <span class="arithmatex">\(\small (\angle V)\)</span>.</li>
+<li><code>Iabs</code>: Current Magnitude <span class="arithmatex">\(\small (\lvert I \rvert)\)</span>.</li>
+<li><code>Iangle</code>: Current Phase Angle <span class="arithmatex">\(\small (\angle I)\)</span>.</li>
+<li><code>P</code>: Active Power <span class="arithmatex">\(\small (P)\)</span>.</li>
+<li><code>Q</code>: Reactive Power <span class="arithmatex">\(\small (Q)\)</span>.</li>
+</ul>
+<p>These fields can be obtained from the data in <code>out.V</code> and <code>out.I</code>, so they are redundant. Therefore, from the standpoint of capacity, these fields may be considered unnecessary. However, this <code>simulationResult</code> class is implemented to serve as an aid in understanding the contents of the output results.</p>
+<p>When executed, the following display will appear. 
+<div class="highlight"><pre><span></span><code><span class="n">Show</span> <span class="s">&quot;how</span> <span class="s">to</span> <span class="s">use?&quot;</span> <span class="s">(y/n):</span>
+<span class="c">%Type `y` and &quot;enter&quot; to display.</span>
+</code></pre></div></p>
+<p><strong>Example - Command Input</strong></p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;</span> <span class="n">out</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">simulate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span><span class="s">&#39;fault&#39;</span><span class="p">,{{[</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.01</span><span class="p">],</span><span class="mi">3</span><span class="p">}},</span><span class="s">&#39;tools&#39;</span><span class="p">,</span><span class="nb">true</span><span class="p">)</span>
+<span class="mi">0</span><span class="o">|</span>                                                            <span class="o">|</span><span class="mi">10</span>
+ <span class="o">|</span><span class="p">=</span><span class="o">&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;=&gt;|</span>
+
+<span class="o">==================================</span>
+  <span class="n">Auxiliary</span> <span class="s">tools</span> <span class="s">for</span> <span class="s">outputting</span> <span class="s">simulation</span> <span class="s">results</span>
+      <span class="n">SimulationResult</span> <span class="s">Class</span>
+<span class="o">==================================</span>
+
+<span class="n">Show</span> <span class="s">usage?(y/n)：</span>
+</code></pre></div>
+<p>Note that this class can be executed in two ways: 1. By command input (previous example), and 2. By UI Operation.</p>
+<p><strong>Example - UI Operation</strong></p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;</span> <span class="n">out</span><span class="p">.</span><span class="n">UIplot</span>
+</code></pre></div>
+<hr />
+<h1 id="simulation_-_examples"><span style="font-size: 70%; color: black;"><strong> Simulation - Examples</strong></span><a class="headerlink" href="#simulation_-_examples" title="Permanent link">&para;</a></h1>
+<p>The following page contains examples of handling the simulating functions explained in this page.</p>
+<p><a class="md-button center" href="../SampleCode/">Simulation - Examples</a></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../addController/NewController/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                New Controller
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../SampleCode/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Simulation Examples
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2020- Tokyo Tech, Ishizaki Lab.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: ['navigation.tabs', 'content.code.annotate'],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.9c0e82ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

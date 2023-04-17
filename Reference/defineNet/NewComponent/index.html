@@ -1,0 +1,1074 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../../Figures/modularsmall.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
+    
+    
+      
+        <title>New Components - GUILDA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.cb6bc1d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700%7C&display=fallback">
+        <style>body,input{font-family:"Open Sans",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosansjp.css">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:600,800">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="light-blue">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#new_components" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../.." title="GUILDA Documentation" class="md-header-nav__button md-logo" aria-label="GUILDA Documentation">
+      
+  <img src="../../../Figures/modularsmall.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            GUILDA Documentation
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              New Components
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link md-tabs__link--active">
+        Top
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="GUILDA Documentation" class="md-nav__button md-logo" aria-label="GUILDA Documentation">
+      
+  <img src="../../../Figures/modularsmall.png" alt="logo">
+
+    </a>
+    GUILDA Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+      
+      <label class="md-nav__link" for="nav-1">
+        Top
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Top" data-md-level="1">
+        <label class="md-nav__title" for="nav-1">
+          <span class="md-nav__icon md-icon"></span>
+          Top
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SetEnvironment/0TopPage/" class="md-nav__link">
+        GUILDA Setup
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aboutPowerSystem/0TopPage/" class="md-nav__link">
+        Power System Model (Simple)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SeriesAnalysis/0TopPage/" class="md-nav__link">
+        Guided Example
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5" type="checkbox" id="nav-1-5" checked>
+      
+      <label class="md-nav__link" for="nav-1-5">
+        Guilda in Detail
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Guilda in Detail" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-5">
+          <span class="md-nav__icon md-icon"></span>
+          Guilda in Detail
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0TopPage/" class="md-nav__link">
+        Guilda in Detail
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5-2" type="checkbox" id="nav-1-5-2" checked>
+      
+      <label class="md-nav__link" for="nav-1-5-2">
+        Power System Model (Detailed)
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Power System Model (Detailed)" data-md-level="3">
+        <label class="md-nav__title" for="nav-1-5-2">
+          <span class="md-nav__icon md-icon"></span>
+          Power System Model (Detailed)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0TopPage/" class="md-nav__link">
+        Power System Model (Detailed)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NewPowerNetwork/" class="md-nav__link">
+        New Power System Model
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          New Components
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        New Components
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the_component_class" class="md-nav__link">
+    The Component Class
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#define_a_new_component" class="md-nav__link">
+    Define a New Component
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#abstract_methods" class="md-nav__link">
+    Abstract Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Abstract Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required_abstract_methods" class="md-nav__link">
+    Required Abstract Methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended_abstract_methods" class="md-nav__link">
+    Recommended Abstract Methods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5-3" type="checkbox" id="nav-1-5-3" >
+      
+      <label class="md-nav__link" for="nav-1-5-3">
+        Controllers
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Controllers" data-md-level="3">
+        <label class="md-nav__title" for="nav-1-5-3">
+          <span class="md-nav__icon md-icon"></span>
+          Controllers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../addController/0TopPage/" class="md-nav__link">
+        Controllers
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../addController/NewController/" class="md-nav__link">
+        New Controller
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5-4" type="checkbox" id="nav-1-5-4" >
+      
+      <label class="md-nav__link" for="nav-1-5-4">
+        Numerical Simulations
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Numerical Simulations" data-md-level="3">
+        <label class="md-nav__title" for="nav-1-5-4">
+          <span class="md-nav__icon md-icon"></span>
+          Numerical Simulations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Analysis/net_simulate/" class="md-nav__link">
+        Simulating
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Analysis/SampleCode/" class="md-nav__link">
+        Simulation Examples
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Analysis/net_getsys/" class="md-nav__link">
+        Derivation of a Linearized Model
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-6" type="checkbox" id="nav-1-6" >
+      
+      <label class="md-nav__link" for="nav-1-6">
+        Source Code Explanation
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Source Code Explanation" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-6">
+          <span class="md-nav__icon md-icon"></span>
+          Source Code Explanation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/0TopPage/" class="md-nav__link">
+        Source Code Explanation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/power_network/" class="md-nav__link">
+        Power Network Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/NetProperties/" class="md-nav__link">
+        Power Network Class - Properties
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/branch/" class="md-nav__link">
+        Branch Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/bus/" class="md-nav__link">
+        Bus Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/component/" class="md-nav__link">
+        Component Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/controller/" class="md-nav__link">
+        Controller Class
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the_component_class" class="md-nav__link">
+    The Component Class
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#define_a_new_component" class="md-nav__link">
+    Define a New Component
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#abstract_methods" class="md-nav__link">
+    Abstract Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Abstract Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required_abstract_methods" class="md-nav__link">
+    Required Abstract Methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended_abstract_methods" class="md-nav__link">
+    Recommended Abstract Methods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <p><img src="../../../Figures/make_component.jpg" width=100%;></p>
+<h1 id="new_components"><div style="text-align: center;"><span style="font-size: 140%; color: Black; font-weight: bold">New Components</span></div><a class="headerlink" href="#new_components" title="Permanent link">&para;</a></h1>
+<p>This page provides a detailed explanation on how to define a component class. </p>
+<p>Creating a new equipment model in GUILDA means creating an "m-file" that defines a new child class from the component class. This page explains how to define this child class file.</p>
+<p><strong>Contents</strong>:</p>
+<ul>
+<li><a href="#the_component_class">The Component Class.</a></li>
+<li><a href="#define_a_new_component">Define a New Component.</a></li>
+<li><a href="#abstract_methods">Abstract Methods.</a><ul>
+<li><a href="#required_abstract_methods">Required Abstract Methods</a></li>
+<li><a href="#recommended_abstract_methods">Recommended Abstract Methods.</a></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="the_component_class"><div style="text-align: center;"><span style="font-size: 120%; color: Black; font-weight: bold">The Component Class</span></div><a class="headerlink" href="#the_component_class" title="Permanent link">&para;</a></h2>
+<p>The <code>component</code> class defines several functions that should be provided in a device model (e.g., a synchronous generator) for analysis. By inheriting the properties from the already defined <code>component</code> class, newly created equipment models will automatically have these functions. </p>
+<p>However, even though several functions are inherited from the <code>component</code> class, still other functions are required to define the dynamic characteristics of the new component. Such functions are added to the <code>component</code> class as abstract methods.</p>
+<p>Fore more information on the source code of the <code>component</code> class, please refer to <a href="../../../SourceCode/0TopPage/">Source Code Explanation</a>.</p>
+<hr />
+<h2 id="define_a_new_component"><div style="text-align: center;"><span style="font-size: 120%; color: Black; font-weight: bold">Define a New Component</span></div><a class="headerlink" href="#define_a_new_component" title="Permanent link">&para;</a></h2>
+<p>In this page, a new component named "myMachine.m" will be created and used as an example of the process of defining a new component.</p>
+<p><em>Note: When creating a new component, it is recommended that a description and how to execute the newly define component is included as a comment at the beginning.</em></p>
+<p>The general process to create a new component class is</p>
+<ol>
+<li>
+<p>Inherit the functions from the already defined <code>component</code> class. To do this use the code <code>myMachine &lt; component</code>.</p>
+</li>
+<li>
+<p>Define the required parameters of the new component as variables of <code>properties</code>.</p>
+</li>
+</ol>
+<p><em>Note: When defining the required parameters of the new component, it is recommended to name it as "parameter"</em></p>
+<ol>
+<li>Define the required functions as <code>methods</code> that define the dynamics characteristics of the new component.</li>
+</ol>
+<p>The following code block shows the general structure of these 3 requirements as sections.</p>
+<p><strong>myMachine.m</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c">%Definition of new component class as a child class.</span>
+<span class="k">classdef</span> <span class="n">myMachine</span> <span class="o">&lt;</span> <span class="n">component</span>
+
+<span class="c">%Description of the model to be implemented.</span>
+<span class="c">%Explanation of state variables, inputs, and outputs.</span>
+<span class="c">%Description on how to execute the constructor of this class and set its arguments.</span>
+
+
+    <span class="n">properties</span>
+        <span class="s">%Define</span> <span class="s">the</span> <span class="s">necessary</span> <span class="s">parameters</span> <span class="s">here.</span>
+        <span class="n">x_equilibrium</span>　<span class="s">%etc..</span>
+    <span class="n">end</span>
+
+    <span class="s">methods</span>
+        <span class="c">%Define the methods here</span>
+<span class="k">        function</span><span class="w"> </span>obj<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">myMachine</span><span class="p">(</span>arg1,arg2,...<span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="c">%Write the code.</span>
+        <span class="n">end</span>
+
+        <span class="s">%Required</span> <span class="s">method:</span> <span class="s">Set</span> <span class="s">Equilibrium.</span>
+<span class="k">        function</span><span class="w"> </span>x<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">set_equilibrium</span><span class="p">(</span>obj,Veq, Ieq<span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="c">%Write the code.</span>
+        <span class="n">end</span>
+
+        <span class="s">%Required</span> <span class="s">method:</span> <span class="s">Input</span> <span class="s">State</span> <span class="s">Order.</span>
+<span class="k">        function</span><span class="w"> </span>nu<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">get_nu</span><span class="p">(</span>obj<span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="c">%Write the code.</span>
+        <span class="n">end</span>
+
+        <span class="s">%Required</span> <span class="s">method:</span> <span class="s">State</span> <span class="s">Derivative.</span>
+<span class="k">        function</span><span class="w"> </span>[dx,constraint]<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">get_dx_constraint</span><span class="p">(</span>obj,t,x,V,I,u<span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="c">%Write the code.</span>
+        <span class="n">end</span>
+
+        <span class="s">%Recommended</span> <span class="s">method:</span> <span class="s">Approximate</span> <span class="s">Linearization.</span>
+<span class="k">        function</span><span class="w"> </span>[A,B,C,D,BV,DV,BI,DI,R,S]<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">get_linear_matrix</span><span class="p">(</span>obj,x_st,Vst<span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="c">%Write the code.</span>
+        <span class="n">end</span>
+
+        <span class="s">%Recommended</span> <span class="s">method:</span> <span class="s">Linear</span> <span class="s">State</span> <span class="s">Derivation.</span>
+<span class="k">        function</span><span class="w"> </span>[dx,con]<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">get_dx_constraint_linear</span><span class="p">(</span>obj,t,x,V,I,u<span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="c">%Write the code.</span>
+        <span class="n">end</span>
+
+        <span class="s">%Recommended</span> <span class="s">method:</span> <span class="s">Name</span> <span class="s">Tag.</span>
+<span class="k">        function</span><span class="w"> </span>name_tag<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">get_x_name</span><span class="p">(</span>obj<span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="c">%Write the code.</span>
+        <span class="n">end</span>
+    <span class="s">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<hr />
+<h2 id="abstract_methods"><div style="text-align: center;"><span style="font-size: 120%; color: Black; font-weight: bold">Abstract Methods</span></div><a class="headerlink" href="#abstract_methods" title="Permanent link">&para;</a></h2>
+<p>The abstract methods are the set of required functions to define the dynamics of a component. In this section three required methods, along with three recommended methods to be included are explained.</p>
+<h3 id="required_abstract_methods"><div style="text-align: left;"><span style="font-size: 100%; color: Black; font-weight: bold">Required Abstract Methods</span></div><a class="headerlink" href="#required_abstract_methods" title="Permanent link">&para;</a></h3>
+<p><strong>Set Equilibrium</strong></p>
+<p>This method performs the initialization processing, determines the equilibrium points via power flow calculation (equilibrium voltage <span class="arithmatex">\(\small (V_{eq})\)</span> and equilibrium current <span class="arithmatex">\(\small (I_{eq})\)</span>), and derives the equilibrium state.</p>
+<p>Class Structure: <code>x = set_equilibrium(obj,Veq,Ieq)</code></p>
+<p>Input Arguments</p>
+<ul>
+<li>
+<p><code>Veq</code>: Equilibrium point of the voltage (complex number) <span class="arithmatex">\(-\)</span> <em>obtained from the power flow calculation.</em></p>
+</li>
+<li>
+<p><code>Ieq</code>: Equilibrium point of the current (complex number) <span class="arithmatex">\(-\)</span> <em>obtained from the power flow calculation.</em></p>
+</li>
+</ul>
+<p>Output Parameters</p>
+<ul>
+<li><code>x</code>：Equilibrium state corresponding to the specified equilibrium point.</li>
+</ul>
+<p><strong>Input State Order</strong></p>
+<p>This method is used to determine the order of the input state (<code>u</code>).</p>
+<p>Class Structure <code>nu = get_nu(obj)</code></p>
+<p>Input Arguments</p>
+<ul>
+<li><em>None</em></li>
+</ul>
+<p>Output Parameters</p>
+<ul>
+<li><code>nu</code>：Order of input state (<code>u</code>).</li>
+</ul>
+<p><strong>State Derivative</strong></p>
+<p>This method is used to obtain the derivative of the state <span class="arithmatex">\(\small (x)\)</span>; when an input is applied it also provides the current <span class="arithmatex">\(\small (I)\)</span> to obtain the constraints (see below).</p>
+<p>Class Structure: <code>[dx,constraint] = get_dx_constraint(obj,t, x, V, I, u)</code></p>
+<p>Input Arguments</p>
+<ul>
+<li><code>t</code>: Time <span class="arithmatex">\(\small (t)\)</span>.</li>
+<li><code>x</code>: State <span class="arithmatex">\(\small (x)\)</span>.</li>
+<li><code>V</code>: Busbar Voltage <span class="arithmatex">\(\small (V)\)</span> ([real part; imaginary part]).</li>
+<li><code>I</code>: Busbar Current <span class="arithmatex">\(\small (I)\)</span> ([real part; imaginary part]).</li>
+<li><code>u</code>: Input Signal <span class="arithmatex">\(\small (u)\)</span>.</li>
+</ul>
+<p>Output Variables</p>
+<ul>
+<li>
+<p><code>dx</code>：Derivative of the State <span class="arithmatex">\(\small (\dot{x})\)</span>.</p>
+</li>
+<li>
+<p><code>constraint</code>：The difference between the actual busbar's current <span class="arithmatex">\(\small (I)\)</span> and the derived one from the provided arguments "state" <span class="arithmatex">\(\small (x)\)</span> and "voltage" <span class="arithmatex">\(\small (V)\)</span>. The constraint condition is that the difference between both currents <span class="arithmatex">\(\small (I)\)</span> should be zero.</p>
+</li>
+</ul>
+<h3 id="recommended_abstract_methods"><div style="text-align: left;"><span style="font-size: 100%; color: Black; font-weight: bold">Recommended Abstract Methods</span></div><a class="headerlink" href="#recommended_abstract_methods" title="Permanent link">&para;</a></h3>
+<p>The newly defined component can be implemented without the following methods; however, these are necessary for performing analysis with an approximate linearization of the power system model.</p>
+<p><strong>Approximate Linearization</strong></p>
+<p>This method, as the name states, allows to linearize the power system model. It returns the system matrices <span class="arithmatex">\(\small [A, B, C, D, BV, DV, BI, DI, R, S]\)</span> of the linearized state-space representation as in the following equation.</p>
+<p>
+<script type="math/tex; mode=display">
+    \begin{align*}
+    \dot{x} &= A(x-x^*)+B(u-u^*)+B_V(V-V^*)+B_I(I-I^*)＋Rd\\
+    0 &= C(x-x^*)+D(u-u^*)+D_V(V-V^*)+D_I(I-I^*)\\
+    z &= S(x^*-x)
+    \end{align*}
+ </script>
+</p>
+<p>Class Structure: <code>[A, B, C, D, BV, DV, BI, DI, R, S] = get_linear_matrix(obj,x_st, Vst)</code></p>
+<p>Input Arguments</p>
+<ul>
+<li>
+<p><code>x_st</code>：Equilibrium point of the state variable.</p>
+</li>
+<li>
+<p><code>Vst</code>：Equilibrium point of the voltage <span class="arithmatex">\(-\)</span> <em>obtained from the power flow calculation.</em></p>
+</li>
+</ul>
+<p>Output Arguments</p>
+<ul>
+<li><code>[A, B, C, D, BV, DV, BI, DI, R, S]</code>：System matrix of the state-space model shown above.<ul>
+<li><code>R</code>: Disturbance matrix.</li>
+<li><code>S</code>: Output of the evaluation function.</li>
+</ul>
+</li>
+</ul>
+<p><em>Note: Both <code>R</code> and <code>S</code> are needed when designing a control system; however, they are different from the properties of the device. Therefore, when simply performing a simulation without controller, it is safe to use <code>R</code> and <code>S</code> as zero matrices.</em></p>
+<p><strong>Linear State Derivation</strong></p>
+<p>This method is the linearized version of the "State Derivate" (<code>get_dx_constraint</code>) method. </p>
+<p><em>Note: To implement this method a linearized state-space model is needed. For it the method "Approximate Linearization" (<code>get_linear_matrix</code>) is available.</em></p>
+<p>Class Structure: <code>[dx, con] = get_dx_constraint_linear(obj,t, x, V, I, u)</code>.</p>
+<p>Input Arguments</p>
+<ul>
+<li><code>t</code>: Time <span class="arithmatex">\(\small (t)\)</span>.</li>
+<li><code>x</code>: State <span class="arithmatex">\(\small (x)\)</span>.</li>
+<li><code>V</code>: Busbar Voltage <span class="arithmatex">\(\small (V)\)</span> ([real part; imaginary part]).</li>
+<li><code>I</code>: Busbar Current <span class="arithmatex">\(\small (I)\)</span> ([real part; imaginary part]).</li>
+<li><code>u</code>: Input Signal <span class="arithmatex">\(\small (u)\)</span>.</li>
+</ul>
+<p>Output arguments</p>
+<ul>
+<li>
+<p><code>dx</code>：Derivative of the State <span class="arithmatex">\(\small (\dot{x})\)</span>.</p>
+</li>
+<li>
+<p><code>con</code>：The difference between the actual busbar's current <span class="arithmatex">\(\small (I)\)</span> and the derived one from the provided arguments "state" <span class="arithmatex">\(\small (x)\)</span> and "voltage" <span class="arithmatex">\(\small (V)\)</span>. The constraint condition is that the difference between both currents <span class="arithmatex">\(\small (I)\)</span> should be zero.</p>
+</li>
+</ul>
+<p><strong>Name Tag</strong></p>
+<p>This method allows to assign names to each entry of the state vector <span class="arithmatex">\(\small (x)\)</span> of the component.</p>
+<p>Class Structure: <code>name_tag = get_x_name(obj)</code></p>
+<p>Input Arguments</p>
+<ul>
+<li><em>None</em></li>
+</ul>
+<p>Output Parameters</p>
+<ul>
+<li>Cell array of strings indicating each state name.</li>
+</ul>
+<p>Example: <code>name_tag = {'x1','x2','x3'};</code></p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;</span> <span class="n">out</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">varargin</span><span class="p">,</span><span class="s">&#39;tools&#39;</span><span class="p">,</span><span class="nb">true</span><span class="p">);</span>
+</code></pre></div>
+<p>This is useful for automatically classifying and plotting the states based on the given names, instead of just having "state1, state2, ...".</p>
+<p>For more information on how to use this function, please refer to <a href="../../Analysis/net_simulate/">Simulating</a>, as it is mainly presented and used there.</p>
+<p>This concludes the explanation of defining new components.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../NewPowerNetwork/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                New Power System Model
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../../addController/0TopPage/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Controllers
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2020- Tokyo Tech, Ishizaki Lab.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: ['navigation.tabs', 'content.code.annotate'],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.9c0e82ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

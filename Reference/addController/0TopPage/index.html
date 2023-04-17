@@ -1,0 +1,963 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../../Figures/modularsmall.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
+    
+    
+      
+        <title>Controllers - GUILDA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.cb6bc1d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700%7C&display=fallback">
+        <style>body,input{font-family:"Open Sans",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosansjp.css">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:600,800">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="light-blue">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#controllers" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../.." title="GUILDA Documentation" class="md-header-nav__button md-logo" aria-label="GUILDA Documentation">
+      
+  <img src="../../../Figures/modularsmall.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            GUILDA Documentation
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              Controllers
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link md-tabs__link--active">
+        Top
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="GUILDA Documentation" class="md-nav__button md-logo" aria-label="GUILDA Documentation">
+      
+  <img src="../../../Figures/modularsmall.png" alt="logo">
+
+    </a>
+    GUILDA Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+      
+      <label class="md-nav__link" for="nav-1">
+        Top
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Top" data-md-level="1">
+        <label class="md-nav__title" for="nav-1">
+          <span class="md-nav__icon md-icon"></span>
+          Top
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SetEnvironment/0TopPage/" class="md-nav__link">
+        GUILDA Setup
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aboutPowerSystem/0TopPage/" class="md-nav__link">
+        Power System Model (Simple)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SeriesAnalysis/0TopPage/" class="md-nav__link">
+        Guided Example
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5" type="checkbox" id="nav-1-5" checked>
+      
+      <label class="md-nav__link" for="nav-1-5">
+        Guilda in Detail
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Guilda in Detail" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-5">
+          <span class="md-nav__icon md-icon"></span>
+          Guilda in Detail
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0TopPage/" class="md-nav__link">
+        Guilda in Detail
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5-2" type="checkbox" id="nav-1-5-2" >
+      
+      <label class="md-nav__link" for="nav-1-5-2">
+        Power System Model (Detailed)
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Power System Model (Detailed)" data-md-level="3">
+        <label class="md-nav__title" for="nav-1-5-2">
+          <span class="md-nav__icon md-icon"></span>
+          Power System Model (Detailed)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../defineNet/0TopPage/" class="md-nav__link">
+        Power System Model (Detailed)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../defineNet/NewPowerNetwork/" class="md-nav__link">
+        New Power System Model
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../defineNet/NewComponent/" class="md-nav__link">
+        New Components
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5-3" type="checkbox" id="nav-1-5-3" checked>
+      
+      <label class="md-nav__link" for="nav-1-5-3">
+        Controllers
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Controllers" data-md-level="3">
+        <label class="md-nav__title" for="nav-1-5-3">
+          <span class="md-nav__icon md-icon"></span>
+          Controllers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Controllers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Controllers
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#add_a_controller_to_the_power_network" class="md-nav__link">
+    Add a Controller to the Power Network
+  </a>
+  
+    <nav class="md-nav" aria-label="Add a Controller to the Power Network">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#controller_types" class="md-nav__link">
+    Controller Types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implement_the_controller" class="md-nav__link">
+    Implement the Controller
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_-_automatic_generation_control_agc" class="md-nav__link">
+    Example - Automatic Generation Control (AGC)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#new_controller" class="md-nav__link">
+    New Controller
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NewController/" class="md-nav__link">
+        New Controller
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5-4" type="checkbox" id="nav-1-5-4" >
+      
+      <label class="md-nav__link" for="nav-1-5-4">
+        Numerical Simulations
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Numerical Simulations" data-md-level="3">
+        <label class="md-nav__title" for="nav-1-5-4">
+          <span class="md-nav__icon md-icon"></span>
+          Numerical Simulations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Analysis/net_simulate/" class="md-nav__link">
+        Simulating
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Analysis/SampleCode/" class="md-nav__link">
+        Simulation Examples
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Analysis/net_getsys/" class="md-nav__link">
+        Derivation of a Linearized Model
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-6" type="checkbox" id="nav-1-6" >
+      
+      <label class="md-nav__link" for="nav-1-6">
+        Source Code Explanation
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Source Code Explanation" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-6">
+          <span class="md-nav__icon md-icon"></span>
+          Source Code Explanation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/0TopPage/" class="md-nav__link">
+        Source Code Explanation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/power_network/" class="md-nav__link">
+        Power Network Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/NetProperties/" class="md-nav__link">
+        Power Network Class - Properties
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/branch/" class="md-nav__link">
+        Branch Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/bus/" class="md-nav__link">
+        Bus Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/component/" class="md-nav__link">
+        Component Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/controller/" class="md-nav__link">
+        Controller Class
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#add_a_controller_to_the_power_network" class="md-nav__link">
+    Add a Controller to the Power Network
+  </a>
+  
+    <nav class="md-nav" aria-label="Add a Controller to the Power Network">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#controller_types" class="md-nav__link">
+    Controller Types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implement_the_controller" class="md-nav__link">
+    Implement the Controller
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_-_automatic_generation_control_agc" class="md-nav__link">
+    Example - Automatic Generation Control (AGC)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#new_controller" class="md-nav__link">
+    New Controller
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <p><img src="../../../Figures/index-5.jpg" width=100%;></p>
+<h1 id="controllers"><div style="text-align: center;"><span style="font-size: 140%; color: black; font-weight: bold">Controllers</span></div><a class="headerlink" href="#controllers" title="Permanent link">&para;</a></h1>
+<p>This section explains the most relevant information of the controller class. Since the purpose of GUILDA is "to provide a numerical simulation environment for students and researchers in the field of Systems and Control Engineering, it is assumed that the main users are those who aim to design controllers.</p>
+<p><strong>Contents:</strong></p>
+<ul>
+<li><a href="#add_a_controller_to_the_power_network">Add a Controller to the Power Network.</a><ul>
+<li><a href="#controller_types">Controller Types.</a></li>
+<li><a href="#implement_the_controller">Implement the Controller.</a></li>
+<li><a href="#example_-_automatic_generation_control_agc">Example - Automatic Generation Control (AGC).</a></li>
+</ul>
+</li>
+<li><a href="#new_controller">New Controller.</a></li>
+</ul>
+<hr />
+<h2 id="add_a_controller_to_the_power_network"><div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">Add a Controller to the Power Network</span></div><a class="headerlink" href="#add_a_controller_to_the_power_network" title="Permanent link">&para;</a></h2>
+<h3 id="controller_types"><div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold">Controller Types</span></div><a class="headerlink" href="#controller_types" title="Permanent link">&para;</a></h3>
+<p>In GUILDA, the controllers are classified into two categories: local controllers and global controllers.</p>
+<ul>
+<li>
+<p><strong>Local Controller:</strong> A controller that is added locally to each device. Example: Retrofit controller.</p>
+</li>
+<li>
+<p><strong>Global Controller:</strong> A controller for multiple devices. Example: Automatic Generation Control (AGC).</p>
+</li>
+</ul>
+<p>Both of these controllers are defined as objects of the controller class. The difference is that the local controller includes the input value of the global controller as an argument. This can be seen in the code, for example with the method "Controller State Derivative" (<code>get_dx_u</code>), which is defined in the controller class, but it is called differently, depending on the controller type, as follows.</p>
+<ul>
+<li>Controller State Derivative - Local Controller
+  <div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">dx</span><span class="p">,</span> <span class="n">u</span><span class="p">]</span> <span class="p">=</span> <span class="n">get_dx_u</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">u_global</span><span class="p">)</span>
+</code></pre></div></li>
+<li>Controller State Derivative - Global Controller
+  <div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">dx</span><span class="p">,</span> <span class="n">u</span><span class="p">]</span> <span class="p">=</span> <span class="n">get_dx_u</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="p">[])</span>
+</code></pre></div></li>
+</ul>
+<h3 id="implement_the_controller"><div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold">Implement the Controller</span></div><a class="headerlink" href="#implement_the_controller" title="Permanent link">&para;</a></h3>
+<p>Suppose that a local controller is defined as an instance in a variable named <code>con</code>. </p>
+<p><em>Note: The way to define the controller class depends on how each function is implemented, so please refer to the documentation of the controller class you intend to use.</em></p>
+<p>To add the defined local controller (<code>con</code>) to the power network (<code>net</code>) use the following</p>
+<p><div class="highlight"><pre><span></span><code><span class="n">net</span><span class="p">.</span><span class="n">add_controller_local</span><span class="p">(</span><span class="n">con</span><span class="p">);</span>
+</code></pre></div>
+Then a cell array is created in the <code>a_controller_local</code> property of the <code>power_network</code> class, and the controller class variables are listed in the order in which they were added.</p>
+<p>For the case of a global controller. Suppose that a global controller is defined as an instance in a variable named <code>con</code>. To add the defined global controller (<code>con</code>) to the power network (<code>net</code>) use the following</p>
+<div class="highlight"><pre><span></span><code><span class="n">net</span><span class="p">.</span><span class="n">add_controller_global</span><span class="p">(</span><span class="n">con</span><span class="p">);</span>
+</code></pre></div>
+<p>Similarly to the local controller case, a cell array is created in the <code>a_controller_global</code> property of the <code>power_network</code> class, and the controller class variables are listed in the order in which they were added.</p>
+<div style="text-align: center;">
+<img src="../../../Figures/con_workspace1.jpg" width=100%;>
+</div>
+
+<p>To remove the controllers use the following</p>
+<div class="highlight"><pre><span></span><code><span class="c">%Remove the first controller in the cell array of a_controller_local</span>
+<span class="n">net</span><span class="p">.</span><span class="n">remove_controller_local</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c">%Remove the third controller in the cell array of a_controller_global</span>
+<span class="n">net</span><span class="p">.</span><span class="n">remove_controller_global</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="example_-_automatic_generation_control_agc"><div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold">Example - Automatic Generation Control (AGC)</span></div><a class="headerlink" href="#example_-_automatic_generation_control_agc" title="Permanent link">&para;</a></h3>
+<p>This is an example on how to add the Automatic Generation Control (AGC) (<code>controller_broadcast_PI_AGC</code>) to a power network.</p>
+<p>The AGC controller model observes the frequency deviation of generators <span class="arithmatex">\(\small (\Delta \omega)\)</span> and gives input to each generator to set the deviation to 0.</p>
+<p>The usage of this controller class is</p>
+<p><div class="highlight"><pre><span></span><code><span class="c">%Define a AGC controller named &quot;con&quot;</span>
+<span class="n">con</span> <span class="p">=</span> <span class="n">controller_broadcast_PI_AGC_normal</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">y_idx</span><span class="p">,</span> <span class="n">u_idx</span><span class="p">,</span> <span class="n">Kp</span><span class="p">,</span> <span class="n">Ki</span><span class="p">);</span>
+</code></pre></div>
+Input Arguments</p>
+<ul>
+<li><code>net</code>: The created power network instance to which the controller is to be added.</li>
+<li><code>y_idx</code>: The number of the busbar whose output is to be observed.</li>
+<li><code>u_idx</code>: Number of the busbar to which the input is applied.</li>
+<li><code>Kp</code>: Proportional gain of the controller.</li>
+<li><code>Ki</code>: Integrative gain of the controller.</li>
+</ul>
+<p>Now, let's implement this controller in the IEEE 68-bus power system model, where generators are added from busbar 1 to busbar 16. For this example, the controller is set to observe the frequency deviations of all 16 generators and provide input to all 16 generators.</p>
+<p>The steps are: </p>
+<ol>
+<li><code>net = network_IEEE68bus</code><br />
+   Add a controller to an instance of the <code>power_network</code> class that implements the IEEE 68-bus model.</li>
+<li><code>y_idx = 1:16</code><br />
+   Observe the frequency deviation of the synchronous generators connected from busbars 1 to 16.</li>
+<li><code>u_idx = 1:16</code><br />
+   Apply input to the synchronous generators connected from busbars 1 to 16.</li>
+<li><code>Kp = -10</code> <code>Ki = -500</code><br />
+   Define the Proportional (<code>Kp</code>) and Integrative (<code>Ki</code>) gains of the controller.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c">%Define a power network instance named &quot;net&quot; of the IEEE 68-bus model class.</span>
+<span class="n">net</span> <span class="p">=</span> <span class="n">network_IEEE68bus</span><span class="p">;</span>
+
+<span class="c">%Define the AGC controller instance named &quot;con&quot; indicating that it will be applied to the &quot;net&quot; power network,</span>
+<span class="c">%will observe from bus 1 to 16, will apply input from bus 1 to 16, with P gain -10, and with I gain -500.</span>
+<span class="n">con</span> <span class="p">=</span> <span class="n">controller_broadcast_PI_AGC_normal</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">500</span><span class="p">);</span>
+
+<span class="c">%Add the defined controller instance to the power network.</span>
+<span class="n">net</span><span class="p">.</span><span class="n">add_controller_global</span><span class="p">(</span><span class="n">con</span><span class="p">);</span>
+</code></pre></div>
+<p>This concludes the explanation to add a controller to the power system.</p>
+<hr />
+<h2 id="new_controller"><div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">New Controller</span></div><a class="headerlink" href="#new_controller" title="Permanent link">&para;</a></h2>
+<p>This section explains how to define a new controller model in GUILDA. The methods and properties that should be implemented are summarized in this section (Click on the illustration ↓).</p>
+<p>If you want to use a controller model already implemented on GUILDA, you can skip this section.</p>
+<p><a href="../NewController/"><div align="center"><img src="../../../Figures/make_controller.jpg" width=80%; style="border: 7px CornflowerBlue solid;"></div></a></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../defineNet/NewComponent/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                New Components
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../NewController/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                New Controller
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2020- Tokyo Tech, Ishizaki Lab.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: ['navigation.tabs', 'content.code.annotate'],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.9c0e82ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

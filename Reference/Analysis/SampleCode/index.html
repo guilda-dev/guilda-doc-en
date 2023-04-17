@@ -1,0 +1,1077 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../../Figures/modularsmall.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
+    
+    
+      
+        <title>Simulation Examples - GUILDA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.cb6bc1d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700%7C&display=fallback">
+        <style>body,input{font-family:"Open Sans",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosansjp.css">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:600,800">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="light-blue">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#simulation_-_examples" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../.." title="GUILDA Documentation" class="md-header-nav__button md-logo" aria-label="GUILDA Documentation">
+      
+  <img src="../../../Figures/modularsmall.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            GUILDA Documentation
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              Simulation Examples
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link md-tabs__link--active">
+        Top
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="GUILDA Documentation" class="md-nav__button md-logo" aria-label="GUILDA Documentation">
+      
+  <img src="../../../Figures/modularsmall.png" alt="logo">
+
+    </a>
+    GUILDA Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+      
+      <label class="md-nav__link" for="nav-1">
+        Top
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Top" data-md-level="1">
+        <label class="md-nav__title" for="nav-1">
+          <span class="md-nav__icon md-icon"></span>
+          Top
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SetEnvironment/0TopPage/" class="md-nav__link">
+        GUILDA Setup
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aboutPowerSystem/0TopPage/" class="md-nav__link">
+        Power System Model (Simple)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SeriesAnalysis/0TopPage/" class="md-nav__link">
+        Guided Example
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5" type="checkbox" id="nav-1-5" checked>
+      
+      <label class="md-nav__link" for="nav-1-5">
+        Guilda in Detail
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Guilda in Detail" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-5">
+          <span class="md-nav__icon md-icon"></span>
+          Guilda in Detail
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0TopPage/" class="md-nav__link">
+        Guilda in Detail
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5-2" type="checkbox" id="nav-1-5-2" >
+      
+      <label class="md-nav__link" for="nav-1-5-2">
+        Power System Model (Detailed)
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Power System Model (Detailed)" data-md-level="3">
+        <label class="md-nav__title" for="nav-1-5-2">
+          <span class="md-nav__icon md-icon"></span>
+          Power System Model (Detailed)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../defineNet/0TopPage/" class="md-nav__link">
+        Power System Model (Detailed)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../defineNet/NewPowerNetwork/" class="md-nav__link">
+        New Power System Model
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../defineNet/NewComponent/" class="md-nav__link">
+        New Components
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5-3" type="checkbox" id="nav-1-5-3" >
+      
+      <label class="md-nav__link" for="nav-1-5-3">
+        Controllers
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Controllers" data-md-level="3">
+        <label class="md-nav__title" for="nav-1-5-3">
+          <span class="md-nav__icon md-icon"></span>
+          Controllers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../addController/0TopPage/" class="md-nav__link">
+        Controllers
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../addController/NewController/" class="md-nav__link">
+        New Controller
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-5-4" type="checkbox" id="nav-1-5-4" checked>
+      
+      <label class="md-nav__link" for="nav-1-5-4">
+        Numerical Simulations
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Numerical Simulations" data-md-level="3">
+        <label class="md-nav__title" for="nav-1-5-4">
+          <span class="md-nav__icon md-icon"></span>
+          Numerical Simulations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_simulate/" class="md-nav__link">
+        Simulating
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Simulation Examples
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Simulation Examples
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#example_1_-_initial_value_response" class="md-nav__link">
+    Example 1 - Initial Value Response
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example_2_-_disturbance_response" class="md-nav__link">
+    Example 2 - Disturbance Response
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example_3_-_input_response" class="md-nav__link">
+    Example 3 - Input Response
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example_4_-_combination_response" class="md-nav__link">
+    Example 4 - Combination Response
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simulation_results" class="md-nav__link">
+    Simulation Results
+  </a>
+  
+    <nav class="md-nav" aria-label="Simulation Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#results_visualization" class="md-nav__link">
+    Results Visualization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_getsys/" class="md-nav__link">
+        Derivation of a Linearized Model
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-6" type="checkbox" id="nav-1-6" >
+      
+      <label class="md-nav__link" for="nav-1-6">
+        Source Code Explanation
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Source Code Explanation" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-6">
+          <span class="md-nav__icon md-icon"></span>
+          Source Code Explanation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/0TopPage/" class="md-nav__link">
+        Source Code Explanation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/power_network/" class="md-nav__link">
+        Power Network Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/NetProperties/" class="md-nav__link">
+        Power Network Class - Properties
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/branch/" class="md-nav__link">
+        Branch Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/bus/" class="md-nav__link">
+        Bus Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/component/" class="md-nav__link">
+        Component Class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SourceCode/controller/" class="md-nav__link">
+        Controller Class
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#example_1_-_initial_value_response" class="md-nav__link">
+    Example 1 - Initial Value Response
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example_2_-_disturbance_response" class="md-nav__link">
+    Example 2 - Disturbance Response
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example_3_-_input_response" class="md-nav__link">
+    Example 3 - Input Response
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example_4_-_combination_response" class="md-nav__link">
+    Example 4 - Combination Response
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simulation_results" class="md-nav__link">
+    Simulation Results
+  </a>
+  
+    <nav class="md-nav" aria-label="Simulation Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#results_visualization" class="md-nav__link">
+    Results Visualization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="simulation_-_examples"><div style="text-align: center;"><span style="font-size: 140%; color: black; font-weight: bold">Simulation - Examples</span></div><a class="headerlink" href="#simulation_-_examples" title="Permanent link">&para;</a></h1>
+<p>This page contains examples of handling the simulating function and examining its response under various settings.</p>
+<p><strong>Contents:</strong></p>
+<ul>
+<li><a href="#example_1_-_initial_value_response">Example 1 - Initial Value Response.</a></li>
+<li><a href="#example_2_-_disturbance_response">Example 2 - Disturbance Response.</a></li>
+<li><a href="#example_3_-_input_response">Example 3 - Input Response.</a></li>
+<li><a href="#example_4_-_combination_response">Example 4 - Combination Response.</a></li>
+<li><a href="#simulation_results">Simulation Results</a></li>
+</ul>
+<hr />
+<h2 id="example_1_-_initial_value_response"><div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">Example 1 - Initial Value Response</span></div><a class="headerlink" href="#example_1_-_initial_value_response" title="Permanent link">&para;</a></h2>
+<p><strong>Scenario:</strong></p>
+<ul>
+<li>
+<p>IEEE 68-bus model.</p>
+</li>
+<li>
+<p>Simulation time: 0 - 20 seconds.</p>
+</li>
+<li>
+<p>Simulation conditions: Initial value of frequency deviation <span class="arithmatex">\(\small (\Delta \omega)\)</span> (second state) of the generator connected to busbar 3 is deviated by 0.01 from the equilibrium point.</p>
+</li>
+</ul>
+<p>The second state of the generator connected to busbar 3 corresponds to the 16th state of the entire system. Remember that the state of the entire system is a vector composed of the states of all components (in the busbar ascending order). And since in the IEEE 68-bus model, the generators have 7 states each, the second state of the third generator is the 16th state of the entire system.</p>
+<p>In cases where the number of internal states per components isn't known, the method <code>get_nx</code> can be used.</p>
+<div class="highlight"><pre><span></span><code><span class="c">%Network Definition</span>
+<span class="n">net</span> <span class="p">=</span> <span class="n">network_IEEE68bus</span><span class="p">();</span>
+<span class="c">%Define options for simulation</span>
+<span class="n">option</span>          <span class="p">=</span> <span class="n">struct</span><span class="p">();</span>
+<span class="n">option</span><span class="p">.</span><span class="n">x0_sys</span>   <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">x_equilibrium</span><span class="p">;</span>
+<span class="n">option</span><span class="p">.</span><span class="n">x0_sys</span><span class="p">(</span><span class="mi">16</span><span class="p">)=</span> <span class="n">option</span><span class="p">.</span><span class="n">x0_sys</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.01</span><span class="p">;</span>
+<span class="c">%Running the simulation</span>
+<span class="n">out</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">simulate</span><span class="p">([</span><span class="mi">0</span> <span class="mi">20</span><span class="p">],</span> <span class="n">option</span><span class="p">);</span>
+</code></pre></div>
+<p>Alternatively (without stating <code>option</code> as a structure).</p>
+<div class="highlight"><pre><span></span><code><span class="n">net</span> <span class="p">=</span> <span class="n">network_IEEE68bus</span><span class="p">();</span>
+<span class="n">x0</span>    <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">x_equilibrium</span><span class="p">;</span>
+<span class="n">x0</span><span class="p">(</span><span class="mi">16</span><span class="p">)=</span> <span class="n">x0</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.01</span><span class="p">;</span>
+<span class="n">out</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">simulate</span><span class="p">([</span><span class="mi">0</span> <span class="mi">20</span><span class="p">],</span><span class="s">&#39;x0_sys&#39;</span><span class="p">,</span><span class="n">x0</span><span class="p">);</span>
+</code></pre></div>
+<p>Usage example of the method <code>get_nx</code> (obtain the number of internal state of a component).</p>
+<div class="highlight"><pre><span></span><code><span class="n">bus_idx</span>   <span class="p">=</span> <span class="mi">3</span><span class="p">;</span> <span class="c">%Third busbar.</span>
+<span class="n">state_idx</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c">%Second state.</span>
+
+<span class="c">%Adds up the number of states from Busbar 1 to Busbar.</span>
+<span class="c">%Practically, skips the busbars previous to the one of interest.</span>
+<span class="p">(</span><span class="n">bus_idx</span><span class="o">-</span><span class="mi">1</span><span class="p">).</span>
+<span class="n">idx</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">for</span> <span class="s">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">bus_idx</span><span class="o">-</span><span class="mi">1</span>
+    <span class="n">idx</span> <span class="p">=</span> <span class="n">idx</span><span class="o">+</span><span class="n">net</span><span class="p">.</span><span class="n">a_bus</span><span class="p">{</span><span class="nb">i</span><span class="p">}.</span><span class="n">component</span><span class="p">.</span><span class="n">get_nx</span><span class="p">;</span>
+<span class="n">end</span>
+
+<span class="s">%To</span> <span class="s">know</span> <span class="s">the</span> <span class="s">second</span> <span class="s">state</span> <span class="s">of</span> <span class="s">the</span> <span class="s">third</span> <span class="s">busbar.</span>
+<span class="c">%Practically, goes to the state of interest in the busbar of interest.</span>
+<span class="n">idx</span> <span class="p">=</span> <span class="n">idx</span><span class="o">+</span><span class="n">state_idx</span><span class="p">;</span>
+
+<span class="c">%In the case of the IEEE68bus model it is、idx = 7+7+2= 16.</span>
+<span class="n">option</span><span class="p">.</span><span class="n">x0_sys</span><span class="p">(</span><span class="n">idx</span><span class="p">)=</span> <span class="n">option</span><span class="p">.</span><span class="n">x0sys</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">;</span>
+            ：
+</code></pre></div>
+<hr />
+<h2 id="example_2_-_disturbance_response"><div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">Example 2 - Disturbance Response</span></div><a class="headerlink" href="#example_2_-_disturbance_response" title="Permanent link">&para;</a></h2>
+<p><strong>Scenario:</strong></p>
+<ul>
+<li>
+<p>IEEE 68-bus model.</p>
+</li>
+<li>
+<p>Simulation time: 0 - 30 seconds.</p>
+</li>
+<li>
+<p>Simulation conditions: Ground fault on busbar 1 for 0-0.07 seconds and 15-15.05 seconds; on busbar 2, and busbars 5-7 for 10-10.01 seconds.</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c">%Network definition</span>
+<span class="n">net</span> <span class="p">=</span> <span class="n">network_IEEE68bus</span><span class="p">();</span>
+<span class="c">%Define options for simulation</span>
+<span class="n">option</span> <span class="p">=</span> <span class="n">struct</span><span class="p">();</span>
+<span class="n">option</span><span class="p">.</span><span class="n">fault</span> <span class="p">=</span> <span class="p">{{[</span><span class="mi">0</span> <span class="mf">0.07</span><span class="p">],</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{[</span><span class="mi">15</span> <span class="mf">15.05</span><span class="p">],</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{[</span><span class="mi">10</span><span class="p">,</span><span class="mf">10.01</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">:</span><span class="mi">7</span><span class="p">]}};</span>
+<span class="c">%Running the simulation</span>
+<span class="n">out</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">simulate</span><span class="p">([</span><span class="mi">0</span> <span class="mi">30</span><span class="p">],</span> <span class="n">option</span><span class="p">);</span>
+</code></pre></div>
+<p>Alternatively (without stating option as a structure).</p>
+<div class="highlight"><pre><span></span><code><span class="n">net</span> <span class="p">=</span> <span class="n">network_IEEE68bus</span><span class="p">();</span>
+<span class="n">out</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">simulate</span><span class="p">([</span><span class="mi">0</span> <span class="mi">30</span><span class="p">],</span><span class="k">...</span>
+            <span class="s">&#39;fault&#39;</span><span class="p">,{{[</span><span class="mi">0</span> <span class="mf">0.07</span><span class="p">],</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{[</span><span class="mi">15</span> <span class="mf">15.05</span><span class="p">],</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{[</span><span class="mi">10</span><span class="p">,</span><span class="mf">10.01</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">:</span><span class="mi">7</span><span class="p">]}});</span>
+</code></pre></div>
+<hr />
+<h2 id="example_3_-_input_response"><div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">Example 3 - Input Response</span></div><a class="headerlink" href="#example_3_-_input_response" title="Permanent link">&para;</a></h2>
+<p><strong>Scenario:</strong></p>
+<ul>
+<li>
+<p>3-bus model.</p>
+</li>
+<li>
+<p>Simulation time: 0 - 30 seconds.</p>
+</li>
+<li>
+<p>Simulation conditions: The impedance of the load connected to busbar 3 is increased.</p>
+</li>
+</ul>
+<p>This corresponds to the same scenario as the one explained in the <a href="../../../SeriesAnalysis/0TopPage/">Guided Example</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="c">%Network definition</span>
+<span class="n">net</span> <span class="p">=</span> <span class="n">network_sample3bus</span><span class="p">();</span>
+<span class="c">%Condition Setting</span>
+<span class="n">time</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">60</span><span class="p">];</span>
+<span class="n">u_idx</span> <span class="p">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="n">u</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">;</span><span class="k">...</span>
+     <span class="mi">0</span><span class="p">,</span>    <span class="mi">0</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span>   <span class="mi">0</span><span class="p">];</span>
+<span class="c">%Running the simulation</span>
+<span class="n">out</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">u</span><span class="p">,</span> <span class="n">u_idx</span><span class="p">);</span>
+</code></pre></div>
+<hr />
+<h2 id="example_4_-_combination_response"><div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">Example 4 - Combination Response</span></div><a class="headerlink" href="#example_4_-_combination_response" title="Permanent link">&para;</a></h2>
+<p>Combining all the previous conditions up to this point (i.e., initial value response, disturbance response, input response), the following scenario is presented.</p>
+<p><strong>Scenario:</strong></p>
+<ul>
+<li>
+<p>IEEE 68-bus model.</p>
+</li>
+<li>
+<p>Simulation time: 0 - 20 seconds.</p>
+</li>
+<li>
+<p>Simulation conditions:</p>
+</li>
+<li>Initial Value: The initial state of busbar 1 is slightly shifted (0.01) from the equilibrium point.</li>
+<li>Disturbance: A ground fault is applied to bus 1 at 0-0.07 seconds and to bus 10 at 10-10.05 seconds.</li>
+<li>Input: Random inputs are applied to buses 1 and 10.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="c">% raw %}</span>
+<span class="c">%Network definition</span>
+<span class="n">net</span> <span class="p">=</span> <span class="n">network_IEEE68bus</span><span class="p">();</span>
+
+<span class="c">%Define options for simulation</span>
+<span class="n">option</span>          <span class="p">=</span> <span class="n">struct</span><span class="p">();</span>
+<span class="n">option</span><span class="p">.</span><span class="n">x0_sys</span>   <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">x_equilibrium</span><span class="p">;</span>
+<span class="n">option</span><span class="p">.</span><span class="n">x0_sys</span><span class="p">(</span><span class="mi">16</span><span class="p">)=</span> <span class="n">option</span><span class="p">.</span><span class="n">x0_sys</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.01</span><span class="p">;</span>
+
+<span class="n">option</span><span class="p">.</span><span class="n">fault</span> <span class="p">=</span> <span class="p">{{[</span><span class="mi">0</span> <span class="mf">0.07</span><span class="p">],</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{[</span><span class="mi">15</span> <span class="mf">15.05</span><span class="p">],</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{[</span><span class="mi">10</span><span class="p">,</span><span class="mf">10.01</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">:</span><span class="mi">7</span><span class="p">]}};</span>
+
+<span class="c">%Condition Setting</span>
+<span class="n">time</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">60</span><span class="p">];</span>
+<span class="n">u_idx</span> <span class="p">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="n">u</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">;</span><span class="k">...</span>
+     <span class="mi">0</span><span class="p">,</span>    <span class="mi">0</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span>   <span class="mi">0</span><span class="p">];</span>
+
+<span class="c">%Running the simulation</span>
+<span class="n">out</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">u_idx</span><span class="p">,</span> <span class="n">option</span><span class="p">);</span>
+<span class="p">{</span><span class="c">% endraw %}</span>
+</code></pre></div>
+<p>Alternatively (without stating option as a structure).</p>
+<div class="highlight"><pre><span></span><code><span class="n">net</span> <span class="p">=</span> <span class="n">network_IEEE68bus</span><span class="p">();</span>
+<span class="n">x0</span>    <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">x_equilibrium</span><span class="p">;</span>
+<span class="n">x0</span><span class="p">(</span><span class="mi">16</span><span class="p">)=</span> <span class="n">x0</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.01</span><span class="p">;</span>
+<span class="n">out</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">simulate</span><span class="p">([</span><span class="mi">0</span> <span class="mi">20</span><span class="p">],</span><span class="n">u</span><span class="p">,</span><span class="n">u_idx</span><span class="p">,</span><span class="k">...</span>
+                <span class="s">&#39;x0_sys&#39;</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="k">...</span>
+                <span class="s">&#39;fault&#39;</span><span class="p">,{{[</span><span class="mi">0</span> <span class="mf">0.07</span><span class="p">],</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{[</span><span class="mi">15</span> <span class="mf">15.05</span><span class="p">],</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{[</span><span class="mi">10</span><span class="p">,</span><span class="mf">10.01</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">:</span><span class="mi">7</span><span class="p">]}});</span>
+</code></pre></div>
+<hr />
+<h2 id="simulation_results"><div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">Simulation Results</span></div><a class="headerlink" href="#simulation_results" title="Permanent link">&para;</a></h2>
+<p>In the IEEE 68-bus model, the generators are connected to the busbars 1 to 16. The generator model used is the 1-axis model (i.e., <code>generator_1axis</code> class). Remember that for this model, the first three entries are</p>
+<ol>
+<li>Rotor declination <span class="arithmatex">\(\small (\delta)\)</span>.</li>
+<li>Frequency deviation <span class="arithmatex">\(\small (\Delta \omega)\)</span></li>
+<li>Internal voltage <span class="arithmatex">\(\small (E)\)</span>.</li>
+</ol>
+<p>Thus, to visualize the frequency deviation <span class="arithmatex">\(\small (\Delta \omega)\)</span> of each generator bus, all you have to do is to look at the 2nd state of each device. It can be easily plotted with the following code.</p>
+<div class="highlight"><pre><span></span><code><span class="n">figure</span><span class="p">;</span>
+<span class="n">hold</span> <span class="s">on</span>
+<span class="n">arrayfun</span><span class="p">(@(</span><span class="n">idx</span><span class="p">)</span> <span class="n">plot</span><span class="p">(</span><span class="n">out</span><span class="p">.</span><span class="n">t</span><span class="p">,</span><span class="n">out</span><span class="p">.</span><span class="n">X</span><span class="p">{</span><span class="n">idx</span><span class="p">}(:,</span><span class="mi">2</span><span class="p">)),</span><span class="mi">1</span><span class="p">:</span><span class="mi">16</span><span class="p">);</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Time [s]&#39;</span><span class="p">,</span><span class="s">&#39;FontSize&#39;</span><span class="p">,</span><span class="mi">15</span><span class="p">);</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Frequency Deviation&#39;</span><span class="p">,</span><span class="s">&#39;FontSize&#39;</span><span class="p">,</span><span class="mi">15</span><span class="p">);</span>
+<span class="n">legend</span><span class="p">()</span>
+<span class="n">title</span><span class="p">(</span><span class="s">&#39;Frequency deviation of each synchronous generator&#39;</span><span class="p">,</span><span class="s">&#39;FontSize&#39;</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">hold</span> <span class="s">off</span>
+</code></pre></div>
+<p>However, when there is more than one device with a state, as in this model, it is necessary to consider the state of each device. The <code>simulationResult</code> class described below automatically classifies and plots each device using its state variable name in the internal method.</p>
+<hr />
+<h3 id="results_visualization"><div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold">Results Visualization</span></div><a class="headerlink" href="#results_visualization" title="Permanent link">&para;</a></h3>
+<p>As mentioned before, GUILDA implements a class called <code>simulationResult</code>, which is used to visualize the simulation results.</p>
+<p><strong>Plot with command</strong></p>
+<p>To use it, in the <code>simulate</code> function, set the option <code>tools</code> as <code>true</code>. For the case of example 4:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="c">% raw %}</span>
+<span class="n">net</span> <span class="p">=</span> <span class="n">network_IEEE68bus</span><span class="p">();</span>
+<span class="n">x0</span>    <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">x_equilibrium</span><span class="p">;</span>
+<span class="n">x0</span><span class="p">(</span><span class="mi">16</span><span class="p">)=</span> <span class="n">x0</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">;</span>
+<span class="n">out</span> <span class="p">=</span> <span class="n">net</span><span class="p">.</span><span class="n">simulate</span><span class="p">([</span><span class="mi">0</span> <span class="mi">20</span><span class="p">],</span><span class="n">u</span><span class="p">,</span><span class="n">u_idx</span><span class="p">,</span><span class="k">...</span>
+            <span class="s">&#39;x0_sys&#39;</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="k">...</span>
+            <span class="s">&#39;fault&#39;</span><span class="p">,{{[</span><span class="mi">0</span> <span class="mf">0.07</span><span class="p">],</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{[</span><span class="mi">15</span> <span class="mf">15.05</span><span class="p">],</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{[</span><span class="mi">10</span><span class="p">,</span><span class="mf">10.01</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">:</span><span class="mi">7</span><span class="p">]}},</span><span class="k">...</span>
+            <span class="s">&#39;tools&#39;</span><span class="p">,</span><span class="nb">true</span><span class="p">);</span>
+<span class="p">{</span><span class="c">% endraw %}</span>
+</code></pre></div>
+<p><strong>Plot with User Interface (UI)</strong></p>
+<p>To plot with the UI use:</p>
+<div class="highlight"><pre><span></span><code><span class="n">out</span><span class="p">.</span><span class="n">UIplot</span>
+</code></pre></div>
+<p>The UI for plotting conditions will be displayed. Check the appropriate check boxes and press the "plot" button to display the plot. At this time, if you check the "command output" box, commands for plotting will be displayed.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../net_simulate/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Simulating
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../net_getsys/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Derivation of a Linearized Model
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2020- Tokyo Tech, Ishizaki Lab.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: ['navigation.tabs', 'content.code.annotate'],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.9c0e82ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>
