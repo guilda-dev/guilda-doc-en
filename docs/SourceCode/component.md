@@ -103,7 +103,7 @@ This child class implementats a generator model. In GUILDA a 1-Axis Synchronous 
 
 - `Xq`: Synchronous Reactance around the q-axis $\small (X_q)$.
 
-- `Xd_prime`: Transient Synchronous Reactance around the d-axis $\small (X'_d)$.
+- `Xd_prime`: Transient Reactance around the d-axis $\small (X'_d)$.
 
 - `T`：Time constant of the field current around the d-axis $\small (\tau)$.
 

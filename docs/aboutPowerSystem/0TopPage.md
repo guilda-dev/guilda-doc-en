@@ -32,7 +32,7 @@ This model is composed of
 - 35 loads (▼ in the figure).
 - And branches connecting each busbar (lines connecting busbars).
 
-The components are brifly explained one-by-one in the following segments.
+The components are briefly explained one-by-one in the following segments.
 
 ---
 

@@ -12,12 +12,12 @@ In this section it is explained how to create a new 3-bus power system model and
 - [Branch Definition.](#branch_definition)
 - [Network Parameters.](#network_parameters)
 - [Busbar Definition.](#busbar_definition)
-    - [Slack Bus.](#slack_bus)
-    - [PV Bus.](#pv_bus)
-    - [PQ Bus.](#pq-bus)
+  - [Slack Bus.](#slack_bus)
+  - [PV Bus.](#pv_bus)
+  - [PQ Bus.](#pq-bus)
 - [Component Definition.](#component_definition)
-    - [Generator.](#generator_definition)
-    - [Load.](#load_definition)
+  - [Generator.](#generator_definition)
+  - [Load.](#load_definition)
 - [Complete Code.](#complete_code)
 
 ---
@@ -41,7 +41,7 @@ In the following sections various elements will be added to the power network (`
 Branches in GUILDA represent power transmission lines between busbars. The information of these transmission lines is stored as a `table`. The parameters of interest are
 
 - `bus_from`, `bus_to`: Busbar number that the transmission line connects from and to, respectively.
-- `x_real`, `x_imag`:   Real and imaginary part of the transmission line's impedance $\small (Z)$, respectively. The reciprocal of this value is the admittance $\small (Y)$.
+- `x_real`, `x_imag`: Real and imaginary part of the transmission line's impedance $\small (Z)$, respectively. The reciprocal of this value is the admittance $\small (Y)$.
 - `y`: Ground capacitance.
 - `tap`, `phase`: Phase Adjustment Transformer Parameters.
 
@@ -58,14 +58,12 @@ For example, in the 3-bus model, there are two transmission lines: one connectin
        3          2            0    0.0625         0     1       0
 ```
 
-
-
 ### **Sample code for defining a branch**
 
 In the following section, values are obtained for each row from the table type data defining the branch information, and stored in a class variable named a_branch in the power_network class defined earlier.
 
 ```matlab
-%Inser the branch table information in the following array.
+%Insert the branch table information in the following array.
 branch_array = [Inser the table information here];
 
 %Add variable names to convert the `branch_array` to a `table` type variable.
@@ -101,7 +99,6 @@ net3bus.ad_branch(br) %This line assumes the network's variable name "netbus3".
 ## <div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">Network Parameters</span></div>
 
 In GUILDA, the busbars have six possible parameters.
-
 
 - Active Power $(P)$.
 - Reactive Power $(Q)$.
@@ -142,11 +139,12 @@ Thus, the Slack Bus is specified by voltage magnitude $\small (\lvert V \rvert)$
 %Define a Slack Bus named "b"
 b = bus_slack(V_abs, V_angle, [G_shunt, B_shunt]);
 ```
+
 Input Arguments:
 
-  - `V_abs`: Voltage Magnitude $\small (\lvert V \rvert)$.
-  - `V_angle`: Voltage Phase Angle $\small (\angle V)$ $-$ *Normally 0.*
-  - `[G_shunt, B_shunt]`: Real and imaginary part of the impedance of a shunt resistor connected to the ground $\small ([G_{\mathrm{shunt}}, B_{\mathrm{shunt}}])$.
+- `V_abs`: Voltage Magnitude $\small (\lvert V \rvert)$.
+- `V_angle`: Voltage Phase Angle $\small (\angle V)$ $-$ _Normally 0._
+- `[G_shunt, B_shunt]`: Real and imaginary part of the admittance of a shunt resistor connected to the ground $\small ([G_{\mathrm{shunt}}, B_{\mathrm{shunt}}])$.
 
 ### **PV Bus**
 
@@ -161,9 +159,9 @@ b = bus_PV(P_gen, V_abs, [G_shunt, B_shunt]);
 
 Input Arguments:
 
-  - `P_gen`: Active Power $\small (P)$.
-  - `V_abs`: Voltage Magnitude $\small (\lvert V \rvert)$
-  - `[G_shunt, B_shunt]`: Real and imaginary part of the impedance of a shunt resistor connected to the ground $\small ([G_{\mathrm{shunt}}, B_{\mathrm{shunt}}])$.
+- `P_gen`: Active Power $\small (P)$.
+- `V_abs`: Voltage Magnitude $\small (\lvert V \rvert)$
+- `[G_shunt, B_shunt]`: Real and imaginary part of the admittance of a shunt resistor connected to the ground $\small ([G_{\mathrm{shunt}}, B_{\mathrm{shunt}}])$.
 
 ### **PQ Bus**
 
@@ -176,11 +174,11 @@ b = bus_PQ(-Pload, -Qload, [G_shunt, B_shunt]);
 
 Input Arguments:
 
-  - `-Pload`: Negative of Active Power $\small (P)$.
-  - `-Qload`: Negative of Reactive Power $\small (Q)$.
-  - `[G_shunt, B_shunt]`: Real and imaginary part of the impedance of a shunt resistor connected to the ground $\small ([G_{\mathrm{shunt}}, B_{\mathrm{shunt}}])$.
+- `-Pload`: Negative of Active Power $\small (P)$.
+- `-Qload`: Negative of Reactive Power $\small (Q)$.
+- `[G_shunt, B_shunt]`: Real and imaginary part of the admittance of a shunt resistor connected to the ground $\small ([G_{\mathrm{shunt}}, B_{\mathrm{shunt}}])$.
 
-This completes the process up to creating instances of the busbar class. 
+This completes the process up to creating instances of the busbar class.
 
 Note: Before storing the defined busbars (`b`), in the defined power network (`net`); first, define the components (i.e., generators and loads) that are connected to each busbar. For it please refer to the following section.
 
@@ -188,11 +186,10 @@ Note: Before storing the defined busbars (`b`), in the defined power network (`n
 
 ## <div style="text-align: center;"><span style="font-size: 120%; color: black; font-weight: bold">Component Definition</span></div>
 
-
 The process to define a component is
 
 1. Create a variable (e.g., `component`) and make it an instance of one of the component classes (i.e., `generator_1axis`, `load_impedance`).
-2. Assign the newly created component variable (`component`) to the bus to which it is connected (e.g., `b`), by ussing the function `set_component`.
+2. Assign the newly created component variable (`component`) to the bus to which it is connected (e.g., `b`), by using the function `set_component`.
 
 ### **Generator Definition**
 
@@ -208,14 +205,14 @@ Input Arguments:
 
 - `omega0`: Grid's frequency $\small (\omega_0)$.
 - `mac`: Parameters of the Generator (Table with 8 fields)
-    - `No_machine`: Generator number.
-    - `No_bus`: Busbar to which the the generator is connected.
-    - `Xd`: Synchronous Reactance around the d-axis $\small (X_d)$.
-    - `Xd_prime`: Transient Synchronous Reactance around the d-axis $\small (X'_d)$.
-    - `Xq`: Synchronous Reactance around the q-axis $\small (X_q)$.
-    - `T`: Time constant of the field current aroudn the d-axis $\small (\tau_d)$.
-    - `M`: Inertia Coefficient $\small (M)$.
-    - `D`: Damping Factor $\small (D)$.
+  - `No_machine`: Generator number.
+  - `No_bus`: Busbar to which the the generator is connected.
+  - `Xd`: Synchronous Reactance around the d-axis $\small (X_d)$.
+  - `Xd_prime`: Transient Reactance around the d-axis $\small (X'_d)$.
+  - `Xq`: Synchronous Reactance around the q-axis $\small (X_q)$.
+  - `T`: Time constant of the field current around the d-axis $\small (\tau_d)$.
+  - `M`: Inertia Coefficient $\small (M)$.
+  - `D`: Damping Factor $\small (D)$.
 
 For example, defining the table (`mac`) for a synchronous generator with arbitrary parameters is like the following
 
@@ -239,7 +236,7 @@ component.set_pss(pss(p)) %Adds PSS to the created generator instance named "com
 
 - Automatic Voltage Regulator (AVR): In GUILDA, the AVR model is under the class `avr_sadamoto2019(exc)`.
 
-    - Argument `exc`: Table that includes the required AVR parameters.
+  - Argument `exc`: Table that includes the required AVR parameters.
 
 ```matlab
 exc  =
@@ -253,7 +250,7 @@ ________  _____   ______
 
 - Power System Stabilizer (PSS): In GUILDA, the PSS model is under the class `pss(p)`.
 
-    - Argument `p`: Table that includes the required PSS parameters.
+  - Argument `p`: Table that includes the required PSS parameters.
 
 ```matlab
 p =
@@ -288,7 +285,7 @@ b.set_component(component);
 net.add_bus(b);
 ```
 
-*Add a component to a bus that already is in the power network*: As mentioned before, it is recommended to add the busbars to the power network along with its components. However, in case a component is to be added to a busbar that is already assigned to the power network use the following code.
+_Add a component to a bus that already is in the power network_: As mentioned before, it is recommended to add the busbars to the power network along with its components. However, in case a component is to be added to a busbar that is already assigned to the power network use the following code.
 
 ```matlab
 %Add the busbar named "b" to the power network named "net".
@@ -296,6 +293,7 @@ net.add_bus(b);
 %Add the component named "component" to the "i-th" busbar added to the power network named "net".
 net.a_bus{i}.set_component(component);
 ```
+
 The method `add_bus` (used when adding a busbar to the power network) stores the specified busbar in the variable `a_bus`. The key point to note is that the busbars are defined in the order in which they are assigned to the field `a_bus`. In other words, the first busbar class that is `net.add_bus(b)` is treated as "bus 1".
 
 Therefore, in the code line
@@ -303,6 +301,7 @@ Therefore, in the code line
 ```matlab
 net.a_bus{i}.set_component(component);
 ```
+
 the `i` corresponds to the `i-th` busbar that was added to the power network by using the method `add_bus`. Therefore, if this procedure is to be used, it is important to keep a record of the assignment order of the busbars to the power network. This method is useful for situtation like modifying the equipment model (i.e., component) of an existing busbar.
 
 ---
@@ -312,7 +311,7 @@ the `i` corresponds to the `i-th` busbar that was added to the power network by 
 This completes the definition of the power system.
 The code up to this point is summarized at the end of this section.
 
-In this case, a 3 busbar power network  is implemented as an example. However, any network geometry can be implemented.
+In this case, a 3 busbar power network is implemented as an example. However, any network geometry can be implemented.
 
 ```matlab
 %Function: define a 3-bus network
@@ -339,7 +338,7 @@ branch_array = [...
             1 2	0	1/12.56041	0	1	0;...
             3 2 0	1/13.65107	0	1	0;];
 
-%Add variable names to the branches' parameters.      
+%Add variable names to the branches' parameters.
 branch = array2table(branch_array, 'VariableNames', ...
                 {'bus_from', 'bus_to', 'x_real', 'x_imag', 'y', 'tap', 'phase'}...
                 );
@@ -357,7 +356,7 @@ mac_data = array2table(mac_array, 'VariableNames', ...
 exc_array = [1 0 0.05;
                     3 0 0.05];
 
-%Add variable names to the AVR Controller's parameters.   
+%Add variable names to the AVR Controller's parameters.
 exc_data = array2table(exc_array, 'VariableNames', ...
             {'No_bus', 'Ka', 'Te'} ...
             );
@@ -388,7 +387,7 @@ for i = 1:size(bus, 1)
             P = bus{i, 'P_gen'};
             b = bus_PV(P, V_abs, shunt);
             b.set_component(get_generator(i, machinery, excitation, pss_data, omega0));
-        
+
         %Define PQ Bus.
         case 3
             P = bus{i, 'P_load'};

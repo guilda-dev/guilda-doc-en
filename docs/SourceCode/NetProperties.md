@@ -8,15 +8,15 @@ In GUILDA, the power system model is defined as a variable of the class `power_n
 
 - [Power System Model](#power_system_model)
 - [Power Network Class - Properties](#power_network_class_-_properties_1)
-    - [Equilibrium Properties.](#equilibrium_properties)
-    - [Busbar Properties.](#busbar_properties)
-    - [Branch Properties.](#branch_properties)
-    - [Controller Properties.](#controller_properties)
+  - [Equilibrium Properties.](#equilibrium_properties)
+  - [Busbar Properties.](#busbar_properties)
+  - [Branch Properties.](#branch_properties)
+  - [Controller Properties.](#controller_properties)
 - [Extract Network Information](#extract_network_information)
-    - [Example 1 - Obtain Busbar Indexes.](#example_1_-_obtain_busbar_indexes)
-    - [Example 2 - Obtain Busbar Power Flow Parameters.](#example_2_-_obtain_busbar_power_flow_parameters)
-    - [Example 3 - Obtain Busbar Components.](#example_3_-_obtain_busbar_components)
-    - [Example 4 - Obtain Network's Graph.](#example_4_-_obtain_networks_graph)
+  - [Example 1 - Obtain Busbar Indexes.](#example_1_-_obtain_busbar_indexes)
+  - [Example 2 - Obtain Busbar Power Flow Parameters.](#example_2_-_obtain_busbar_power_flow_parameters)
+  - [Example 3 - Obtain Busbar Components.](#example_3_-_obtain_busbar_components)
+  - [Example 4 - Obtain Network's Graph.](#example_4_-_obtain_networks_graph)
 
 ---
 
@@ -24,7 +24,7 @@ In GUILDA, the power system model is defined as a variable of the class `power_n
 
 For this example, the IEEE 68-bus 16-Machine Power System Model is used. This power model is already predefined in GUILDA, to create an instance of it, use the following command.
 
-``` matlab
+```matlab
 net = network_IEEE68bus;
 ```
 
@@ -51,7 +51,7 @@ This section explains all the variables (properties) included in the IEEE 68-bus
 
 - `x_equilibrium`: Equilibrium points of the state variables of the components (i.e., generators). In the case of this IEEE 68-bus model, there are 16 generators and 35 loads. Remember that each generator is defined by 7 internal states, while the load model has 0 states. Therefore, the number of states of this power system is $\small (16 \times 7) + (35 \times 0) = 112$". Thus, the number of elements of its equilibrium point (`x_equilibrium`) is also 112 x 1. The order of the elements corresponds to the order of the busbar they correspond, starting with the state variables of the busbar 1.
 
-*Note: For details on the state variables for each component, please refer to the dedicated site [New Components](../Reference/defineNet/NewComponent.md).*
+_Note: For details on the state variables for each component, please refer to the dedicated site [New Components](../Reference/defineNet/NewComponent.md)._
 
 - `V_equilibrium`: Stores the voltage of the equilibrium point of each busbar in a complex array of "busbars" x 1. For this model with 68 busbars, a 68 x 1 array is obtained.
 
@@ -61,11 +61,11 @@ This section explains all the variables (properties) included in the IEEE 68-bus
 
 ### <div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold">Busbar Properties</span></div>
 
-**`a_bus`** 
+**`a_bus`**
 
-In GUILDA, the class `bus` is the one that stores the busbar information. Each busbar is defined as a variable of this class. 
+In GUILDA, the class `bus` is the one that stores the busbar information. Each busbar is defined as a variable of this class.
 
-On the other hand, the property `a_bus` contains the instances of the `bus` class as a properties in a cell array. Therefore, when the IEEE 68-bus model is defined, the `a_bus` property is a 68 x 1 cell array since there are 68 bus lines that make up the system.  
+On the other hand, the property `a_bus` contains the instances of the `bus` class as a properties in a cell array. Therefore, when the IEEE 68-bus model is defined, the `a_bus` property is a 68 x 1 cell array since there are 68 bus lines that make up the system.
 
 There are 6 variables in each bus cell array.
 
@@ -93,10 +93,9 @@ In the following image can be seen that the `a_bus` property has 1 cell array pe
 
 ### <div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold">Branch Properties</span></div>
 
+**`a_branch`**
 
-**`a_branch`** 
-
-Similarly to the case of the `a_bus` property. In GUILDA, the class `branch` is the one that stores the branch information. Each branch is defined as a variable of this class. 
+Similarly to the case of the `a_bus` property. In GUILDA, the class `branch` is the one that stores the branch information. Each branch is defined as a variable of this class.
 
 The property `a_branch` contains the instances of the `branch` class as a properties in a cell array. Therefore, when the IEEE 68-bus model is defined, the `a_branch` property is a 83 x 1 cell array since there are 83 branches (i.e., transmission lines) that make up the system.
 
@@ -120,13 +119,13 @@ In the following image can be seen that the `a_branch` property has 1 cell array
 
 ### <div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold">Controller Properties</span></div>
 
-**`a_controller_local` & `a_controller_global`** 
+**`a_controller_local` & `a_controller_global`**
 
-Similarly to the case of the `a_bus` and `a_branch` properties. 
+Similarly to the case of the `a_bus` and `a_branch` properties.
 
 In GUILDA, the class `controller_broadcast_PI_AGC_normal` defines the Global controller Automatic Generation Control (AGC). Meanwhile, local controllers, like the Retrofit control, can be implement as a new class, however they must be firstly defined as such.
 
-**In a 3-bus model:** Taking as example the `a_controller_global` generated from the AGC Controller (`controller_broadcast_PI_AGC_normal`), which is added to busbar 1 and 2 (i.e., the ones with generators) as observation and input targers. Then, there is only 1 cell array, since it's global, an its variables are
+**In a 3-bus model:** Taking as example the `a_controller_global` generated from the AGC Controller (`controller_broadcast_PI_AGC_normal`), which is added to busbar 1 and 2 (i.e., the ones with generators) as observation and input targets. Then, there is only 1 cell array, since it's global, an its variables are
 
 - `Kp`: Proportional gain of the controller.
 - `Ki`: Integrative gain of the controller.
@@ -137,7 +136,7 @@ In GUILDA, the class `controller_broadcast_PI_AGC_normal` defines the Global con
 - `index_all`: Busbar number that are observed and to which input is applied to.
 - `get_dx_u_func`: Function to obtain the controller state derivative.
 
-*Note: For more examples on the controller class, plese refer to the dedicated site [Controllers](/Reference/addController/0TopPage/).*
+_Note: For more examples on the controller class, plese refer to the dedicated site [Controllers](/Reference/addController/0TopPage/)._
 
 In the following image can be seen that the `a_controller_global` property has 1 cell array. It contains the information that defines the global controller.
 
@@ -170,11 +169,12 @@ PV_bus_idx = find(bus_idx==1)
 PQ_bus_idx = find(bus_idx==2)
 slack_bus_idx = find(bus_idx==3)
 ```
+
 ### <div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold">Example 2 - Obtain Busbar Power Flow Parameters</span></div>
 
 To obtain the power flow parameters (i.e., active power, reactive power, voltage magnitude, voltage phase angle) of each busbar.
 
-``` matlab
+```matlab
 bus_num = numel(net.a_bus);
 bus_idx = cell(bus_num,1);
 Vabs  = nan(bus_num,1);
@@ -197,6 +197,7 @@ end
 idx = (1:bus_num)';
 powerflow_set = table(idx,Vabs,Vangle,P,Q)
 ```
+
 ### <div style="text-align: left;"><span style="font-size: 100%; color: black; font-weight: bold">Example 3 - Obtain Busbar Components</span></div>
 
 To obtain the type of component (i.e., generator or load) that is connected to each busbar.

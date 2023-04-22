@@ -159,7 +159,7 @@ The single axis model of the synchronous generator is shown in the equation belo
 When adapting the synchronous generator model, each parameter in the above equation must be determined. 
 The above information for this example is summarized in the following table.
 
-|Busbar|Component|Synchronous reactance $(X_i)$ <br>(q-axis, d-axis)|Transient synchronous reactance $(X'_i)$ <br>(d-axis)|Time constant of the field current $(\tau_i)$ <br>(d-axis)|Inertia Coefficient $(M_i)$|Damping Factor $(D_i)$|
+|Busbar|Component|Synchronous reactance $(X_i)$ <br>(q-axis, d-axis)|Transient reactance $(X'_i)$ <br>(d-axis)|Time constant of the field current $(\tau_i)$ <br>(d-axis)|Inertia Coefficient $(M_i)$|Damping Factor $(D_i)$|
 | :----: | :--------------------: | :-----------------------------------------------------: | :-----------------------------------------------: | :---------------------------------------: | :--------------------------------------: | :-------------------------------------: |
 |Busbar １| Synchronous Generator (1 Axis Model) | <span style="color: red;">Xd = 1.569<br>Xq = 0.963</span> | <span style="color: red;">Xd_prime = 0.963 </span> | <span style="color: red;">T = 5.14 </span> | <span style="color: red;">M = 100 </span> | <span style="color: red;">D = 2 </span>  |
 | Busbar２ | Synchronous Generator (1 Axis Model) | <span style="color: red;">Xd = 1.220<br>Xq = 0.667</span> |    <span style="color: red;">Xd_prime = 0.667 </span>    | <span style="color: red;">T = 8.97 </span> | <span style="color: red;">M = 12 </span>  | <span style="color: red;">D = 10 </span> |

@@ -7,8 +7,8 @@ This section provides a detailed explanation on how to define the power system m
 In GUILDA, the power system model is handled in the following manner:
 
 - Stored in properties by using classes.
-- Analyzed by modularized process as methods. 
-    
+- Analyzed by modularized process as methods.
+
 The class that implements this power system model is defined in GUILDA with the class name `power_network`. In the following explanations, the variable that stores this `power_network` class will be refered to as `net` in the code explanations.
 
 For further information on the details of the `power_network` class, please refer to the [Source Code Explanation](../../SourceCode/0TopPage.md) page.
@@ -44,8 +44,8 @@ In GUILDA, a power system model is composed of
 - Buses (Interconnection points)
 - Branches (Transmission Lines)
 - Components
-    - Generators
-    - Loads
+  - Generators
+  - Loads
 
 Currently, GUILDA implements the classes `generator_1axis` for Generators and `load_impedance` for Loads. These classes are the ones used to define the new power system model in this explanation (Click on the illustration ↓).
 
@@ -53,11 +53,10 @@ Currently, GUILDA implements the classes `generator_1axis` for Generators and `l
 
 ---
 
-
 ## <div style="text-align: center;"><span style="font-size: 130%; color: black; font-weight: bold">New Components</span></div>
 
 In the previous section, a new power system model was defined using only the already implemented components in GUILDA (i.e., `generator_1axis` and `load_impedance`).
 
-In this section it is explained how to implement a new equipment model with new dynamic characteristics (Click on the illustration ↓).
+In this section it is explained how to implement a new component model with new dynamic characteristics (Click on the illustration ↓).
 
 [<div align="center"><img src="../../../Figures/make_component.jpg" width=80%; style="border: 7px DarkSeaGreen solid;"></div>](./NewComponent.md)

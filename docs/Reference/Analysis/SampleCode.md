@@ -54,7 +54,6 @@ state_idx = 2; %Second state.
 
 %Adds up the number of states from Busbar 1 to Busbar.
 %Practically, skips the busbars previous to the one of interest.
-(bus_idx-1).
 idx = 0;
 for i = 1:bus_idx-1
 	idx = idx+net.a_bus{i}.component.get_nx;
@@ -64,9 +63,8 @@ end
 %Practically, goes to the state of interest in the busbar of interest.
 idx = idx+state_idx;
 
-%In the case of the IEEE68bus model it is、idx = 7+7+2= 16.
+%In the case of the IEEE68bus model it is、idx = 7+7+2=16.
 option.x0_sys(idx)= option.x0sys(idx) + 0.1;
-			：
 ```
 
 ---

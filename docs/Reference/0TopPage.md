@@ -2,7 +2,7 @@
 
 # <div style="text-align: center;"><span style="font-size: 130%; color: black; font-weight: bold">GUILDA in Detail</span></div>
 
-In this page a detailed description of the three main functions of GUILDA is provided. 
+In this page a detailed description of the three main functions of GUILDA is provided.
 
 **Contents:**
 
@@ -12,9 +12,9 @@ In this page a detailed description of the three main functions of GUILDA is pro
 
 - [Numerical Simulations.](#numerical_simulations)
 
-     - [Simulating](#simulating)
-     
-     - [Derivation of a Linearized Model](#derivation_of_a_linearized_model)
+  - [Simulating](#simulating)
+
+  - [Derivation of a Linearized Model](#derivation_of_a_linearized_model)
 
 These are depicted in the following image.
 
@@ -24,10 +24,9 @@ These are depicted in the following image.
 
 ## <div style="text-align: center;"><span style="font-size: 130%; color: black; font-weight: bold">Power System Model (Detailed)</span></div>
 
-
 This section provides a detailed explanation on the power system models that can be used in GUILDA.
 
-In GUILDA there predefined power system models are already included (i.e., 3-bus and 68-bus models). However, it is possible to define and implement different models and run simulations on them.
+In GUILDA, predefined power system models are already included (i.e., 3-bus and 68-bus models). However, it is possible to define and implement different models and run simulations on them.
 
 To use the predifed power system models use the following codes.
 
